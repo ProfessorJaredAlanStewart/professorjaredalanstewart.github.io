@@ -292,6 +292,24 @@ section h2 .accent { color: var(--warm); }
     font-weight: 700;
 }
 
+/* ---------- about photo ---------- */
+.about-photo-wrap { margin-top: 30px; }
+.about-photo {
+    width: 100%;
+    max-width: 340px;
+    display: block;
+    border-radius: 8px;
+    border: 6px solid white;
+    box-shadow: 0 14px 36px rgba(26,39,68,0.16);
+    transform: rotate(-1.5deg);
+}
+.about-photo-caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 12px;
+}
+
 /* ---------- credentials ---------- */
 .cred-section { border-top: 1px solid var(--rule); }
 .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 10px; }
@@ -445,23 +463,33 @@ section h2 .accent { color: var(--warm); }
     position: relative;
     z-index: 1;
 }
-.offclock-photo {
+.offclock-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+.offclock-gallery figure { margin: 0; }
+.offclock-gallery img {
     width: 100%;
-    border-radius: 8px;
-    border: 6px solid white;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    transform: rotate(-1.2deg);
+    display: block;
+    border-radius: 6px;
+    border: 5px solid white;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.32);
+}
+.offclock-gallery figure:nth-child(odd) img { transform: rotate(-1.6deg); }
+.offclock-gallery figure:nth-child(even) img { transform: rotate(1.4deg); }
+.offclock-gallery figcaption {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    text-align: center;
+    margin-top: 9px;
 }
 .offclock-copy p { color: rgba(255,255,255,0.82); margin-bottom: 16px; font-size: 1.03rem; }
 .offclock-copy p:last-child { margin-bottom: 0; }
 .offclock-copy strong { color: var(--gold); font-weight: 600; }
-.photo-caption {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    font-style: italic;
-    text-align: center;
-    margin-top: 14px;
-}
 
 /* ---------- contact ---------- */
 .contact { text-align: center; }
@@ -537,8 +565,8 @@ footer a:hover { text-decoration: underline; }
             </p>
         </div>
         <div class="hero-photo-wrap">
-            <img class="hero-photo" src="jared-studio.jpg" alt="Jared Alan Stewart on set with a production clapperboard for GOVT 2305">
-            <div class="hero-photo-caption">On set, filming GOVT 2305 · Take 1</div>
+            <img class="hero-photo" src="jared-jfk.jpg" alt="Jared Alan Stewart mirroring the JFK statue's pose at the Fort Worth JFK Tribute">
+            <div class="hero-photo-caption">Fort Worth JFK Tribute · the pose was mandatory</div>
         </div>
     </div>
 </header>
@@ -563,6 +591,10 @@ footer a:hover { text-decoration: underline; }
                 <div class="section-kicker">About</div>
                 <h2>Why I do <span class="accent">this</span></h2>
                 <p class="lede">My students are working adults, parents, veterans, and first-generation college students. Government already shapes their lives every single day — they deserve a course that treats them like citizens, not test-takers.</p>
+                <div class="about-photo-wrap">
+                    <img class="about-photo" src="jared-studio.jpg" alt="Jared on set with a production clapperboard, filming course videos for GOVT 2305">
+                    <p class="about-photo-caption">On set, filming GOVT 2305 · Take 1</p>
+                </div>
             </div>
             <div class="about-copy reveal">
                 <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
@@ -749,9 +781,23 @@ footer a:hover { text-decoration: underline; }
 <section class="offclock">
     <div class="container">
         <div class="offclock-grid">
-            <div>
-                <img class="offclock-photo" src="jared-trail.jpg" alt="Jared on a hiking trail with two basset hounds in front of a cave">
-                <p class="photo-caption">Trail crew: two basset hounds with zero interest in federalism.</p>
+            <div class="offclock-gallery">
+                <figure>
+                    <img src="jared-music.jpg" alt="Jared performing on stage with an acoustic guitar at sunset during his professional music days">
+                    <figcaption>A previous life on stage</figcaption>
+                </figure>
+                <figure>
+                    <img src="jared-levi.jpg" alt="Jared and his son Levi crouched on a bluff overlooking a river on a misty hike">
+                    <figcaption>Surveying the kingdom with Levi</figcaption>
+                </figure>
+                <figure>
+                    <img src="jared-trail.jpg" alt="Jared on a hiking trail with two basset hounds in front of a cave">
+                    <figcaption>The trail crew, smelling everything</figcaption>
+                </figure>
+                <figure>
+                    <img src="jared-snail.jpg" alt="Jared posing proudly next to a giant pink snail sculpture">
+                    <figcaption>Meeting with a constituent</figcaption>
+                </figure>
             </div>
             <div class="offclock-copy">
                 <div class="section-kicker">Off the Clock</div>
