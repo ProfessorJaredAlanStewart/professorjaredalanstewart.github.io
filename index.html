@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jared Alan Stewart — Civic Educator · Fort Worth, Texas</title>
+<meta name="description" content="Jared Alan Stewart teaches government at Tarrant County College and builds free, open civic education tools — the Civic Action Project, Texas In Action, Trailblazer Treks, and classroom simulations.">
+<meta property="og:title" content="Jared Alan Stewart — Civic Educator">
+<meta property="og:description" content="Decisions are made by those who show up. Free civic education projects, simulations, and open resources from Fort Worth, Texas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jaredalanstewart.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #1a2744;
+    --navy-deep: #131d33;
+    --ink: #1e293b;
+    --warm: #92400e;
+    --amber: #d97706;
+    --gold: #fbbf24;
+    --cream: #fefbf4;
+    --paper: #faf6ec;
+    --sand: #e8e0d0;
+    --rule: #d4cabb;
+    --muted: #6b7280;
+    --oxblood: #7f1d1d;
+    --red-accent: #b91c1c;
+    --green-accent: #15803d;
+    --plum-deepest: #1d0d33;
+    --plum-deep: #241040;
+    --plum: #341758;
+    --plum-mid: #4a2080;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 17px;
+    overflow-x: hidden;
+}
+::selection { background: var(--gold); color: var(--navy); }
+
+/* ---------- topbar ---------- */
+.topbar {
+    background: var(--plum-deep);
+    color: rgba(255,255,255,0.65);
+    font-size: 12.5px;
+    padding: 9px 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+.topbar span { color: var(--gold); }
+
+/* ---------- hero ---------- */
+.hero {
+    background: linear-gradient(168deg, #2b1149 0%, var(--plum) 55%, var(--plum-mid) 100%);
+    color: white;
+    padding: 90px 24px 0;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse at 15% 85%, rgba(217,119,6,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    pointer-events: none;
+}
+.hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+.hero-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.25fr 0.9fr;
+    gap: 56px;
+    align-items: end;
+}
+.hero-text { padding-bottom: 80px; }
+.hero-kicker {
+    display: inline-block;
+    border: 1px solid rgba(251,191,36,0.45);
+    background: rgba(217,119,6,0.16);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: rise 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: rise 0.8s 0.25s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero h1 .first-name {
+    display: block;
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 6px;
+}
+.hero h1 .last-name {
+    display: inline-block;
+    font-style: italic;
+    font-size: clamp(3.6rem, 9vw, 6rem);
+    color: var(--gold);
+    line-height: 1;
+    position: relative;
+    padding-bottom: 14px;
+}
+.hero h1 .last-name::after {
+    content: '';
+    position: absolute;
+    left: 2%; right: 6%; bottom: 0;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--amber), var(--gold) 60%, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: drawline 0.9s 1s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes drawline {
+    to { transform: scaleX(1); }
+}
+.hero-role {
+    font-size: 1.12rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 480px;
+    line-height: 1.65;
+    opacity: 0;
+    animation: rise 0.8s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-role strong { color: white; font-weight: 600; }
+.hero-photo-wrap {
+    position: relative;
+    opacity: 0;
+    animation: rise 0.9s 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-photo {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px 8px 0 0;
+    border: 6px solid white;
+    border-bottom: none;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+.hero-photo-caption {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 90%;
+    background: rgba(26,11,46,0.85);
+    backdrop-filter: blur(4px);
+    color: rgba(255,255,255,0.85);
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 3px;
+    border-left: 3px solid var(--amber);
+}
+@keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- quote band ---------- */
+.quote-band {
+    background: var(--plum-deepest);
+    color: white;
+    padding: 72px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.quote-band::before {
+    content: '\201C';
+    position: absolute;
+    top: -50px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 320px;
+    color: rgba(217,119,6,0.13);
+    line-height: 1;
+    pointer-events: none;
+}
+.quote-band blockquote {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.7rem, 4vw, 2.7rem);
+    font-style: italic;
+    line-height: 1.35;
+    max-width: 760px;
+    margin: 0 auto 22px;
+    position: relative;
+    z-index: 1;
+}
+.quote-band blockquote .showup { color: var(--gold); }
+.quote-band cite {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.95rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+}
+.quote-band cite b { color: rgba(255,255,255,0.85); font-weight: 600; }
+.quote-band .quote-coda {
+    margin-top: 34px;
+    font-size: 1.06rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+.quote-band .quote-coda strong { color: var(--gold); font-weight: 600; }
+
+/* ---------- shared layout ---------- */
+.container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+section { padding: 78px 0; }
+.section-kicker {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 10px;
+}
+.section-kicker::before {
+    content: '';
+    display: inline-block;
+    width: 34px; height: 2px;
+    background: var(--amber);
+    vertical-align: middle;
+    margin-right: 12px;
+}
+section h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+section h2 .accent { color: var(--warm); }
+.section-lead {
+    font-size: 1.07rem;
+    color: var(--muted);
+    max-width: 660px;
+    margin-bottom: 44px;
+}
+
+/* ---------- about ---------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 54px;
+    align-items: center;
+}
+.about-copy p { margin-bottom: 18px; font-size: 1.04rem; }
+.about-copy p:last-child { margin-bottom: 0; }
+.about-copy .lede {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.22rem;
+    line-height: 1.6;
+    color: var(--navy);
+}
+.drop::first-letter {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3.4em;
+    float: left;
+    line-height: 0.85;
+    padding: 4px 10px 0 0;
+    color: var(--warm);
+    font-weight: 700;
+}
+
+/* ---------- credentials ---------- */
+.cred-section { border-top: 1px solid var(--rule); }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 10px; }
+.cred-col > h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--amber);
+}
+.cred-item {
+    position: relative;
+    border-left: 2px solid var(--sand);
+    padding: 0 0 22px 22px;
+}
+.cred-item:last-child { padding-bottom: 4px; }
+.cred-item::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 7px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 3px var(--cream);
+}
+.cred-item .what { font-weight: 600; color: var(--navy); font-size: 1rem; line-height: 1.45; }
+.cred-item .where { font-size: 0.91rem; color: var(--muted); margin-top: 2px; line-height: 1.55; }
+.cred-badge {
+    display: inline-block;
+    background: #ede9fe;
+    color: var(--plum-mid);
+    border: 1px solid #ddd6fe;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: 2px;
+}
+
+/* ---------- projects ---------- */
+.projects-section { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.project-list { display: flex; flex-direction: column; gap: 0; counter-reset: proj; }
+.project {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    gap: 26px;
+    align-items: center;
+    padding: 30px 26px;
+    background: transparent;
+    border-top: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: background 0.25s;
+    counter-increment: proj;
+}
+.project:last-child { border-bottom: 1px solid var(--rule); }
+.project::before {
+    content: counter(proj, decimal-leading-zero);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--rule);
+    transition: color 0.25s;
+}
+.project:hover { background: white; }
+.project:hover::before { color: var(--amber); }
+.project-info h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.22rem;
+    color: var(--navy);
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+.project:hover .project-info h3 { color: var(--warm); }
+.project-info p { font-size: 0.94rem; color: var(--muted); line-height: 1.6; max-width: 600px; }
+.project-tags { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+.tag-flagship { background: #fef3c7; color: var(--warm); border-color: #fcd34d; }
+.tag-texas { background: #fee2e2; color: var(--red-accent); }
+.tag-federal { background: #dbeafe; color: #1d4ed8; }
+.tag-students { background: #dcfce7; color: var(--green-accent); }
+.tag-instructors { background: #f3e8ff; color: #7c3aed; }
+.tag-sim { background: #e0e7ff; color: #4338ca; }
+.tag-oer { background: var(--sand); color: var(--ink); }
+.project-arrow {
+    font-size: 1.5rem;
+    color: var(--rule);
+    transition: color 0.25s, transform 0.25s;
+}
+.project:hover .project-arrow { color: var(--amber); transform: translateX(6px); }
+.flagship-banner {
+    position: absolute;
+    top: 0; right: 26px;
+    transform: translateY(-50%);
+    background: var(--oxblood);
+    color: #fef3c7;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 3px;
+}
+
+/* ---------- why ---------- */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+.why-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 28px 24px;
+}
+.why-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.06rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+.why-card p { font-size: 0.93rem; color: var(--muted); line-height: 1.65; }
+
+/* ---------- off the clock ---------- */
+.offclock { background: var(--navy); color: white; position: relative; overflow: hidden; }
+.offclock::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 90%, rgba(217,119,6,0.12) 0%, transparent 55%);
+    pointer-events: none;
+}
+.offclock .section-kicker { color: var(--gold); }
+.offclock .section-kicker::before { background: var(--gold); }
+.offclock h2 { color: white; }
+.offclock-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 54px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.offclock-photo {
+    width: 100%;
+    border-radius: 8px;
+    border: 6px solid white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    transform: rotate(-1.2deg);
+}
+.offclock-copy p { color: rgba(255,255,255,0.82); margin-bottom: 16px; font-size: 1.03rem; }
+.offclock-copy p:last-child { margin-bottom: 0; }
+.offclock-copy strong { color: var(--gold); font-weight: 600; }
+.photo-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    text-align: center;
+    margin-top: 14px;
+}
+
+/* ---------- contact ---------- */
+.contact { text-align: center; }
+.contact h2 { margin-bottom: 10px; }
+.contact p { color: var(--muted); max-width: 540px; margin: 0 auto 30px; }
+.contact-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s;
+    letter-spacing: 0.01em;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,39,68,0.18); }
+.btn-primary { background: var(--navy); color: white; }
+.btn-secondary { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+
+/* ---------- footer ---------- */
+footer {
+    background: var(--plum-deepest);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 44px 24px;
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+footer strong { color: white; }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.footer-quote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    margin-top: 12px;
+    font-size: 0.92rem;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-text { padding-bottom: 0; }
+    .hero { padding-top: 64px; }
+    .hero-photo { max-width: 320px; }
+    .about-grid, .offclock-grid, .cred-grid { grid-template-columns: 1fr; gap: 36px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .project { grid-template-columns: 1fr auto; }
+    .project::before { display: none; }
+    .offclock-photo { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education, Open to All</div>
+
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="hero-kicker">Educator · Builder · Citizen</span>
+            <h1><span class="first-name">Jared Alan</span><em class="last-name">Stewart</em></h1>
+            <p class="hero-role">
+                Government professor and Social Sciences Department Chair at
+                <strong>Tarrant County College</strong>. I build free, open
+                tools that turn government from a subject students memorize into something
+                they <strong>do</strong>.
+            </p>
+        </div>
+        <div class="hero-photo-wrap">
+            <img class="hero-photo" src="jared-studio.jpg" alt="Jared Alan Stewart on set with a production clapperboard for GOVT 2305">
+            <div class="hero-photo-caption">On set, filming GOVT 2305 · Take 1</div>
+        </div>
+    </div>
+</header>
+
+<div class="quote-band">
+    <blockquote>
+        &ldquo;Decisions are made by those who <span class="showup">show up</span>.&rdquo;
+    </blockquote>
+    <cite>— <b>The West Wing</b></cite>
+    <p class="quote-coda">
+        Every project on this page exists to help more people <strong>show up</strong> —
+        in city council chambers, at school board meetings, at the ballot box, and in their own communities.
+    </p>
+</div>
+
+<main>
+
+<section>
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-copy reveal">
+                <div class="section-kicker">About</div>
+                <h2>Why I do <span class="accent">this</span></h2>
+                <p class="lede">My students are working adults, parents, veterans, and first-generation college students. Government already shapes their lives every single day — they deserve a course that treats them like citizens, not test-takers.</p>
+            </div>
+            <div class="about-copy reveal">
+                <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
+                <p>Everything I build is shared as a free, open educational resource. If you're an instructor, take it, adapt it, and make it yours. If you're a student, these tools were built for you first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cred-section">
+    <div class="container">
+        <div class="section-kicker reveal">Background</div>
+        <h2 class="reveal">The CV, <span class="accent">abridged</span></h2>
+        <p class="section-lead reveal">A decade of designing and teaching political science courses — from university seminar rooms to dual-credit high school classrooms — with a few department chair hats along the way.</p>
+        <div class="cred-grid">
+            <div class="cred-col reveal">
+                <h3>Education</h3>
+                <div class="cred-item">
+                    <div class="what">Ed.D., Higher Education Technology Leadership <span class="cred-badge">In Progress</span></div>
+                    <div class="where">Tarleton State University — researching experiential civic education</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Ph.D. Candidate (ABD), Political Science</div>
+                    <div class="where">University of Washington — American politics, political communication &amp; methods</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">M.A., Political Science</div>
+                    <div class="where">University of Washington — thesis on "outsider" appeals in presidential debates</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">B.A., Political Science, <em>summa cum laude</em></div>
+                    <div class="where">University of Central Arkansas — minor in Presidential Studies</div>
+                </div>
+            </div>
+            <div class="cred-col reveal">
+                <h3>Teaching &amp; Leadership</h3>
+                <div class="cred-item">
+                    <div class="what">Chair, Social Sciences Department</div>
+                    <div class="where">Tarrant County College — Trinity River Campus, 2025–present</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Government Faculty</div>
+                    <div class="where">Tarrant County College — Federal &amp; Texas Government, in person and online</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Chair &amp; Assistant Chair, Social Sciences</div>
+                    <div class="where">Weatherford College — also taught Federal &amp; Texas Government, including dual-credit</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Political Science Instructor</div>
+                    <div class="where">Texas Christian University — American politics, Texas government, and Religion &amp; American Politics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects-section">
+    <div class="container">
+        <div class="section-kicker reveal">The Work</div>
+        <h2 class="reveal">Projects I'm <span class="accent">proud of</span></h2>
+        <p class="section-lead reveal">Every one of these opens free in any browser. No logins, no installs, no cost — just click and start.</p>
+
+        <div class="project-list">
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">
+                <div class="project-info">
+                    <span class="flagship-banner">Flagship Project</span>
+                    <h3>The Civic Action Project (CAP)</h3>
+                    <p>My signature framework — and the subject of my doctoral research. CAP replaces traditional government exams with a menu of 39 hands-on civic engagement activities, from attending city council meetings to building public service directories. Includes complete instructor resources, rubrics, tracking tools, and student outcome data.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-flagship">Flagship</span>
+                        <span class="tag tag-oer">Open Resource</span>
+                        <span class="tag tag-instructors">For Instructors</span>
+                        <span class="tag tag-students">For Students</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Texas-In-Action/">
+                <div class="project-info">
+                    <h3>Texas In Action (TIA)</h3>
+                    <p>The Lone Star counterpart to CAP — civic engagement built specifically for Texas Government (GOVT 2306). Students connect directly with the state and local institutions that shape daily life in Texas, from the Capitol in Austin to their own county courthouse.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-texas">Texas</span>
+                        <span class="tag tag-oer">Open Resource</span>
+                        <span class="tag tag-students">For Students</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/tcc-govt-modules/">
+                <div class="project-info">
+                    <h3>Federal Government Trailblazer Trek</h3>
+                    <p>Sixteen gamified, interactive learning modules covering all of American federal government. Students earn points, unlock reveal cards, pass knowledge checks, and generate integrity-coded completion reports — entirely in the browser, with zero tracking.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-federal">GOVT 2305</span>
+                        <span class="tag tag-students">For Students</span>
+                        <span class="tag tag-oer">16 Modules</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/texas-govt-modules/">
+                <div class="project-info">
+                    <h3>Texas Government Trailblazer Trek</h3>
+                    <p>Fifteen interactive modules on the same engine, rebuilt for Texas government — the Texas Constitution, the Legislature, the plural executive, and local government. Adds written reflection checkpoints so students connect each chapter to their own communities.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-texas">GOVT 2306</span>
+                        <span class="tag tag-students">For Students</span>
+                        <span class="tag tag-oer">15 Modules</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">
+                <div class="project-info">
+                    <h3>Keep Your Seat — Texas State Senate Simulation</h3>
+                    <p>Students serve as Texas State Senators, navigating committee assignments, floor votes, party pressure, and constituent demands — and discover firsthand why governing means making trade-offs. Built for the classroom: project it, play it, debrief it.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-sim">Simulation</span>
+                        <span class="tag tag-texas">Texas</span>
+                        <span class="tag tag-students">For Students</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">
+                <div class="project-info">
+                    <h3>Course Schedule Builder</h3>
+                    <p>A flexible, browser-based tool for building and distributing course schedules — designed for department chairs and lead instructors who need clean, consistent schedules without wrestling with spreadsheets.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-instructors">For Instructors</span>
+                        <span class="tag tag-oer">Utility</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/">
+                <div class="project-info">
+                    <h3>The Full Games &amp; Simulations Library</h3>
+                    <p>The complete collection: congressional and presidential primary simulations, crossword generators, Texas Jeopardy, Wheel of Fortune review games, and more. Ten-plus activities for American and Texas government courses, all free and browser-based.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-sim">Simulations</span>
+                        <span class="tag tag-federal">Federal</span>
+                        <span class="tag tag-texas">Texas</span>
+                        <span class="tag tag-oer">Open Resource</span>
+                    </div>
+                </div>
+                <span class="project-arrow">→</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-kicker reveal">The Approach</div>
+        <h2 class="reveal">Built on three <span class="accent">convictions</span></h2>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <h3>Choice drives motivation</h3>
+                <p>Students engage when they have real autonomy. CAP offers dozens of paths to the same goal, so a night-shift nurse and an 18-year-old gamer can both find activities that fit their lives.</p>
+            </div>
+            <div class="why-card reveal">
+                <h3>Experience beats memorization</h3>
+                <p>You don't learn government from a Scantron. You learn it by sitting in a council meeting, emailing your representative, and seeing how the machine actually moves.</p>
+            </div>
+            <div class="why-card reveal">
+                <h3>Good ideas should travel</h3>
+                <p>Everything here is open educational material. The whole point is for other instructors to take it, adapt it, and put it in front of more students than I ever could alone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offclock">
+    <div class="container">
+        <div class="offclock-grid">
+            <div>
+                <img class="offclock-photo" src="jared-trail.jpg" alt="Jared on a hiking trail with two basset hounds in front of a cave">
+                <p class="photo-caption">Trail crew: two basset hounds with zero interest in federalism.</p>
+            </div>
+            <div class="offclock-copy">
+                <div class="section-kicker">Off the Clock</div>
+                <h2>Beyond the classroom</h2>
+                <p>I've played guitar for more than 25 years. Before academia, I was a <strong>professional musician</strong> — lead guitarist and singer-songwriter — which turns out to be excellent training for keeping a room of community college students engaged at 8 a.m. These days I co-sponsor the <strong>Guitar Club at TCC Trinity River</strong>, because some habits are worth keeping.</p>
+                <p>I'm married to my high school sweetheart, and we have an eight-year-old son, <strong>Levi</strong> — yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user.</p>
+                <p>When I'm not teaching, you'll find me camping, hiking, faithfully serving two basset hounds who set the pace and stop for every interesting smell, or chasing a brand-new idea that absolutely must be implemented yesterday.</p>
+                <p>I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="container">
+        <div class="section-kicker reveal" style="display:inline-block;">Get In Touch</div>
+        <h2 class="reveal">Let's <span class="accent">talk</span></h2>
+        <p class="reveal">Interested in adopting one of these projects, collaborating on research, or just comparing notes on civic education? I'd love to hear from you.</p>
+        <div class="contact-btns reveal">
+            <a class="btn btn-primary" href="mailto:jared.stewart@tccd.edu">Email Me</a>
+            <a class="btn btn-secondary" href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <strong>Jared Alan Stewart</strong><br>
+    Government Faculty · Tarrant County College · Fort Worth, Texas<br>
+    All projects shared freely as open educational resources.<br>
+    <a href="mailto:jared.stewart@tccd.edu">jared.stewart@tccd.edu</a> · <a href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">github.com/ProfessorJaredAlanStewart</a>
+    <div class="footer-quote">Decisions are made by those who show up.</div>
+</footer>
+
+<script>
+(function () {
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e, i) {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el, i) {
+        el.style.transitionDelay = (i % 4) * 70 + 'ms';
+        io.observe(el);
+    });
+})();
+</script>
+
+</body>
+</html>
