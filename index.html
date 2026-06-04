@@ -64,7 +64,7 @@ body {
 
 /* ---------- hero ---------- */
 .hero {
-    background: linear-gradient(168deg, #2b1149 0%, var(--plum) 55%, var(--plum-mid) 100%);
+    background: linear-gradient(165deg, #241040 0%, #341758 45%, #4a2080 78%, #532492 100%);
     color: white;
     padding: 90px 24px 80px;
     position: relative;
@@ -74,9 +74,21 @@ body {
     content: '';
     position: absolute; inset: 0;
     background:
-        radial-gradient(ellipse at 15% 85%, rgba(217,119,6,0.14) 0%, transparent 55%),
-        radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.06) 0%, transparent 50%);
+        radial-gradient(120% 130% at 50% 35%, transparent 55%, rgba(16,6,30,0.5) 100%),
+        radial-gradient(ellipse at 15% 85%, rgba(217,119,6,0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 18%, rgba(255,255,255,0.07) 0%, transparent 50%),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.028) 0px, rgba(255,255,255,0.028) 1px, transparent 1px, transparent 8px);
     pointer-events: none;
+}
+.hero-ornament {
+    position: absolute;
+    left: -190px; bottom: -210px;
+    width: 660px; height: 660px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='none' stroke='%23fbbf24' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.11;
+    transform: rotate(-12deg);
+    pointer-events: none;
+    z-index: 1;
 }
 .hero::after {
     content: '';
@@ -543,6 +555,7 @@ footer a:hover { text-decoration: underline; }
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .hero-text { padding-bottom: 0; }
     .hero { padding-top: 64px; }
+    .hero-ornament { width: 420px; height: 420px; left: -150px; bottom: -150px; opacity: 0.08; }
     .hero-photo { max-width: 320px; }
     .about-grid, .offclock-grid, .cred-grid { grid-template-columns: 1fr; gap: 36px; }
     .why-grid { grid-template-columns: 1fr; }
@@ -557,6 +570,7 @@ footer a:hover { text-decoration: underline; }
 <div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education, Open to All</div>
 
 <header class="hero">
+    <div class="hero-ornament"></div>
     <div class="hero-inner">
         <div class="hero-text">
             <span class="hero-kicker">Educator · Builder · Citizen</span>
@@ -570,7 +584,7 @@ footer a:hover { text-decoration: underline; }
         </div>
         <div class="hero-photo-wrap">
             <img class="hero-photo" src="jared-jfk.jpg" alt="Jared Alan Stewart mirroring the JFK statue's pose at the Fort Worth JFK Tribute">
-            <div class="hero-photo-caption">Fort Worth JFK Tribute · the pose was mandatory</div>
+            <div class="hero-photo-caption">Left: Jared · Right: JFK</div>
         </div>
     </div>
 </header>
