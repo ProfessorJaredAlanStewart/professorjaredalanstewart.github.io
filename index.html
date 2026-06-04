@@ -62,7 +62,7 @@ body {
 .hero {
     background: linear-gradient(168deg, #2b1149 0%, var(--plum) 55%, var(--plum-mid) 100%);
     color: white;
-    padding: 90px 24px 0;
+    padding: 90px 24px 80px;
     position: relative;
     overflow: hidden;
 }
@@ -88,9 +88,9 @@ body {
     display: grid;
     grid-template-columns: 1.25fr 0.9fr;
     gap: 56px;
-    align-items: end;
+    align-items: center;
 }
-.hero-text { padding-bottom: 80px; }
+.hero-text { padding-bottom: 0; }
 .hero-kicker {
     display: inline-block;
     border: 1px solid rgba(251,191,36,0.45);
@@ -165,9 +165,8 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
     border: 6px solid white;
-    border-bottom: none;
     box-shadow: 0 24px 60px rgba(0,0,0,0.35);
 }
 .hero-photo-caption {
@@ -199,17 +198,6 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-.quote-band::before {
-    content: '\201C';
-    position: absolute;
-    top: -50px; left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Libre Baskerville', serif;
-    font-size: 320px;
-    color: rgba(217,119,6,0.13);
-    line-height: 1;
-    pointer-events: none;
 }
 .quote-band blockquote {
     font-family: 'Libre Baskerville', Georgia, serif;
