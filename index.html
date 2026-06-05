@@ -164,6 +164,15 @@ body {
     z-index: 2;
     pointer-events: none;
 }
+.hero-stripe::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, transparent 42%, rgba(255,250,222,0.95) 50%, transparent 58%, transparent 100%);
+    background-size: 100% 300%;
+    background-position: 0 13%;
+    animation: fuse-up 12s linear 1.5s infinite;
+}
 .hero-star {
     position: absolute; left: -140px; top: -160px;
     width: 520px; height: 520px;
@@ -258,6 +267,26 @@ body {
 }
 
 /* ---------- quote band ---------- */
+/* ---------- the lit fuse ---------- */
+.fuse-strip {
+    height: 38px;
+    margin-top: -1px;
+    background: linear-gradient(90deg, var(--cream) 0%, var(--cream) 44%, #ffe9a8 49%, #fff8e0 50%, #ffe9a8 51%, var(--cream) 56%, var(--cream) 100%);
+    background-size: 300% 100%;
+    background-position: 115% 0;
+    animation: fuse-run 12s linear 1.5s infinite;
+}
+@keyframes fuse-run {
+    0%   { background-position: 115% 0; }
+    38%  { background-position: -50% 0; }
+    100% { background-position: -50% 0; }
+}
+@keyframes fuse-up {
+    0%, 13.5% { background-position: 0 13%; }
+    31%       { background-position: 0 87%; }
+    100%      { background-position: 0 87%; }
+}
+
 .quote-band {
     background:
         radial-gradient(ellipse at 80% 110%, rgba(255,199,0,0.07) 0%, transparent 50%),
@@ -268,7 +297,7 @@ body {
     position: relative;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 38px, 100% 100%, 0 100%);
-    margin-top: -1px;
+    margin-top: -38px;
 }
 .quote-band::before {
     content: '';
@@ -895,6 +924,8 @@ footer a:hover { text-decoration: underline; }
     </div>
     <div class="hero-photo-caption">Left: Jared · Right: JFK</div>
 </header>
+
+<div class="fuse-strip" aria-hidden="true"></div>
 
 <div class="quote-band">
     <blockquote>
