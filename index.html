@@ -256,7 +256,7 @@ body {
     position: relative;
     z-index: 1;
 }
-.quote-band blockquote .showup { color: var(--gold); }
+.quote-band blockquote .showup { color: var(--gold); white-space: nowrap; }
 .quote-band cite {
     display: block;
     font-family: 'Source Sans 3', sans-serif;
@@ -278,7 +278,7 @@ body {
     position: relative;
     z-index: 1;
 }
-.quote-band .quote-coda strong { color: var(--gold); font-weight: 600; }
+.quote-band .quote-coda strong { color: var(--gold); font-weight: 600; white-space: nowrap; }
 
 /* ---------- shared layout ---------- */
 .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
@@ -655,7 +655,7 @@ footer a:hover { text-decoration: underline; }
     .hero-stripe { display: none; }
     .hero-inner { padding: 64px 24px 36px; }
     .hero-content { max-width: 100%; }
-    .hero-photo-caption { right: 16px; bottom: 14px; }
+    .hero-photo-caption { top: 330px; bottom: auto; right: 14px; }
     .about-grid, .offclock-grid, .cred-grid { grid-template-columns: 1fr; gap: 36px; }
     .qr-grid { grid-template-columns: 1fr; max-width: 420px; }
     .why-grid { grid-template-columns: 1fr; }
