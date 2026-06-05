@@ -23,7 +23,7 @@
     --ink: #1e293b;
     --warm: #92400e;
     --amber: #d97706;
-    --gold: #fbbf24;
+    --gold: #FFC700;
     --cream: #fefbf4;
     --paper: #faf6ec;
     --sand: #e8e0d0;
@@ -32,10 +32,11 @@
     --oxblood: #7f1d1d;
     --red-accent: #b91c1c;
     --green-accent: #15803d;
-    --plum-deepest: #1d0d33;
-    --plum-deep: #241040;
-    --plum: #341758;
-    --plum-mid: #4a2080;
+    --plum-deepest: #241341;
+    --plum-deep: #38215f;
+    --plum: #4B2E83;
+    --plum-mid: #5d3a9e;
+    --heritage: #B7A57A;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -62,144 +63,118 @@ body {
 }
 .topbar span { color: var(--gold); }
 
-/* ---------- hero ---------- */
+/* ---------- hero: The Diagonal ---------- */
 .hero {
-    background: linear-gradient(165deg, #241040 0%, #341758 45%, #4a2080 78%, #532492 100%);
-    color: white;
-    padding: 90px 24px 80px;
     position: relative;
+    background: var(--plum-deep);
+    color: white;
+    min-height: 640px;
     overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-        radial-gradient(120% 130% at 50% 35%, transparent 55%, rgba(16,6,30,0.5) 100%),
-        radial-gradient(ellipse at 15% 85%, rgba(217,119,6,0.16) 0%, transparent 55%),
-        radial-gradient(ellipse at 82% 18%, rgba(255,255,255,0.07) 0%, transparent 50%),
-        repeating-linear-gradient(180deg, rgba(255,255,255,0.028) 0px, rgba(255,255,255,0.028) 1px, transparent 1px, transparent 8px);
-    pointer-events: none;
-}
-.hero-ornament {
-    position: absolute;
-    left: -190px; bottom: -210px;
-    width: 660px; height: 660px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='none' stroke='%23fbbf24' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat center / contain;
-    opacity: 0.11;
-    transform: rotate(-12deg);
-    pointer-events: none;
-    z-index: 1;
+    display: flex;
+    align-items: center;
 }
 .hero::after {
     content: '';
     position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 4;
+}
+.hero-photo-side {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 52%;
+    background: url('jared-jfk.jpg') center 20% / cover no-repeat;
+    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
+}
+.hero-photo-side::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(56,33,95,0.85) 0%, rgba(56,33,95,0.18) 45%, rgba(36,19,65,0.30) 100%);
+}
+.hero-stripe {
+    position: absolute; top: -10%; bottom: -10%; right: 50.5%; width: 26px;
+    background: linear-gradient(180deg, var(--gold), var(--heritage));
+    transform: rotate(8.2deg);
+    transform-origin: center;
+    box-shadow: 0 0 40px rgba(255,199,0,0.45);
+    z-index: 2;
+}
+.hero-star {
+    position: absolute; left: -140px; top: -160px;
+    width: 520px; height: 520px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.06;
     pointer-events: none;
 }
 .hero-inner {
-    max-width: 1060px;
+    position: relative; z-index: 3;
+    max-width: 1100px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.25fr 0.9fr;
-    gap: 56px;
-    align-items: center;
+    width: 100%;
+    padding: 95px 24px;
 }
-.hero-text { padding-bottom: 0; }
+.hero-content { max-width: 47%; }
 .hero-kicker {
-    display: inline-block;
-    border: 1px solid rgba(251,191,36,0.45);
-    background: rgba(217,119,6,0.16);
     color: var(--gold);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 3px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     opacity: 0;
     animation: rise 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-kicker::before {
+    content: '';
+    width: 40px; height: 3px;
+    background: var(--gold);
+    flex-shrink: 0;
 }
 .hero h1 {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 22px;
+    line-height: 1.0;
+    margin-bottom: 24px;
     opacity: 0;
     animation: rise 0.8s 0.25s cubic-bezier(0.22,1,0.36,1) forwards;
 }
 .hero h1 .first-name {
     display: block;
-    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
     font-weight: 400;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.82);
-    margin-bottom: 6px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 8px;
 }
 .hero h1 .last-name {
-    display: inline-block;
+    display: block;
     font-style: italic;
-    font-size: clamp(3.6rem, 9vw, 6rem);
+    font-size: clamp(3.8rem, 9.5vw, 6.4rem);
     color: var(--gold);
     line-height: 1;
-    position: relative;
-    padding-bottom: 14px;
-}
-.hero h1 .last-name::after {
-    content: '';
-    position: absolute;
-    left: 2%; right: 6%; bottom: 0;
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--amber), var(--gold) 60%, transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: drawline 0.9s 1s cubic-bezier(0.22,1,0.36,1) forwards;
-}
-@keyframes drawline {
-    to { transform: scaleX(1); }
+    text-shadow: 0 6px 30px rgba(0,0,0,0.35);
 }
 .hero-role {
-    font-size: 1.12rem;
-    color: rgba(255,255,255,0.78);
-    max-width: 480px;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
     line-height: 1.65;
     opacity: 0;
     animation: rise 0.8s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
 }
-.hero-role strong { color: white; font-weight: 600; }
-.hero-photo-wrap {
-    position: relative;
-    opacity: 0;
-    animation: rise 0.9s 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
-}
-.hero-photo {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 8px;
-    border: 6px solid white;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-}
+.hero-role strong { color: var(--gold); font-weight: 600; }
 .hero-photo-caption {
-    position: absolute;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    max-width: 90%;
-    background: rgba(26,11,46,0.85);
+    position: absolute; right: 28px; bottom: 22px; z-index: 3;
+    background: rgba(36,19,65,0.88);
     backdrop-filter: blur(4px);
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.9);
     font-size: 12.5px;
     letter-spacing: 0.05em;
     padding: 6px 14px;
     border-radius: 3px;
-    border-left: 3px solid var(--amber);
+    border-left: 3px solid var(--gold);
 }
 @keyframes rise {
     from { opacity: 0; transform: translateY(26px); }
@@ -271,7 +246,7 @@ section { padding: 78px 0; }
 section h2 {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.7rem, 3.4vw, 2.3rem);
-    color: var(--navy);
+    color: var(--plum);
     margin-bottom: 14px;
     line-height: 1.2;
 }
@@ -461,7 +436,7 @@ section h2 .accent { color: var(--warm); }
 .why-card p { font-size: 0.93rem; color: var(--muted); line-height: 1.65; }
 
 /* ---------- off the clock ---------- */
-.offclock { background: var(--navy); color: white; position: relative; overflow: hidden; }
+.offclock { background: var(--plum-deep); color: white; position: relative; overflow: hidden; }
 .offclock::before {
     content: '';
     position: absolute; inset: 0;
@@ -523,8 +498,37 @@ section h2 .accent { color: var(--warm); }
     letter-spacing: 0.01em;
 }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,39,68,0.18); }
-.btn-primary { background: var(--navy); color: white; }
-.btn-secondary { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+.btn-primary { background: var(--plum); color: white; }
+.btn-secondary { background: transparent; color: var(--plum); border: 2px solid var(--plum); }
+
+/* ---------- qr cards ---------- */
+.qr-section { background: var(--paper); border-top: 1px solid var(--rule); text-align: center; }
+.qr-section .section-lead { margin-left: auto; margin-right: auto; }
+.qr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 940px;
+    margin: 0 auto;
+}
+.qr-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid var(--sand);
+    box-shadow: 0 10px 28px rgba(36,19,65,0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.qr-item:hover img { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(36,19,65,0.2); }
+.qr-item a.dl {
+    display: inline-block;
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--plum);
+    text-decoration: none;
+}
+.qr-item a.dl:hover { text-decoration: underline; }
 
 /* ---------- footer ---------- */
 footer {
@@ -552,12 +556,14 @@ footer a:hover { text-decoration: underline; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-text { padding-bottom: 0; }
-    .hero { padding-top: 64px; }
-    .hero-ornament { width: 420px; height: 420px; left: -150px; bottom: -150px; opacity: 0.08; }
-    .hero-photo { max-width: 320px; }
+    .hero { min-height: unset; display: block; }
+    .hero-photo-side { position: relative; width: 100%; height: 380px; clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%); }
+    .hero-stripe { display: none; }
+    .hero-inner { padding: 64px 24px 36px; }
+    .hero-content { max-width: 100%; }
+    .hero-photo-caption { right: 16px; bottom: 14px; }
     .about-grid, .offclock-grid, .cred-grid { grid-template-columns: 1fr; gap: 36px; }
+    .qr-grid { grid-template-columns: 1fr; max-width: 420px; }
     .why-grid { grid-template-columns: 1fr; }
     .project { grid-template-columns: 1fr auto; }
     .project::before { display: none; }
@@ -570,11 +576,13 @@ footer a:hover { text-decoration: underline; }
 <div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education, Open to All</div>
 
 <header class="hero">
-    <div class="hero-ornament"></div>
+    <div class="hero-star"></div>
+    <div class="hero-photo-side"></div>
+    <div class="hero-stripe"></div>
     <div class="hero-inner">
-        <div class="hero-text">
-            <span class="hero-kicker">Educator · Builder · Citizen</span>
-            <h1><span class="first-name">Jared Alan</span><em class="last-name">Stewart</em></h1>
+        <div class="hero-content">
+            <div class="hero-kicker">Educator · Builder · Citizen</div>
+            <h1><span class="first-name">Jared Alan</span><span class="last-name">Stewart</span></h1>
             <p class="hero-role">
                 Government professor and Social Sciences Department Chair at
                 <strong>Tarrant County College</strong>. I build free, open
@@ -582,11 +590,8 @@ footer a:hover { text-decoration: underline; }
                 they <strong>do</strong>.
             </p>
         </div>
-        <div class="hero-photo-wrap">
-            <img class="hero-photo" src="jared-jfk.jpg" alt="Jared Alan Stewart mirroring the JFK statue's pose at the Fort Worth JFK Tribute">
-            <div class="hero-photo-caption">Left: Jared · Right: JFK</div>
-        </div>
     </div>
+    <div class="hero-photo-caption">Left: Jared · Right: JFK</div>
 </header>
 
 <div class="quote-band">
@@ -837,6 +842,28 @@ footer a:hover { text-decoration: underline; }
         <div class="contact-btns reveal">
             <a class="btn btn-primary" href="mailto:jared.stewart@tccd.edu">Email Me</a>
             <a class="btn btn-secondary" href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </div>
+</section>
+
+<section class="qr-section">
+    <div class="container">
+        <div class="section-kicker reveal" style="display:inline-block;">Spread the Word</div>
+        <h2 class="reveal">Take it <span class="accent">with you</span></h2>
+        <p class="section-lead reveal">Print-ready QR cards for syllabi, conference tables, and handout materials. Scan one now — or download, print, and share. That's the whole point of open resources.</p>
+        <div class="qr-grid">
+            <div class="qr-item reveal">
+                <img src="qr-civic-action-project-card.png" alt="Scannable QR card linking to the Civic Action Project" loading="lazy">
+                <a class="dl" href="qr-civic-action-project-card.png" download>Download the CAP card</a>
+            </div>
+            <div class="qr-item reveal">
+                <img src="qr-texas-in-action-card.png" alt="Scannable QR card linking to Texas In Action" loading="lazy">
+                <a class="dl" href="qr-texas-in-action-card.png" download>Download the TIA card</a>
+            </div>
+            <div class="qr-item reveal">
+                <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
+                <a class="dl" href="qr-jaredalanstewart-card.png" download>Download the site card</a>
+            </div>
         </div>
     </div>
 </section>
