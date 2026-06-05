@@ -718,6 +718,7 @@ section h2 .accent { color: var(--warm); }
 }
 .qr-item a.dl:hover { text-decoration: underline; }
 .qr-item img { cursor: zoom-in; }
+.offclock-gallery img { cursor: zoom-in; }
 
 /* ---------- lightbox ---------- */
 .lightbox {
@@ -1176,11 +1177,13 @@ footer a:hover { text-decoration: underline; }
     var lb = document.getElementById('lightbox');
     var lbImg = document.getElementById('lightboxImg');
     var lbCap = document.getElementById('lightboxCap');
-    document.querySelectorAll('.qr-item img').forEach(function (img) {
+    document.querySelectorAll('.qr-item img, .offclock-gallery img').forEach(function (img) {
         img.addEventListener('click', function () {
             lbImg.src = img.src;
             lbImg.alt = img.alt;
-            lbCap.textContent = img.alt;
+            var fig = img.closest('figure');
+            var figCap = fig ? fig.querySelector('figcaption') : null;
+            lbCap.textContent = figCap ? figCap.textContent : img.alt;
             lb.classList.add('open');
             document.body.style.overflow = 'hidden';
         });
