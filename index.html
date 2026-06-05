@@ -118,6 +118,16 @@ body {
 @media (max-width: 1150px) {
     .quicknav-inner { justify-content: flex-start; }
 }
+.scroll-progress {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--heritage), var(--gold));
+    box-shadow: 0 0 10px rgba(255,199,0,0.55);
+    z-index: 2;
+    pointer-events: none;
+}
 
 /* ---------- hero: The Diagonal ---------- */
 .hero {
@@ -209,9 +219,19 @@ body {
     display: block;
     font-style: italic;
     font-size: clamp(3.6rem, 8.6vw, 5.8rem);
-    color: var(--gold);
     line-height: 1;
-    text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+    color: var(--gold);
+    background: linear-gradient(110deg, var(--gold) 0%, var(--gold) 42%, #fff3c2 50%, var(--gold) 58%, var(--gold) 100%);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 24px rgba(0,0,0,0.4));
+    animation: sheen 8s ease-in-out infinite;
+}
+@keyframes sheen {
+    0%, 55% { background-position: 115% 0; }
+    85%, 100% { background-position: -50% 0; }
 }
 .hero-role {
     font-size: 1.1rem;
@@ -239,12 +259,26 @@ body {
 
 /* ---------- quote band ---------- */
 .quote-band {
-    background: var(--plum-deepest);
+    background:
+        radial-gradient(ellipse at 80% 110%, rgba(255,199,0,0.07) 0%, transparent 50%),
+        var(--plum-deepest);
     color: white;
-    padding: 72px 24px;
+    padding: 108px 24px 76px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 38px, 100% 100%, 0 100%);
+    margin-top: -1px;
+}
+.quote-band::before {
+    content: '';
+    position: absolute;
+    right: -120px; top: -100px;
+    width: 420px; height: 420px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='none' stroke='%23FFC700' stroke-width='1'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.1;
+    transform: rotate(14deg);
+    pointer-events: none;
 }
 .quote-band blockquote {
     font-family: 'Libre Baskerville', Georgia, serif;
@@ -387,8 +421,37 @@ section h2 .accent { color: var(--warm); }
 }
 .dedication .ded-line + .ded-line { margin-top: 10px; }
 
+/* ---------- section dividers: star on a hairline ---------- */
+.sec-divider { position: relative; }
+.sec-divider::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(760px, 92%);
+    height: 1px;
+    background:
+        linear-gradient(90deg, transparent, var(--heritage) 45%, var(--amber)) left center / calc(50% - 95px) 1px no-repeat,
+        linear-gradient(90deg, var(--amber), var(--heritage) 55%, transparent) right center / calc(50% - 95px) 1px no-repeat;
+}
+.sec-divider::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 38px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 36'%3E%3Cg fill='%23FFC700' stroke='%23d97706' stroke-width='3'%3E%3Cpath transform='translate(32,18) scale(0.20) translate(-50,-47)' d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z'/%3E%3Cpath transform='translate(80,18) scale(0.36) translate(-50,-47)' d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z'/%3E%3Cpath transform='translate(128,18) scale(0.20) translate(-50,-47)' d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z'/%3E%3C/g%3E%3C/svg%3E") center / 160px 36px no-repeat;
+    z-index: 1;
+    filter: drop-shadow(0 1px 4px rgba(183,165,122,0.45));
+}
+
 /* ---------- credentials ---------- */
-.cred-section { border-top: 1px solid var(--rule); }
+.cred-section {
+    background:
+        radial-gradient(ellipse at 88% 8%, rgba(75,46,131,0.05) 0%, transparent 48%),
+        radial-gradient(ellipse at 6% 95%, rgba(255,199,0,0.06) 0%, transparent 42%);
+}
 .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 10px; }
 .cred-col > h3 {
     font-family: 'Libre Baskerville', Georgia, serif;
@@ -431,7 +494,12 @@ section h2 .accent { color: var(--warm); }
 }
 
 /* ---------- projects ---------- */
-.projects-section { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.projects-section {
+    background:
+        radial-gradient(ellipse at 95% 0%, rgba(255,199,0,0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 0% 100%, rgba(75,46,131,0.05) 0%, transparent 45%),
+        var(--paper);
+}
 .project-list { display: flex; flex-direction: column; gap: 0; counter-reset: proj; }
 .project {
     display: grid;
@@ -448,6 +516,17 @@ section h2 .accent { color: var(--warm); }
     counter-increment: proj;
 }
 .project:last-child { border-bottom: 1px solid var(--rule); }
+.project::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--gold), var(--amber));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.project:hover::after { transform: scaleY(1); }
 .project::before {
     content: counter(proj, decimal-leading-zero);
     font-family: 'Libre Baskerville', serif;
@@ -520,9 +599,19 @@ section h2 .accent { color: var(--warm); }
     margin-bottom: 10px;
 }
 .why-card p { font-size: 0.93rem; color: var(--muted); line-height: 1.65; }
+.why-card { transition: transform 0.25s, box-shadow 0.25s; }
+.why-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(36,19,65,0.12); }
 
 /* ---------- off the clock ---------- */
-.offclock { background: var(--plum-deep); color: white; position: relative; overflow: hidden; }
+.offclock {
+    background: var(--plum-deep);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 34px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 110px;
+    margin-top: -1px;
+}
 .offclock::before {
     content: '';
     position: absolute; inset: 0;
@@ -554,6 +643,11 @@ section h2 .accent { color: var(--warm); }
     border-radius: 6px;
     border: 5px solid white;
     box-shadow: 0 14px 34px rgba(0,0,0,0.32);
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+}
+.offclock-gallery figure:hover img {
+    transform: rotate(0deg) scale(1.04);
+    box-shadow: 0 20px 44px rgba(0,0,0,0.42);
 }
 .offclock-gallery figure:nth-child(odd) img { transform: rotate(-1.6deg); }
 .offclock-gallery figure:nth-child(even) img { transform: rotate(1.4deg); }
@@ -569,7 +663,10 @@ section h2 .accent { color: var(--warm); }
 .offclock-copy strong { color: var(--gold); font-weight: 600; }
 
 /* ---------- contact ---------- */
-.contact { text-align: center; }
+.contact {
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,199,0,0.06) 0%, transparent 55%);
+}
 .contact h2 { margin-bottom: 10px; }
 .contact p { color: var(--muted); max-width: 540px; margin: 0 auto 30px; }
 .contact-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -588,7 +685,12 @@ section h2 .accent { color: var(--warm); }
 .btn-secondary { background: transparent; color: var(--plum); border: 2px solid var(--plum); }
 
 /* ---------- qr cards ---------- */
-.qr-section { background: var(--paper); border-top: 1px solid var(--rule); text-align: center; }
+.qr-section {
+    background:
+        radial-gradient(ellipse at 12% 10%, rgba(75,46,131,0.05) 0%, transparent 45%),
+        var(--paper);
+    text-align: center;
+}
 .qr-section .section-lead { margin-left: auto; margin-right: auto; }
 .qr-grid {
     display: grid;
@@ -670,6 +772,7 @@ footer a:hover { text-decoration: underline; }
 <div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education, Open to All</div>
 
 <nav class="quicknav" aria-label="Project quick links">
+    <div class="scroll-progress" id="scrollProgress"></div>
     <div class="quicknav-inner">
         <a href="https://jaredalanstewart.com/Civic-Action-Project/index.html">CAP</a>
         <span class="sep">★</span>
@@ -745,7 +848,7 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section class="cred-section">
+<section class="cred-section sec-divider">
     <div class="container">
         <div class="section-kicker reveal">Background</div>
         <h2 class="reveal">The CV, <span class="accent">abridged</span></h2>
@@ -793,7 +896,7 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section class="projects-section">
+<section class="projects-section sec-divider">
     <div class="container">
         <div class="section-kicker reveal">The Work</div>
         <h2 class="reveal">Projects I'm <span class="accent">proud of</span></h2>
@@ -898,7 +1001,7 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section>
+<section class="sec-divider">
     <div class="container">
         <div class="section-kicker reveal">The Approach</div>
         <h2 class="reveal">Built on three <span class="accent">convictions</span></h2>
@@ -965,7 +1068,7 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section class="qr-section">
+<section class="qr-section sec-divider">
     <div class="container">
         <div class="section-kicker reveal" style="display:inline-block;">Spread the Word</div>
         <h2 class="reveal">Take it <span class="accent">with you</span></h2>
@@ -1011,6 +1114,15 @@ footer a:hover { text-decoration: underline; }
         el.style.transitionDelay = (i % 4) * 70 + 'ms';
         io.observe(el);
     });
+    var prog = document.getElementById('scrollProgress');
+    function updProg() {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', updProg, { passive: true });
+    window.addEventListener('resize', updProg, { passive: true });
+    updProg();
 })();
 </script>
 
