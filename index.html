@@ -290,7 +290,16 @@ body {
     position: relative;
     z-index: 1;
 }
-.quote-band blockquote .showup { color: var(--gold); white-space: nowrap; }
+.quote-band blockquote .showup {
+    color: var(--gold);
+    white-space: nowrap;
+    background: linear-gradient(110deg, var(--gold) 0%, var(--gold) 42%, #fff3c2 50%, var(--gold) 58%, var(--gold) 100%);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sheen 8s ease-in-out 2.5s infinite;
+}
 .quote-band cite {
     display: block;
     font-family: 'Source Sans 3', sans-serif;
