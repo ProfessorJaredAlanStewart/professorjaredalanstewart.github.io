@@ -82,7 +82,7 @@ body {
 }
 .hero-photo-side {
     position: absolute; top: 0; right: 0; bottom: 0; width: 52%;
-    background: url('jared-jfk.jpg') center 20% / cover no-repeat;
+    background: url('jared-jfk.jpg') 62% 34% / cover no-repeat;
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
 }
 .hero-photo-side::after {
@@ -555,6 +555,14 @@ footer a:hover { text-decoration: underline; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 /* ---------- responsive ---------- */
+/* mid-size windows: keep the seam clear of the text */
+@media (max-width: 1280px) and (min-width: 861px) {
+    .hero-content { max-width: 41%; padding-right: 16px; }
+    .hero h1 .last-name { font-size: clamp(3.2rem, 7.2vw, 5rem); }
+    .hero-photo-side { width: 50%; }
+    .hero-stripe { right: 48.5%; }
+}
+
 @media (max-width: 860px) {
     .hero { min-height: unset; display: block; }
     .hero-photo-side { position: relative; width: 100%; height: 380px; clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%); }
