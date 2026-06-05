@@ -63,6 +63,62 @@ body {
 }
 .topbar span { color: var(--gold); }
 
+/* ---------- quick launch nav ---------- */
+.quicknav {
+    background: var(--plum-deepest);
+    border-bottom: 1px solid rgba(255,199,0,0.28);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 18px rgba(20,8,40,0.35);
+}
+.quicknav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.quicknav-inner::-webkit-scrollbar { display: none; }
+.quicknav a {
+    color: rgba(255,255,255,0.78);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 10px;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+.quicknav a::after {
+    content: '';
+    position: absolute;
+    left: 10px; right: 10px; bottom: 9px;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.quicknav a:hover { color: var(--gold); }
+.quicknav a:hover::after { transform: scaleX(1); }
+.quicknav .sep {
+    color: rgba(255,199,0,0.45);
+    font-size: 9px;
+    flex-shrink: 0;
+    user-select: none;
+}
+@media (max-width: 1150px) {
+    .quicknav-inner { justify-content: flex-start; }
+}
+
 /* ---------- hero: The Diagonal ---------- */
 .hero {
     position: relative;
@@ -582,6 +638,24 @@ footer a:hover { text-decoration: underline; }
 <body>
 
 <div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education, Open to All</div>
+
+<nav class="quicknav" aria-label="Project quick links">
+    <div class="quicknav-inner">
+        <a href="https://jaredalanstewart.com/Civic-Action-Project/index.html">CAP</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/Texas-In-Action/">TIA</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/tcc-govt-modules/">Federal Trek</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/texas-govt-modules/">Texas Trek</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">Keep Your Seat</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">Schedule Builder</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/Games-and-Simulations-/">Games &amp; Sims</a>
+    </div>
+</nav>
 
 <header class="hero">
     <div class="hero-star"></div>
