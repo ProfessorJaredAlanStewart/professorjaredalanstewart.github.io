@@ -357,6 +357,36 @@ section h2 .accent { color: var(--warm); }
     margin-top: 12px;
 }
 
+/* ---------- dedication ---------- */
+.dedication {
+    margin-top: 26px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--gold);
+    background: var(--paper);
+    border-radius: 0 8px 8px 0;
+}
+.dedication .ded-quote {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    color: var(--plum);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.dedication .ded-attr {
+    font-size: 0.9rem;
+    color: var(--warm);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.dedication .ded-line {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+.dedication .ded-line + .ded-line { margin-top: 10px; }
+
 /* ---------- credentials ---------- */
 .cred-section { border-top: 1px solid var(--rule); }
 .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 10px; }
@@ -704,6 +734,12 @@ footer a:hover { text-decoration: underline; }
             <div class="about-copy reveal">
                 <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
                 <p>Everything I build is shared as a free, open educational resource. If you're an instructor, take it, adapt it, and make it yours. If you're a student, these tools were built for you first.</p>
+                <div class="dedication">
+                    <p class="ded-quote">&ldquo;Government is a place where people can come together to solve problems.&rdquo;</p>
+                    <p class="ded-attr">— Stephanie Stewart, my mom</p>
+                    <p class="ded-line">She means it, too. In November 1984 — nine months pregnant with me, days before I was born — she stood in line for hours to cast her vote. Reagan won anyway, to her lasting disgust. Which means I've been showing up to elections since before I was born.</p>
+                    <p class="ded-line">She taught me that long before any professor did — and she lives it: hardworking, empathetic, civic-minded. Everything on this page is built in her honor.</p>
+                </div>
             </div>
         </div>
     </div>
