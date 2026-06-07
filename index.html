@@ -728,6 +728,75 @@ section h2 .accent { color: var(--warm); }
 .btn-primary { background: var(--plum); color: white; }
 .btn-secondary { background: transparent; color: var(--plum); border: 2px solid var(--plum); }
 
+/* ---------- student impact ---------- */
+.impact-section { text-align: center; }
+.impact-section .section-lead { margin-left: auto; margin-right: auto; }
+.impact-featured {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    padding: 30px 38px;
+    background: white;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 14px 34px rgba(36,19,65,0.09);
+    text-align: left;
+}
+.impact-featured blockquote {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    font-size: 1.16rem;
+    line-height: 1.75;
+    color: var(--plum);
+    margin: 0 0 14px;
+}
+.impact-featured figcaption {
+    color: var(--warm);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+}
+.impact-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 26px 24px;
+    box-shadow: 0 8px 22px rgba(36,19,65,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+.impact-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(36,19,65,0.12); }
+.impact-card h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--plum);
+    margin-bottom: 10px;
+}
+.impact-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+.impact-card .impact-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm);
+    background: rgba(217,119,6,0.08);
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
 /* ---------- qr cards ---------- */
 .qr-section {
     background:
@@ -879,6 +948,8 @@ footer a:hover { text-decoration: underline; }
     .hero-photo-caption { top: 330px; bottom: auto; right: 14px; }
     .about-grid, .offclock-grid, .cred-grid { grid-template-columns: 1fr; gap: 36px; }
     .qr-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .impact-featured { padding: 24px 22px; }
     .why-grid { grid-template-columns: 1fr; }
     .project { grid-template-columns: 1fr auto; }
     .project::before { display: none; }
@@ -917,7 +988,7 @@ footer a:hover { text-decoration: underline; }
     <div class="hero-stripe"></div>
     <div class="hero-inner">
         <div class="hero-content">
-            <div class="hero-kicker">Educator · Builder · Citizen</div>
+            <div class="hero-kicker">Educator · Builder · Citizen · Jester</div>
             <h1><span class="first-name">Jared Alan</span><span class="last-name">Stewart</span></h1>
             <p class="hero-role">
                 Government professor and Social Sciences Department Chair at
@@ -1124,6 +1195,35 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
+<section class="impact-section sec-divider">
+    <div class="container">
+        <div class="section-kicker reveal" style="display:inline-block;">Proof of Concept</div>
+        <h2 class="reveal">What <span class="accent">showing up</span> looks like</h2>
+        <p class="section-lead reveal">Lightly edited excerpts from real CAP submissions and student messages, shared with permission.</p>
+        <figure class="impact-featured reveal">
+            <blockquote>&ldquo;Yesterday I voted in a local election for the first time in my 28 years as a voter. I sat down with my daughter and researched all seventeen propositions and every candidate on my ballot. This morning I was reading up on how runoff elections work. All of this is a result of your class &mdash; and specifically the CAP activities. If you ever wonder whether you&rsquo;re making a difference: you are.&rdquo;</blockquote>
+            <figcaption>&mdash; Student email, the morning after a local election</figcaption>
+        </figure>
+        <div class="impact-grid">
+            <div class="impact-card reveal">
+                <h3>&ldquo;Now I am invested&rdquo;</h3>
+                <p>A student sat in the City Hall parking lot before her first Fort Worth work session, watching police cars arrive and wondering what she&rsquo;d signed up for. A councilmember walked her in. Two hours later, she&rsquo;d seen a $79.5 million tax-abatement pitch, a bond-program debate, and a live lesson in federalism over state funding strings. Her verdict: &ldquo;I probably would&rsquo;ve gone my whole life and never made it to a government meeting. Now I am invested.&rdquo;</p>
+                <span class="impact-tag">Government Meeting Attendance · GOVT 2306</span>
+            </div>
+            <div class="impact-card reveal">
+                <h3>The business card</h3>
+                <p>At her first Euless City Council meeting, a nervous student was personally welcomed by the Mayor Pro Tem &mdash; who handed her his business card and told her not to hesitate if she ever needed help. She stayed for drainage ordinances and utility-rate hearings, and left with a better definition than the textbook&rsquo;s: civic engagement isn&rsquo;t just voting &mdash; it&rsquo;s going to a meeting, listening, and learning.</p>
+                <span class="impact-tag">Government Meeting Attendance · GOVT 2305</span>
+            </div>
+            <div class="impact-card reveal">
+                <h3>The first FOIA</h3>
+                <p>Investigating Fort Worth&rsquo;s billion-dollar Panther Island project, a student filed his first public-records request with the water district, interviewed family about rising water bills, and delivered a lessons-learned report on oversight and transparency that wouldn&rsquo;t look out of place on a consultant&rsquo;s letterhead.</p>
+                <span class="impact-tag">Government Investigation · GOVT 2306</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="sec-divider">
     <div class="container">
         <div class="section-kicker reveal">The Approach</div>
@@ -1154,20 +1254,12 @@ footer a:hover { text-decoration: underline; }
                     <figcaption>A previous life on stage</figcaption>
                 </figure>
                 <figure>
-                    <img src="jared-levi.jpg" alt="Jared and his son Levi crouched on a bluff overlooking a river on a misty hike">
-                    <figcaption>Surveying the kingdom with Levi</figcaption>
-                </figure>
-                <figure>
                     <img src="jared-trail.jpg" alt="Jared on a hiking trail with two basset hounds in front of a cave">
                     <figcaption>The trail crew, smelling everything</figcaption>
                 </figure>
                 <figure>
                     <img src="jared-snail.jpg" alt="Jared posing proudly next to a giant pink snail sculpture">
                     <figcaption>Meeting with a constituent</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-arcade.jpg" alt="Jared and Levi playing the Star Trek Voyager arcade game with a light gun">
-                    <figcaption>Teaching the Next Generation — wrong series, right kid</figcaption>
                 </figure>
                 <figure>
                     <img src="jared-bench.jpg" alt="Jared and Levi sitting on a bench above a creek, mid-conversation">
