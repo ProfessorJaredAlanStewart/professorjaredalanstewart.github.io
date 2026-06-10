@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found · Jared Alan Stewart</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #1a2744;
+    --gold: #FFC700;
+    --cream: #fefbf4;
+    --muted: #6b7280;
+    --plum-deepest: #241341;
+    --plum-deep: #38215f;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+    background: var(--plum-deepest);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute; left: -140px; top: -160px;
+    width: 520px; height: 520px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.06;
+    pointer-events: none;
+}
+.wrap { max-width: 620px; position: relative; }
+.code {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    margin: 18px 0 14px;
+}
+p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 10px; }
+.quote {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.15rem;
+    margin: 26px 0 30px;
+}
+.btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-secondary { background: transparent; color: var(--cream); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.35); }
+@media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="code">404</div>
+    <h1>This page didn't show up.</h1>
+    <p>Whatever you were looking for has moved, been renamed, or never made it out of committee. It happens to the best legislation.</p>
+    <p class="quote">&ldquo;What's next?&rdquo;</p>
+    <div class="btns">
+        <a class="btn btn-primary" href="/">Back to the floor</a>
+        <a class="btn btn-secondary" href="/projects.html">Browse the projects</a>
+    </div>
+</div>
+</body>
+</html>

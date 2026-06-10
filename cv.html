@@ -7,12 +7,13 @@
     <meta property="og:url" content="https://jaredalanstewart.com/">
     <meta property="og:title" content="Jared Alan Stewart — Curriculum Vitae">
     <meta property="og:description" content="Free, open civic education tools: the Civic Action Project, Texas In Action, interactive government modules, simulations, and classroom resources.">
-    <meta property="og:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
+    <meta property="og:image" content="https://jaredalanstewart.com/og-card.jpg">
     <meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jared Alan Stewart — Curriculum Vitae">
     <meta name="twitter:description" content="Free, open civic education tools for American and Texas government — open to all, meant for all.">
-    <meta name="twitter:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
+    <meta name="twitter:image" content="https://jaredalanstewart.com/og-card.jpg">
+<link rel="canonical" href="https://jaredalanstewart.com/cv.html">
 <title>Jared Alan Stewart — Curriculum Vitae</title>
 <meta name="description" content="The full curriculum vitae of Jared Alan Stewart: education, teaching and leadership at Tarrant County College, and selected civic-education projects.">
 <meta property="og:title" content="Jared Alan Stewart — Curriculum Vitae">
@@ -158,7 +159,7 @@ body {
 }
 .hero-photo-side {
     position: absolute; top: 0; right: 0; bottom: 0; width: 52%;
-    background: url('jared-jfk.jpg') 62% 34% / cover no-repeat;
+    background: url('jared-jfk.webp') 62% 34% / cover no-repeat;
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
 }
 .hero-photo-side::after {
@@ -1082,6 +1083,16 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 860px) { .wild-grid { grid-template-columns: 1fr 1fr; } .wild-grid img { height: 200px; } }
 @media (max-width: 520px) { .wild-grid { grid-template-columns: 1fr; } }
 
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -1232,7 +1243,7 @@ footer a:hover { text-decoration: underline; }
         if (toTop) toTop.classList.toggle('show', h.scrollTop > 600);
     }
     if (toTop) toTop.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
     window.addEventListener('scroll', updProg, { passive: true });
     window.addEventListener('resize', updProg, { passive: true });
