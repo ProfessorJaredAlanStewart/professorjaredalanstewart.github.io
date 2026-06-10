@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaredalanstewart.com/">
-    <meta property="og:title" content="Jared Alan Stewart — Civic Education, Open to All">
+    <meta property="og:title" content="Jared Alan Stewart — Curriculum Vitae">
     <meta property="og:description" content="Free, open civic education tools: the Civic Action Project, Texas In Action, interactive government modules, simulations, and classroom resources.">
     <meta property="og:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
     <meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jared Alan Stewart — Civic Education, Open to All">
+    <meta name="twitter:title" content="Jared Alan Stewart — Curriculum Vitae">
     <meta name="twitter:description" content="Free, open civic education tools for American and Texas government — open to all, meant for all.">
     <meta name="twitter:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
-<title>Jared Alan Stewart — Civic Educator · Fort Worth, Texas</title>
-<meta name="description" content="Jared Alan Stewart teaches government at Tarrant County College and builds free, open civic education tools — the Civic Action Project, Texas In Action, Trailblazer Treks, and classroom simulations.">
-<meta property="og:title" content="Jared Alan Stewart — Civic Educator">
+<title>Jared Alan Stewart — Curriculum Vitae</title>
+<meta name="description" content="The full curriculum vitae of Jared Alan Stewart: education, teaching and leadership at Tarrant County College, and selected civic-education projects.">
+<meta property="og:title" content="Jared Alan Stewart — Curriculum Vitae">
 <meta property="og:description" content="Decisions are made by those who show up. Free civic education projects, simulations, and open resources from Fort Worth, Texas.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jaredalanstewart.com">
@@ -950,18 +950,6 @@ section h2 .accent { color: var(--warm); }
     font-weight: 600;
 }
 
-.page-link {
-    display: inline-flex; align-items: center; gap: 9px;
-    margin-top: 8px;
-    background: var(--plum); color: #fff; text-decoration: none;
-    font-weight: 600; font-size: 0.98rem; letter-spacing: 0.01em;
-    padding: 12px 26px; border-radius: 6px;
-    transition: background 0.2s, transform 0.15s;
-}
-.page-link:hover { background: var(--plum-mid); transform: translateY(-2px); }
-.page-link .pl-arrow { color: var(--gold); transition: transform 0.2s; display:inline-block; }
-.page-link:hover .pl-arrow { transform: translateX(4px); }
-
 /* ---------- collapse/expand sections ---------- */
 .collapse { border: none; }
 .collapse > summary {
@@ -1055,6 +1043,45 @@ footer a:hover { text-decoration: underline; }
     .project::before { display: none; }
     .offclock-photo { transform: none; }
 }
+
+/* ---------- subpage hero band ---------- */
+.page-hero { position: relative; background: var(--plum-deep); color: #fff; padding: 70px 24px 60px; overflow: hidden; text-align: center; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; }
+.page-hero .ph-star { position: absolute; right: -90px; top: -90px; width: 360px; height: 360px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain; opacity: 0.06; pointer-events: none; }
+.page-hero .ph-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.page-hero .ph-kicker { color: var(--gold); font-size: 12.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
+.page-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin-bottom: 14px; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { color: rgba(255,255,255,0.82); font-size: 1.08rem; max-width: 620px; margin: 0 auto; }
+/* CV page */
+.cv-wrap { max-width: 900px; margin: 0 auto; padding: 54px 32px; }
+.cv-block { margin-bottom: 46px; }
+.cv-block > h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; color: var(--plum); padding-bottom: 10px; margin-bottom: 26px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; gap: 12px; }
+.cv-block > h2 .cv-dot { color: var(--gold); }
+.cv-item { position: relative; border-left: 2px solid var(--sand); padding: 0 0 26px 26px; }
+.cv-item:last-child { padding-bottom: 4px; }
+.cv-item::before { content: ''; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 3px var(--cream); }
+.cv-item .cv-what { font-weight: 700; color: var(--navy); font-size: 1.08rem; line-height: 1.4; }
+.cv-item .cv-where { font-size: 0.96rem; color: var(--muted); margin-top: 3px; line-height: 1.55; }
+.cv-item .cv-detail { font-size: 0.92rem; color: var(--ink); margin-top: 7px; line-height: 1.6; }
+.cv-badge { display: inline-block; background: #ede9fe; color: var(--plum-mid); border: 1px solid #ddd6fe; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 9px; border-radius: 3px; margin-left: 8px; vertical-align: 2px; }
+.cv-print { display: inline-block; margin-top: 8px; background: var(--plum); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 11px 24px; border-radius: 6px; transition: background 0.2s, transform 0.15s; }
+.cv-print:hover { background: var(--plum-mid); transform: translateY(-2px); }
+@media print { .topbar, .quicknav, .page-hero, .to-top, footer, .cv-print { display: none !important; } body { background: #fff; font-size: 12pt; } .cv-wrap { max-width: 100%; padding: 0; } .cv-block > h2 { color: #000; border-color: #000; } a { color: #000; text-decoration: none; } }
+/* In the Wild page */
+.wild-wrap { max-width: 1080px; margin: 0 auto; padding: 54px 32px; }
+.wild-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.wild-grid figure { margin: 0; }
+.wild-grid img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 8px; border: 5px solid #fff; box-shadow: 0 12px 30px rgba(36,19,65,0.16); cursor: zoom-in; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s; }
+.wild-grid figure:nth-child(3n+1) img { transform: rotate(-1.4deg); }
+.wild-grid figure:nth-child(3n+2) img { transform: rotate(0.8deg); }
+.wild-grid figure:nth-child(3n) img { transform: rotate(1.5deg); }
+.wild-grid figure:hover img { transform: rotate(0deg) scale(1.04); box-shadow: 0 18px 42px rgba(36,19,65,0.26); }
+.wild-grid figcaption { text-align: center; font-style: italic; color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
+.wild-intro { text-align: center; max-width: 640px; margin: 0 auto 40px; color: var(--muted); font-size: 1.05rem; }
+@media (max-width: 860px) { .wild-grid { grid-template-columns: 1fr 1fr; } .wild-grid img { height: 200px; } }
+@media (max-width: 520px) { .wild-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -1064,6 +1091,8 @@ footer a:hover { text-decoration: underline; }
 <nav class="quicknav" aria-label="Project quick links">
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="quicknav-inner">
+        <a href="https://jaredalanstewart.com/">&#8592; Home</a>
+        <span class="sep">★</span>
         <a href="https://jaredalanstewart.com/Civic-Action-Project/index.html">CAP</a>
         <span class="sep">★</span>
         <a href="https://jaredalanstewart.com/Texas-In-Action/">TIA</a>
@@ -1082,347 +1111,96 @@ footer a:hover { text-decoration: underline; }
         <span class="sep">★</span>
         <a href="in-the-wild.html">In the Wild</a>
         <span class="sep">★</span>
-        <a href="#contact">Contact</a>
+        <a href="https://jaredalanstewart.com/#contact">Contact</a>
     </div>
 </nav>
 
-<header class="hero">
-    <div class="hero-star"></div>
-    <div class="hero-photo-side"></div>
-    <div class="hero-stripe"></div>
-    <div class="hero-inner">
-        <div class="hero-content">
-            <div class="hero-kicker">Educator · Builder · Citizen · Jester</div>
-            <h1><span class="first-name">Jared Alan</span><span class="last-name">Stewart</span></h1>
-            <p class="hero-role">
-                Government professor and Social Sciences Department Chair at
-                <strong>Tarrant County College</strong>. I build free, open
-                tools that turn government from a subject students memorize into something
-                they <strong>do</strong>.
-            </p>
-        </div>
+<header class="page-hero">
+    <div class="ph-star"></div>
+    <div class="ph-inner">
+        <div class="ph-kicker">Curriculum Vitae</div>
+        <h1>The <em>full</em> CV</h1>
+        <p>A decade of designing and teaching political science &mdash; from university seminar rooms to dual-credit high school classrooms, with a few department-chair hats along the way.</p>
     </div>
-    <div class="hero-photo-caption">Left: Jared · Right: JFK</div>
 </header>
 
-<div class="fuse-strip" aria-hidden="true"></div>
+<main class="cv-wrap">
 
-<div class="quote-band">
-    <blockquote>
-        &ldquo;Decisions are made by those who <span class="showup">show up</span>.&rdquo;
-    </blockquote>
-    <cite>— <b>The West Wing</b></cite>
-    <p class="quote-coda">
-        Every project on this page exists to help more people <strong>show up</strong> —
-        in city council chambers, at school board meetings, at the ballot box, and in their own communities.
-    </p>
-</div>
-
-<main>
-
-<section>
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-copy reveal">
-                <div class="section-kicker">About</div>
-                <h2>Why I do <span class="accent">this</span></h2>
-                <p class="lede">My students are working adults, parents, veterans, and first-generation college students. Government already shapes their lives every single day — they deserve a course that treats them like citizens, not test-takers.</p>
-                <div class="about-photo-wrap">
-                    <img class="about-photo" src="jared-studio.jpg" alt="Jared on set with a production clapperboard, filming course videos for GOVT 2305">
-                    <p class="about-photo-caption">On set, filming GOVT 2305 · Take 1</p>
-                </div>
-            </div>
-            <div class="about-copy reveal">
-                <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
-                <p>Everything I build is shared as a free, open educational resource. If you're an instructor, take it, adapt it, and make it yours. If you're a student, these tools were built for you first.</p>
-                <div class="dedication">
-                    <p class="ded-quote">&ldquo;Government is a place where people can come together to solve problems.&rdquo;</p>
-                    <p class="ded-attr">— Stephanie Stewart, my mom</p>
-                    <p class="ded-line">She means it, too. In November 1984 — nine months pregnant with me, days before I was born — she stood in line for hours to cast her vote. Reagan won anyway, to her lasting disgust. She carried me to the polls before I could walk there myself, and years later she stood right beside me for my first legal vote.</p>
-                    <p class="ded-line">She taught me that long before any professor did — and she lives it: hardworking, empathetic, civic-minded. Everything on this page is built in her honor.</p>
-                </div>
-            </div>
+    <div class="cv-block reveal">
+        <h2><span class="cv-dot">&starf;</span> Education</h2>
+        <div class="cv-item">
+            <div class="cv-what">Ed.D., Higher Education Technology Leadership <span class="cv-badge">In Progress</span></div>
+            <div class="cv-where">Tarleton State University</div>
+            <div class="cv-detail">Doctoral research on experiential civic education and the diffusion of pedagogical innovation, centered on the Civic Action Project as a problem of practice.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Ph.D. Candidate (ABD), Political Science</div>
+            <div class="cv-where">University of Washington</div>
+            <div class="cv-detail">Fields: American politics, political communication, and methodology.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">M.A., Political Science</div>
+            <div class="cv-where">University of Washington</div>
+            <div class="cv-detail">Thesis: &ldquo;In Through the Out Door: Examining the Use of &lsquo;Outsider&rsquo; Appeals in Presidential Debates.&rdquo;</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">B.A., Political Science, <em>summa cum laude</em></div>
+            <div class="cv-where">University of Central Arkansas</div>
+            <div class="cv-detail">Minor in Presidential Studies.</div>
         </div>
     </div>
-</section>
 
-<section class="projects-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal">The Work</div>
-        <h2 class="reveal">Projects I'm <span class="accent">proud of</span></h2>
-        <p class="section-lead reveal">Every one of these opens free in any browser. No logins, no installs, no cost — just click and start.</p>
-
-        <div class="project-list">
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">
-                <div class="project-info">
-                    <span class="flagship-banner">Flagship Project</span>
-                    <h3>The Civic Action Project (CAP)</h3>
-                    <p>My signature framework — and the subject of my doctoral research. CAP replaces traditional government exams with a menu of 39 hands-on civic engagement activities, from attending city council meetings to building public service directories. Includes complete instructor resources, rubrics, tracking tools, and student outcome data.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-flagship">Flagship</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                        <span class="tag tag-instructors">For Instructors</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Texas-In-Action/">
-                <div class="project-info">
-                    <h3>Texas In Action (TIA)</h3>
-                    <p>The Lone Star counterpart to CAP — civic engagement built specifically for Texas Government (GOVT 2306). Students connect directly with the state and local institutions that shape daily life in Texas, from the Capitol in Austin to their own county courthouse.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/tcc-govt-modules/">
-                <div class="project-info">
-                    <h3>Federal Government Trailblazer Trek</h3>
-                    <p>Sixteen gamified, interactive learning modules covering all of American federal government. Students earn points, unlock reveal cards, pass knowledge checks, and generate integrity-coded completion reports — entirely in the browser, with zero tracking.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-federal">GOVT 2305</span>
-                        <span class="tag tag-students">For Students</span>
-                        <span class="tag tag-oer">16 Modules</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/texas-govt-modules/">
-                <div class="project-info">
-                    <h3>Texas Government Trailblazer Trek</h3>
-                    <p>Fifteen interactive modules on the same engine, rebuilt for Texas government — the Texas Constitution, the Legislature, the plural executive, and local government. Adds written reflection checkpoints so students connect each chapter to their own communities.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-texas">GOVT 2306</span>
-                        <span class="tag tag-students">For Students</span>
-                        <span class="tag tag-oer">15 Modules</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">
-                <div class="project-info">
-                    <h3>Keep Your Seat — Texas State Senate Simulation</h3>
-                    <p>Students serve as Texas State Senators, navigating committee assignments, floor votes, party pressure, and constituent demands — and discover firsthand why governing means making trade-offs. Built for the classroom: project it, play it, debrief it.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-sim">Simulation</span>
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">
-                <div class="project-info">
-                    <h3>Course Schedule Builder</h3>
-                    <p>A flexible, browser-based tool for building and distributing course schedules — designed for department chairs and lead instructors who need clean, consistent schedules without wrestling with spreadsheets.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-instructors">For Instructors</span>
-                        <span class="tag tag-oer">Utility</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/">
-                <div class="project-info">
-                    <h3>The Full Games &amp; Simulations Library</h3>
-                    <p>The complete collection: congressional and presidential primary simulations, crossword generators, Texas Jeopardy, Wheel of Fortune review games, and more. Ten-plus activities for American and Texas government courses, all free and browser-based.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-sim">Simulations</span>
-                        <span class="tag tag-federal">Federal</span>
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
+    <div class="cv-block reveal">
+        <h2><span class="cv-dot">&starf;</span> Teaching &amp; Leadership</h2>
+        <div class="cv-item">
+            <div class="cv-what">Chair, Social Sciences Department</div>
+            <div class="cv-where">Tarrant County College &mdash; Trinity River Campus &middot; 2025&ndash;present</div>
+            <div class="cv-detail">Lead the Social Sciences Department, supporting faculty across government, history, psychology, and sociology. Champion open educational resources and course-cost reduction. Co-sponsor, Trinity River Guitar Club.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Government Faculty</div>
+            <div class="cv-where">Tarrant County College &mdash; Fort Worth, TX</div>
+            <div class="cv-detail">Teach GOVT 2305 (Federal) and GOVT 2306 (Texas) in person and online. Created the Civic Action Project, Texas In Action, the Trailblazer Treks, and a library of classroom simulations.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Chair &amp; Assistant Chair, Social Sciences</div>
+            <div class="cv-where">Weatherford College</div>
+            <div class="cv-detail">Departmental leadership while teaching Federal and Texas Government, including dual-credit partnerships. Faculty Coordinator for Day One Access; C.O.R.E. Faculty Representative.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Political Science Instructor</div>
+            <div class="cv-where">Texas Christian University</div>
+            <div class="cv-detail">Sole instructor for Introduction to American Politics, American &amp; Texas Government, and Religion &amp; American Politics.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Lead Teaching Assistant &amp; Instructor</div>
+            <div class="cv-where">University of Washington &mdash; Department of Political Science</div>
+            <div class="cv-detail">Sole instructor for &ldquo;College Teaching of Political Science,&rdquo; training incoming TAs in pedagogy. Lead TA overseeing department teaching assistants.</div>
         </div>
     </div>
-</section>
 
-<section class="impact-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal" style="display:inline-block;">Proof of Concept</div>
-        <h2 class="reveal">What <span class="accent">showing up</span> looks like</h2>
-        <p class="section-lead reveal">Lightly edited excerpts from real CAP submissions and student messages, shared with permission.</p>
-        <figure class="impact-featured reveal">
-            <blockquote>&ldquo;Yesterday I voted in a local election for the first time in my 28 years as a voter. I sat down with my daughter and researched all seventeen propositions and every candidate on my ballot. This morning I was reading up on how runoff elections work. All of this is a result of your class &mdash; and specifically the CAP activities. <strong>If you ever wonder whether you&rsquo;re making a difference: you are.</strong>&rdquo;</blockquote>
-            <figcaption>&mdash; Student email, the morning after a local election</figcaption>
-        </figure>
-        <div class="impact-grid">
-            <div class="impact-card reveal">
-                <h3>&ldquo;Now I am invested&rdquo;</h3>
-                <p>A student sat in the City Hall parking lot before her first Fort Worth work session, watching police cars arrive and wondering what she&rsquo;d signed up for. A councilmember walked her in. Two hours later, she&rsquo;d seen a $79.5 million tax-abatement pitch, a bond-program debate, and a live lesson in federalism over state funding strings. Her verdict: &ldquo;I probably would&rsquo;ve gone my whole life and never made it to a government meeting. Now I am invested.&rdquo;</p>
-                <span class="impact-tag">Government Meeting Attendance · GOVT 2306</span>
-            </div>
-            <div class="impact-card reveal">
-                <h3>The business card</h3>
-                <p>At her first Euless City Council meeting, a nervous student was personally welcomed by the Mayor Pro Tem &mdash; who handed her his business card and told her not to hesitate if she ever needed help. She stayed for drainage ordinances and utility-rate hearings, and left with a better definition than the textbook&rsquo;s: civic engagement isn&rsquo;t just voting &mdash; it&rsquo;s going to a meeting, listening, and learning.</p>
-                <span class="impact-tag">Government Meeting Attendance · GOVT 2305</span>
-            </div>
-            <div class="impact-card reveal">
-                <h3>The first FOIA</h3>
-                <p>Investigating Fort Worth&rsquo;s billion-dollar Panther Island project, a student filed his first public-records request with the water district, interviewed family about rising water bills, and delivered a lessons-learned report on oversight and transparency that wouldn&rsquo;t look out of place on a consultant&rsquo;s letterhead.</p>
-                <span class="impact-tag">Government Investigation · GOVT 2306</span>
-            </div>
+    <div class="cv-block reveal">
+        <h2><span class="cv-dot">&starf;</span> Selected Projects</h2>
+        <div class="cv-item">
+            <div class="cv-what">The Civic Action Project (CAP)</div>
+            <div class="cv-detail">A complete civic-engagement curriculum replacing government exams with 39 hands-on activities. Free and open, with full rubrics, tracking tools, and student-outcome data. The subject of ongoing doctoral research.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Texas In Action (TIA)</div>
+            <div class="cv-detail">The Texas Government counterpart to CAP, connecting students to the state and local institutions that shape daily life in Texas.</div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-what">Trailblazer Treks &amp; Games Library</div>
+            <div class="cv-detail">31 interactive, browser-based learning modules plus a library of classroom simulations and review games for American and Texas government &mdash; all free and open.</div>
         </div>
     </div>
-</section>
 
-<section class="sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal">The Approach</div>
-        <h2 class="reveal">Built on three <span class="accent">convictions</span></h2>
-        <div class="why-grid">
-            <div class="why-card reveal">
-                <h3>Choice drives motivation</h3>
-                <p>Students engage when they have real autonomy. CAP offers dozens of paths to the same goal, so a night-shift nurse and an 18-year-old gamer can both find activities that fit their lives.</p>
-            </div>
-            <div class="why-card reveal">
-                <h3>Experience beats memorization</h3>
-                <p>You don't learn government from a Scantron. You learn it by sitting in a council meeting, emailing your representative, and seeing how the machine actually moves.</p>
-            </div>
-            <div class="why-card reveal">
-                <h3>Good ideas should travel</h3>
-                <p>Everything here is open educational material. The whole point is for other instructors to take it, adapt it, and put it in front of more students than I ever could alone.</p>
-            </div>
-        </div>
+    <div class="cv-block reveal" style="text-align:center;">
+        <a class="cv-print" href="javascript:window.print()">Print or save as PDF</a>
     </div>
-</section>
-
-<section class="cred-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal">Background</div>
-        <h2 class="reveal">The CV, <span class="accent">abridged</span></h2>
-        <p class="section-lead reveal">A decade of designing and teaching political science courses — from university seminar rooms to dual-credit high school classrooms — with a few department chair hats along the way.</p>
-        <div class="cred-grid reveal">
-            <div class="cred-col">
-                <h3>Education</h3>
-                <div class="cred-item">
-                    <div class="what">Ed.D., Higher Education Technology Leadership <span class="cred-badge">In Progress</span></div>
-                    <div class="where">Tarleton State University</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Ph.D. Candidate (ABD) &amp; M.A., Political Science</div>
-                    <div class="where">University of Washington</div>
-                </div>
-            </div>
-            <div class="cred-col">
-                <h3>Now</h3>
-                <div class="cred-item">
-                    <div class="what">Chair, Social Sciences Department</div>
-                    <div class="where">Tarrant County College — Trinity River Campus, 2025–present</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Government Faculty</div>
-                    <div class="where">Tarrant County College — Federal &amp; Texas Government</div>
-                </div>
-            </div>
-        </div>
-        <div class="reveal" style="margin-top:30px;">
-            <a class="page-link" href="cv.html">View the full CV <span class="pl-arrow">→</span></a>
-        </div>
-    </div>
-</section>
-
-<section class="offclock">
-    <div class="container">
-        <div class="offclock-grid">
-            <div class="offclock-gallery">
-                <figure>
-                    <img src="jared-music.jpg" alt="Jared performing on stage with an acoustic guitar at sunset during his professional music days">
-                    <figcaption>A previous life on stage</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-bassets-hike.jpg" alt="Jared in a TCC shirt crouched on a trail boulder with his two basset hounds">
-                    <figcaption>The trail crew, setting the pace</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-snail.jpg" alt="Jared posing proudly next to a giant pink snail sculpture">
-                    <figcaption>Meeting with a constituent</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-bench.jpg" alt="Jared and Levi sitting on a bench above a creek, mid-conversation">
-                    <figcaption>The creekside caucus</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-hat-dog.jpg" alt="One of Jared's basset hounds wearing his fedora, sitting beside him on the couch">
-                    <figcaption>My hat. I let her borrow it.</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-window.jpg" alt="Levi between two basset hounds, all looking out the window by the Christmas tree">
-                    <figcaption>Waiting for Santa</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-yoga-dogs.jpg" alt="Jared and Levi doing floor stretches while two bassets supervise and sprawl">
-                    <figcaption>Family yoga, fully supervised</figcaption>
-                </figure>
-                <figure class="wide">
-                    <img src="jared-family.jpg" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window">
-                    <figcaption>The full delegation, in session at the beach</figcaption>
-                </figure>
-            </div>
-            <div class="offclock-copy">
-                <div class="section-kicker">Off the Clock</div>
-                <h2>Beyond the classroom</h2>
-                <p>The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people — and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds — <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> — while they try to sleep. Jam!</p>
-                <p>I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> — yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
-                <p>I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
-                <div style="margin-top:26px;">
-                    <a class="page-link" href="in-the-wild.html" style="background:var(--gold); color:var(--plum-deepest);">See more from the wild <span class="pl-arrow" style="color:var(--plum-deep);">→</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="section-kicker reveal" style="display:inline-block;">Get In Touch</div>
-        <h2 class="reveal">Let's <span class="accent">talk</span></h2>
-        <p class="reveal">Interested in adopting one of these projects, collaborating on research, or just comparing notes on civic education? I'd love to hear from you.</p>
-        <div class="contact-btns reveal">
-            <a class="btn btn-primary" href="mailto:jared.stewart@tccd.edu">Email Me</a>
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/jaredalanstewart" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn-secondary" href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">GitHub</a>
-        </div>
-    </div>
-</section>
-
-<section class="qr-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal" style="display:inline-block;">Spread the Word</div>
-        <h2 class="reveal">Take it <span class="accent">with you</span></h2>
-        <p class="section-lead reveal">Print-ready QR cards for syllabi, conference tables, and handout materials. Scan one now — or download, print, and share. That's the whole point of open resources.</p>
-        <div class="qr-grid">
-            <div class="qr-item reveal">
-                <img src="qr-civic-action-project-card.png" alt="Scannable QR card linking to the Civic Action Project" loading="lazy">
-                <a class="dl" href="qr-civic-action-project-card.png" download>Download the CAP card</a>
-            </div>
-            <div class="qr-item reveal">
-                <img src="qr-texas-in-action-card.png" alt="Scannable QR card linking to Texas In Action" loading="lazy">
-                <a class="dl" href="qr-texas-in-action-card.png" download>Download the TIA card</a>
-            </div>
-            <div class="qr-item reveal">
-                <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
-                <a class="dl" href="qr-jaredalanstewart-card.png" download>Download the site card</a>
-            </div>
-        </div>
-    </div>
-</section>
 
 </main>
+
 
 <footer>
     <strong>Jared Alan Stewart</strong><br>
