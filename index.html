@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jaredalanstewart.com/">
+    <meta property="og:title" content="Jared Alan Stewart — Civic Education, Open to All">
+    <meta property="og:description" content="Free, open civic education tools: the Civic Action Project, Texas In Action, interactive government modules, simulations, and classroom resources.">
+    <meta property="og:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
+    <meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jared Alan Stewart — Civic Education, Open to All">
+    <meta name="twitter:description" content="Free, open civic education tools for American and Texas government — open to all, meant for all.">
+    <meta name="twitter:image" content="https://jaredalanstewart.com/jared-jfk.jpg">
 <title>Jared Alan Stewart — Civic Educator · Fort Worth, Texas</title>
 <meta name="description" content="Jared Alan Stewart teaches government at Tarrant County College and builds free, open civic education tools — the Civic Action Project, Texas In Action, Trailblazer Treks, and classroom simulations.">
 <meta property="og:title" content="Jared Alan Stewart — Civic Educator">
@@ -749,6 +759,7 @@ section h2 .accent { color: var(--warm); }
     color: var(--plum);
     margin: 0 0 14px;
 }
+.impact-featured blockquote strong { font-weight: 700; color: var(--plum-deep); }
 .impact-featured figcaption {
     color: var(--warm);
     font-weight: 600;
@@ -761,6 +772,7 @@ section h2 .accent { color: var(--warm); }
     text-align: left;
 }
 .impact-card {
+    cursor: pointer;
     background: white;
     border: 1px solid var(--sand);
     border-radius: 10px;
@@ -886,6 +898,44 @@ section h2 .accent { color: var(--warm); }
     transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
 }
 .lightbox.open img { transform: scale(1); }
+.lightbox-panel {
+    display: none;
+    max-width: 720px;
+    width: 100%;
+    max-height: 84vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 42px 46px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    text-align: left;
+    cursor: default;
+}
+.lightbox.panel-mode .lightbox-panel { display: block; }
+.lightbox.panel-mode img, .lightbox.panel-mode .lightbox-cap { display: none; }
+.lightbox-panel h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--plum);
+    margin-bottom: 18px;
+}
+.lightbox-panel p {
+    font-size: 1.12rem;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+.lightbox-panel .impact-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm);
+    background: rgba(217,119,6,0.08);
+    padding: 5px 12px;
+    border-radius: 3px;
+}
 .lightbox-cap {
     color: rgba(255,255,255,0.85);
     font-size: 0.95rem;
@@ -1042,54 +1092,6 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section class="cred-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal">Background</div>
-        <h2 class="reveal">The CV, <span class="accent">abridged</span></h2>
-        <p class="section-lead reveal">A decade of designing and teaching political science courses — from university seminar rooms to dual-credit high school classrooms — with a few department chair hats along the way.</p>
-        <div class="cred-grid">
-            <div class="cred-col reveal">
-                <h3>Education</h3>
-                <div class="cred-item">
-                    <div class="what">Ed.D., Higher Education Technology Leadership <span class="cred-badge">In Progress</span></div>
-                    <div class="where">Tarleton State University — researching experiential civic education</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Ph.D. Candidate (ABD), Political Science</div>
-                    <div class="where">University of Washington — American politics, political communication &amp; methods</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">M.A., Political Science</div>
-                    <div class="where">University of Washington — thesis on "outsider" appeals in presidential debates</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">B.A., Political Science, <em>summa cum laude</em></div>
-                    <div class="where">University of Central Arkansas — minor in Presidential Studies</div>
-                </div>
-            </div>
-            <div class="cred-col reveal">
-                <h3>Teaching &amp; Leadership</h3>
-                <div class="cred-item">
-                    <div class="what">Chair, Social Sciences Department</div>
-                    <div class="where">Tarrant County College — Trinity River Campus, 2025–present</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Government Faculty</div>
-                    <div class="where">Tarrant County College — Federal &amp; Texas Government, in person and online</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Chair &amp; Assistant Chair, Social Sciences</div>
-                    <div class="where">Weatherford College — also taught Federal &amp; Texas Government, including dual-credit</div>
-                </div>
-                <div class="cred-item">
-                    <div class="what">Political Science Instructor</div>
-                    <div class="where">Texas Christian University — American politics, Texas government, and Religion &amp; American Politics</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="projects-section sec-divider">
     <div class="container">
         <div class="section-kicker reveal">The Work</div>
@@ -1201,7 +1203,7 @@ footer a:hover { text-decoration: underline; }
         <h2 class="reveal">What <span class="accent">showing up</span> looks like</h2>
         <p class="section-lead reveal">Lightly edited excerpts from real CAP submissions and student messages, shared with permission.</p>
         <figure class="impact-featured reveal">
-            <blockquote>&ldquo;Yesterday I voted in a local election for the first time in my 28 years as a voter. I sat down with my daughter and researched all seventeen propositions and every candidate on my ballot. This morning I was reading up on how runoff elections work. All of this is a result of your class &mdash; and specifically the CAP activities. If you ever wonder whether you&rsquo;re making a difference: you are.&rdquo;</blockquote>
+            <blockquote>&ldquo;Yesterday I voted in a local election for the first time in my 28 years as a voter. I sat down with my daughter and researched all seventeen propositions and every candidate on my ballot. This morning I was reading up on how runoff elections work. All of this is a result of your class &mdash; and specifically the CAP activities. <strong>If you ever wonder whether you&rsquo;re making a difference: you are.</strong>&rdquo;</blockquote>
             <figcaption>&mdash; Student email, the morning after a local election</figcaption>
         </figure>
         <div class="impact-grid">
@@ -1245,6 +1247,54 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
+<section class="cred-section sec-divider">
+    <div class="container">
+        <div class="section-kicker reveal">Background</div>
+        <h2 class="reveal">The CV, <span class="accent">abridged</span></h2>
+        <p class="section-lead reveal">A decade of designing and teaching political science courses — from university seminar rooms to dual-credit high school classrooms — with a few department chair hats along the way.</p>
+        <div class="cred-grid">
+            <div class="cred-col reveal">
+                <h3>Education</h3>
+                <div class="cred-item">
+                    <div class="what">Ed.D., Higher Education Technology Leadership <span class="cred-badge">In Progress</span></div>
+                    <div class="where">Tarleton State University — researching experiential civic education</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Ph.D. Candidate (ABD), Political Science</div>
+                    <div class="where">University of Washington — American politics, political communication &amp; methods</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">M.A., Political Science</div>
+                    <div class="where">University of Washington — thesis on "outsider" appeals in presidential debates</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">B.A., Political Science, <em>summa cum laude</em></div>
+                    <div class="where">University of Central Arkansas — minor in Presidential Studies</div>
+                </div>
+            </div>
+            <div class="cred-col reveal">
+                <h3>Teaching &amp; Leadership</h3>
+                <div class="cred-item">
+                    <div class="what">Chair, Social Sciences Department</div>
+                    <div class="where">Tarrant County College — Trinity River Campus, 2025–present</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Government Faculty</div>
+                    <div class="where">Tarrant County College — Federal &amp; Texas Government, in person and online</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Chair &amp; Assistant Chair, Social Sciences</div>
+                    <div class="where">Weatherford College — also taught Federal &amp; Texas Government, including dual-credit</div>
+                </div>
+                <div class="cred-item">
+                    <div class="what">Political Science Instructor</div>
+                    <div class="where">Texas Christian University — American politics, Texas government, and Religion &amp; American Politics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="offclock">
     <div class="container">
         <div class="offclock-grid">
@@ -1254,8 +1304,8 @@ footer a:hover { text-decoration: underline; }
                     <figcaption>A previous life on stage</figcaption>
                 </figure>
                 <figure>
-                    <img src="jared-trail.jpg" alt="Jared on a hiking trail with two basset hounds in front of a cave">
-                    <figcaption>The trail crew, smelling everything</figcaption>
+                    <img src="jared-bassets-hike.jpg" alt="Jared in a TCC shirt crouched on a trail boulder with his two basset hounds">
+                    <figcaption>The trail crew, setting the pace</figcaption>
                 </figure>
                 <figure>
                     <img src="jared-snail.jpg" alt="Jared posing proudly next to a giant pink snail sculpture">
@@ -1265,6 +1315,18 @@ footer a:hover { text-decoration: underline; }
                     <img src="jared-bench.jpg" alt="Jared and Levi sitting on a bench above a creek, mid-conversation">
                     <figcaption>The creekside caucus</figcaption>
                 </figure>
+                <figure>
+                    <img src="jared-hat-dog.jpg" alt="One of Jared's basset hounds wearing his fedora, sitting beside him on the couch">
+                    <figcaption>My hat. I let her borrow it.</figcaption>
+                </figure>
+                <figure>
+                    <img src="jared-window.jpg" alt="Levi between two basset hounds, all looking out the window by the Christmas tree">
+                    <figcaption>Waiting for Santa</figcaption>
+                </figure>
+                <figure>
+                    <img src="jared-yoga-dogs.jpg" alt="Jared and Levi doing floor stretches while two bassets supervise and sprawl">
+                    <figcaption>Family yoga, fully supervised</figcaption>
+                </figure>
                 <figure class="wide">
                     <img src="jared-family.jpg" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window">
                     <figcaption>The full delegation, in session at the beach</figcaption>
@@ -1273,9 +1335,8 @@ footer a:hover { text-decoration: underline; }
             <div class="offclock-copy">
                 <div class="section-kicker">Off the Clock</div>
                 <h2>Beyond the classroom</h2>
-                <p>I've played guitar for more than 25 years. Before academia, I was a <strong>professional musician</strong> — lead guitarist and singer-songwriter — which turns out to be excellent training for keeping a room of community college students engaged at 8 a.m. These days I co-sponsor the <strong>Guitar Club at TCC Trinity River</strong>, because some habits are worth keeping.</p>
-                <p>I'm married to my high school sweetheart, and we have an eight-year-old son, <strong>Levi</strong> — yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user.</p>
-                <p>When I'm not teaching, you'll find me camping, hiking, faithfully serving two basset hounds who set the pace and stop for every interesting smell, or chasing a brand-new idea that absolutely must be implemented yesterday.</p>
+                <p>The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people — and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds — <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> — while they try to sleep. Jam!</p>
+                <p>I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> — yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
                 <p>I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
             </div>
         </div>
@@ -1325,6 +1386,7 @@ footer a:hover { text-decoration: underline; }
     All projects shared freely as open educational resources.<br>
     <a href="mailto:jared.stewart@tccd.edu">jared.stewart@tccd.edu</a> · <a href="https://www.linkedin.com/in/jaredalanstewart" target="_blank" rel="noopener">linkedin.com/in/jaredalanstewart</a> · <a href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">github.com/ProfessorJaredAlanStewart</a>
     <div class="footer-quote">Decisions are made by those who show up.</div>
+    <div class="footer-updated" style="font-size:0.76rem; color:rgba(255,255,255,0.3); margin-top:14px;">Built and maintained by Jared Alan Stewart · Updated June 2026</div>
     <div class="footer-joke">No trees were killed in the creation of these materials. However, a large number of electrons were terribly inconvenienced.</div>
 </footer>
 
@@ -1332,6 +1394,7 @@ footer a:hover { text-decoration: underline; }
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged QR card">
     <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-panel" id="lightboxPanel"></div>
     <p class="lightbox-cap" id="lightboxCap"></p>
     <div class="lightbox-hint">Click anywhere or press Esc to close</div>
 </div>
@@ -1368,6 +1431,15 @@ footer a:hover { text-decoration: underline; }
     var lb = document.getElementById('lightbox');
     var lbImg = document.getElementById('lightboxImg');
     var lbCap = document.getElementById('lightboxCap');
+    var lbPanel = document.getElementById('lightboxPanel');
+    document.querySelectorAll('.impact-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+            lbPanel.innerHTML = card.innerHTML;
+            lb.classList.add('open', 'panel-mode');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    lbPanel.addEventListener('click', function (e) { e.stopPropagation(); });
     document.querySelectorAll('.qr-item img, .offclock-gallery img').forEach(function (img) {
         img.addEventListener('click', function () {
             lbImg.src = img.src;
@@ -1380,7 +1452,7 @@ footer a:hover { text-decoration: underline; }
         });
     });
     function closeLb() {
-        lb.classList.remove('open');
+        lb.classList.remove('open', 'panel-mode');
         document.body.style.overflow = '';
     }
     lb.addEventListener('click', closeLb);
