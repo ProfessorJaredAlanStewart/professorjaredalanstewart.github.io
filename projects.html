@@ -453,6 +453,55 @@ section h2 .accent { color: var(--warm); }
     margin-bottom: 44px;
 }
 
+/* ---------- show-up creed ---------- */
+.creed {
+    text-align: center;
+    max-width: 820px;
+    margin: 6px auto 50px;
+    padding: 0 12px;
+}
+.creed-line {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    line-height: 1.4;
+    color: var(--navy);
+    margin-bottom: 22px;
+}
+.creed-line .showup {
+    color: var(--gold);
+    white-space: nowrap;
+    background: linear-gradient(110deg, var(--amber) 0%, var(--amber) 40%, var(--gold) 50%, var(--amber) 60%, var(--amber) 100%);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sheen 8s ease-in-out 2s infinite;
+    font-style: italic;
+}
+.creed-venues {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+.creed-venues .csep {
+    color: var(--gold);
+    font-size: 0.72rem;
+    user-select: none;
+}
+.creed-venues span:not(.csep) { transition: color 0.2s ease; }
+.creed-venues:hover span:not(.csep) { color: var(--muted); }
+.creed-venues span:not(.csep):hover { color: var(--plum); }
+@media (max-width: 560px) {
+    .creed-venues { gap: 6px 10px; font-size: 0.74rem; }
+}
+
 /* ---------- about ---------- */
 .about-grid {
     display: grid;
@@ -1344,7 +1393,18 @@ footer a:hover { text-decoration: underline; }
 
 <main class="projects-wrap">
     <section class="projects-section">
-        <p class="section-lead reveal" style="margin-top:4px;">Every project on this page exists to help more people <strong>show up</strong> — in city council chambers, at school board meetings, at the ballot box, and in their own communities.</p>
+        <div class="creed reveal">
+            <p class="creed-line">Every project here exists to help more people <span class="showup">show up</span>.</p>
+            <div class="creed-venues">
+                <span>City council chambers</span>
+                <span class="csep">★</span>
+                <span>School board meetings</span>
+                <span class="csep">★</span>
+                <span>The ballot box</span>
+                <span class="csep">★</span>
+                <span>Their own communities</span>
+            </div>
+        </div>
         <div class="project-list">
 
 
