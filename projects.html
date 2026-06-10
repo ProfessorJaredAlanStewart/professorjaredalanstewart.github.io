@@ -423,7 +423,7 @@ body {
 .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
 section { padding: 54px 0; }
 .section-kicker {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -1117,7 +1117,7 @@ footer a:hover { text-decoration: underline; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; }
 .page-hero .ph-star { position: absolute; right: -90px; top: -90px; width: 360px; height: 360px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain; opacity: 0.06; pointer-events: none; }
 .page-hero .ph-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
-.page-hero .ph-kicker { color: var(--gold); font-size: 14px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
+.page-hero .ph-kicker { color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
 .page-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin-bottom: 14px; }
 .page-hero h1 em { font-style: italic; color: var(--gold); }
 .page-hero p { color: rgba(255,255,255,0.82); font-size: 1.08rem; max-width: 620px; margin: 0 auto; }
@@ -1408,6 +1408,39 @@ footer a:hover { text-decoration: underline; }
                 <span class="project-arrow">→</span>
             </a>
 
+            <details class="adopt" id="adopt-tia">
+                <summary>
+                    <span class="adopt-kicker">For Instructors</span>
+                    Drop TIA into your LMS — same setup, built for GOVT 2306
+                </summary>
+                <div class="adopt-body">
+                    <p>TIA is the Texas Government counterpart to CAP, and it adopts exactly the same way: browser-based, nothing to install, no IT approval needed. If you already run CAP, this will feel familiar. If you're starting here, the whole process takes about half an hour:</p>
+                    <ol class="adopt-steps">
+                        <li>
+                            <strong>Skim the menu first.</strong> Open the <a href="https://professorjaredalanstewart.github.io/Texas-In-Action/">TIA site</a> and browse the activities. They're built specifically around Texas institutions — the Legislature, the plural executive, county and municipal government — so students connect with the bodies that actually govern their daily lives in Texas.
+                            <span class="step-detail">Ten minutes of skimming will tell you which activities map onto your GOVT 2306 units.</span>
+                        </li>
+                        <li>
+                            <strong>Pick your scope.</strong> TIA works as a full exam replacement, a single-unit project, or extra credit.
+                            <span class="step-detail">Contacting a state representative and attending a county commissioners court meeting are the two activities students find most eye-opening — both pair naturally with the Texas legislative and local-government units.</span>
+                        </li>
+                        <li>
+                            <strong>Create the assignment in your LMS.</strong> In Canvas, Blackboard, or Brightspace: new Assignment → paste the link to your chosen TIA activity in the description → set the submission type to text entry <em>plus</em> file upload, so students can attach photos, agendas, or correspondence alongside their written reflection.
+                            <span class="step-detail">Set the point value to whatever the exam or assignment it replaces was worth. The stakes should feel real.</span>
+                        </li>
+                        <li>
+                            <strong>Attach the rubric.</strong> Use the included rubric as-is, or rebuild it in your LMS's rubric tool so it grades inside SpeedGrader (or your platform's equivalent).
+                        </li>
+                        <li>
+                            <strong>Make it local.</strong> Everything is licensed for adaptation — swap my Tarrant County and Fort Worth examples for your own county courthouse, city hall, and state legislative district. The closer to home, the better it lands.
+                        </li>
+                    </ol>
+                    <div class="adopt-coda">
+                        Teaching both Federal and Texas government? CAP and TIA share a design, so running them together is straightforward — and my <a href="show-up-fort-worth.html">Show Up in Fort Worth</a> guide gives Texas students a ready-made on-ramp to the meetings and offices these activities point them toward. Questions? <a href="mailto:jared.stewart@tccd.edu?subject=Adopting%20TIA">Email me</a>.
+                    </div>
+                </div>
+            </details>
+
             <a class="project reveal" href="https://professorjaredalanstewart.github.io/tcc-govt-modules/">
                 <div class="project-info">
                     <h3>Federal Government Trailblazer Trek</h3>
@@ -1581,10 +1614,10 @@ footer a:hover { text-decoration: underline; }
     });
 
 
-    // auto-open the Adopt CAP panel when deep-linked
+    // auto-open an Adopt panel when deep-linked (#adopt-cap or #adopt-tia)
     function openAdopt() {
-        if (location.hash === '#adopt-cap') {
-            var d = document.getElementById('adopt-cap');
+        if (location.hash === '#adopt-cap' || location.hash === '#adopt-tia') {
+            var d = document.getElementById(location.hash.slice(1));
             if (d) { d.open = true; d.scrollIntoView({ block: 'start' }); }
         }
     }
