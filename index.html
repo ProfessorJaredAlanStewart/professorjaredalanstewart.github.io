@@ -125,8 +125,63 @@ body {
     flex-shrink: 0;
     user-select: none;
 }
+/* dropdown menu */
+.qn-drop { position: relative; flex-shrink: 0; }
+.qn-drop > .qn-trigger {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    list-style: none;
+    color: rgba(255,255,255,0.78);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 10px;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+.qn-drop > .qn-trigger::-webkit-details-marker { display: none; }
+.qn-drop > .qn-trigger::marker { content: ''; }
+.qn-drop > .qn-trigger:hover { color: var(--gold); }
+.qn-drop > .qn-trigger .qn-chev {
+    color: var(--gold);
+    font-size: 0.85em;
+    transition: transform 0.25s ease;
+}
+.qn-drop[open] > .qn-trigger .qn-chev { transform: rotate(180deg); }
+.qn-menu {
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 230px;
+    background: var(--plum-deepest);
+    border: 1px solid rgba(255,199,0,0.28);
+    border-radius: 8px;
+    box-shadow: 0 14px 36px rgba(20,8,40,0.55);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 120;
+}
+.qn-drop[open] .qn-menu { display: flex; animation: qnFade 0.2s ease; }
+@keyframes qnFade { from { opacity: 0; transform: translateX(-50%) translateY(0); } to { opacity: 1; transform: translateX(-50%) translateY(6px); } }
+.qn-menu a {
+    padding: 10px 14px !important;
+    border-radius: 5px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+.qn-menu a::after { display: none; }
+.qn-menu a:hover { background: rgba(255,199,0,0.1); color: var(--gold); }
 @media (max-width: 1150px) {
     .quicknav-inner { justify-content: flex-start; }
+}
+@media (max-width: 760px) {
+    .qn-menu { left: 0; transform: translateY(6px); min-width: 200px; }
+    .qn-drop[open] .qn-menu { transform: translateY(6px); }
 }
 .scroll-progress {
     position: absolute;
@@ -1064,19 +1119,18 @@ footer a:hover { text-decoration: underline; }
 <nav class="quicknav" aria-label="Project quick links">
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="quicknav-inner">
-        <a href="https://jaredalanstewart.com/Civic-Action-Project/index.html">CAP</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/Texas-In-Action/">TIA</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/tcc-govt-modules/">Federal Trek</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/texas-govt-modules/">Texas Trek</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">Keep Your Seat</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">Schedule Builder</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/Games-and-Simulations-/">Games &amp; Sims</a>
+        <details class="qn-drop">
+            <summary class="qn-trigger">My Projects <span class="qn-chev">▾</span></summary>
+            <div class="qn-menu">
+                <a href="https://jaredalanstewart.com/Civic-Action-Project/index.html">Civic Action Project (CAP)</a>
+                <a href="https://jaredalanstewart.com/Texas-In-Action/">Texas In Action (TIA)</a>
+                <a href="https://jaredalanstewart.com/tcc-govt-modules/">Federal Government Trek</a>
+                <a href="https://jaredalanstewart.com/texas-govt-modules/">Texas Government Trek</a>
+                <a href="https://jaredalanstewart.com/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">Keep Your Seat</a>
+                <a href="https://jaredalanstewart.com/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">Schedule Builder</a>
+                <a href="https://jaredalanstewart.com/Games-and-Simulations-/">Games &amp; Simulations Library</a>
+            </div>
+        </details>
         <span class="sep">★</span>
         <a href="cv.html">CV</a>
         <span class="sep">★</span>
@@ -1336,57 +1390,6 @@ footer a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<section class="offclock">
-    <div class="container">
-        <div class="offclock-grid">
-            <div class="offclock-gallery">
-                <figure>
-                    <img src="jared-music.jpg" alt="Jared performing on stage with an acoustic guitar at sunset during his professional music days">
-                    <figcaption>A previous life on stage</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-bassets-hike.jpg" alt="Jared in a TCC shirt crouched on a trail boulder with his two basset hounds">
-                    <figcaption>The trail crew, setting the pace</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-snail.jpg" alt="Jared posing proudly next to a giant pink snail sculpture">
-                    <figcaption>Meeting with a constituent</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-bench.jpg" alt="Jared and Levi sitting on a bench above a creek, mid-conversation">
-                    <figcaption>The creekside caucus</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-hat-dog.jpg" alt="One of Jared's basset hounds wearing his fedora, sitting beside him on the couch">
-                    <figcaption>My hat. I let her borrow it.</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-window.jpg" alt="Levi between two basset hounds, all looking out the window by the Christmas tree">
-                    <figcaption>Waiting for Santa</figcaption>
-                </figure>
-                <figure>
-                    <img src="jared-yoga-dogs.jpg" alt="Jared and Levi doing floor stretches while two bassets supervise and sprawl">
-                    <figcaption>Family yoga, fully supervised</figcaption>
-                </figure>
-                <figure class="wide">
-                    <img src="jared-family.jpg" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window">
-                    <figcaption>The full delegation, in session at the beach</figcaption>
-                </figure>
-            </div>
-            <div class="offclock-copy">
-                <div class="section-kicker">Off the Clock</div>
-                <h2>Beyond the classroom</h2>
-                <p>The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people — and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds — <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> — while they try to sleep. Jam!</p>
-                <p>I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> — yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
-                <p>I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
-                <div style="margin-top:26px;">
-                    <a class="page-link" href="in-the-wild.html" style="background:var(--gold); color:var(--plum-deepest);">See more from the wild <span class="pl-arrow" style="color:var(--plum-deep);">→</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="contact" id="contact">
     <div class="container">
         <div class="section-kicker reveal" style="display:inline-block;">Get In Touch</div>
@@ -1503,6 +1506,20 @@ footer a:hover { text-decoration: underline; }
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeLb();
     });
+
+    // My Projects dropdown: close on outside click or Escape
+    var qnDrop = document.querySelector('.qn-drop');
+    if (qnDrop) {
+        document.addEventListener('click', function (e) {
+            if (qnDrop.open && !qnDrop.contains(e.target)) qnDrop.removeAttribute('open');
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') qnDrop.removeAttribute('open');
+        });
+        qnDrop.querySelectorAll('.qn-menu a').forEach(function (lnk) {
+            lnk.addEventListener('click', function () { qnDrop.removeAttribute('open'); });
+        });
+    }
 })();
 </script>
 

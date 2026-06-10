@@ -1072,11 +1072,12 @@ footer a:hover { text-decoration: underline; }
 .wild-wrap { max-width: 1080px; margin: 0 auto; padding: 54px 32px; }
 .wild-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .wild-grid figure { margin: 0; }
-.wild-grid img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 8px; border: 5px solid #fff; box-shadow: 0 12px 30px rgba(36,19,65,0.16); cursor: zoom-in; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s; }
+.wild-grid img { width: 100%; height: 260px; object-fit: cover; object-position: center 28%; display: block; border-radius: 8px; border: 5px solid #fff; box-shadow: 0 12px 30px rgba(36,19,65,0.16); cursor: zoom-in; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s; }
 .wild-grid figure:nth-child(3n+1) img { transform: rotate(-1.4deg); }
 .wild-grid figure:nth-child(3n+2) img { transform: rotate(0.8deg); }
 .wild-grid figure:nth-child(3n) img { transform: rotate(1.5deg); }
 .wild-grid figure:hover img { transform: rotate(0deg) scale(1.04); box-shadow: 0 18px 42px rgba(36,19,65,0.26); }
+.wild-grid img.top-face { object-position: center 18%; }
 .wild-grid figcaption { text-align: center; font-style: italic; color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
 .wild-intro { text-align: center; max-width: 640px; margin: 0 auto 40px; color: var(--muted); font-size: 1.05rem; }
 @media (max-width: 860px) { .wild-grid { grid-template-columns: 1fr 1fr; } .wild-grid img { height: 200px; } }
@@ -1156,7 +1157,7 @@ footer a:hover { text-decoration: underline; }
             <figcaption>Family yoga, fully supervised</figcaption>
         </figure>
         <figure>
-            <img src="jared-family.jpg" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window" loading="lazy">
+            <img src="jared-family.jpg" class="top-face" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window" loading="lazy">
             <figcaption>The full delegation, in session at the beach</figcaption>
         </figure>
         <figure>
@@ -1172,6 +1173,14 @@ footer a:hover { text-decoration: underline; }
             <figcaption>Somewhere on a trail, smelling everything</figcaption>
         </figure>
     </div>
+
+    <section class="wild-bio" style="max-width:760px; margin:54px auto 0; border-top:1px solid var(--rule); padding-top:44px;">
+        <div class="section-kicker" style="color:var(--plum); margin-bottom:10px;">The Person Behind the Projects</div>
+        <h2 style="font-family:'Libre Baskerville',Georgia,serif; font-size:1.7rem; color:var(--plum); margin-bottom:22px;">Beyond the classroom</h2>
+        <p style="margin-bottom:16px; line-height:1.8;">The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people &mdash; and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds &mdash; <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> &mdash; while they try to sleep. Jam!</p>
+        <p style="margin-bottom:16px; line-height:1.8;">I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> &mdash; yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
+        <p style="line-height:1.8;">I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
+    </section>
 </main>
 
 
