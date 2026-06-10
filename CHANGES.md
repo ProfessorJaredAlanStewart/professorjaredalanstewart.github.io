@@ -38,3 +38,15 @@ pages now serve .webp.
 2. Re-scrape your URL at https://developers.facebook.com/tools/debug/ and
    https://www.linkedin.com/post-inspector/ so cached previews update.
 3. Confirm the license choice in the footer.
+
+## Round 2 (same day)
+- **Image stretch fix**: the width/height attributes added for layout stability
+  map to CSS properties as low-priority hints; the stylesheet overrode width
+  but not height, so the clapperboard photo rendered 340px x 1200px. Added a
+  base `img { height: auto; }` rule to all four pages — attributes still
+  reserve layout space, class-level rules (gallery crops) still win.
+- **"Drop CAP into your LMS" panel** on projects.html, directly under the CAP
+  card: collapsible 5-step adoption guide (skim → scope → LMS assignment →
+  rubric → localize) with an email CTA. The home-page ballot's instructor
+  choice now deep-links to it (projects.html#adopt-cap) and it auto-opens
+  on arrival.

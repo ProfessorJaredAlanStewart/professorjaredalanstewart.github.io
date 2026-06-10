@@ -50,6 +50,7 @@
     --heritage: #B7A57A;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+img { height: auto; } /* width/height attrs reserve space; CSS classes may still override */
 html { scroll-behavior: smooth; }
 body {
     font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
@@ -1213,6 +1214,93 @@ footer a:hover { text-decoration: underline; }
 
 
 
+/* ---------- adopt CAP panel ---------- */
+.adopt {
+    margin: 0;
+    border-top: 1px solid var(--rule);
+    background: linear-gradient(90deg, rgba(255,199,0,0.07), transparent 55%), var(--cream);
+    border-left: 4px solid var(--gold);
+}
+.adopt summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 26px 18px 96px;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.98rem;
+    user-select: none;
+}
+.adopt summary::-webkit-details-marker { display: none; }
+.adopt summary::before {
+    content: '＋';
+    font-size: 1.1rem;
+    color: var(--warm);
+    font-weight: 800;
+}
+.adopt[open] summary::before { content: '−'; }
+.adopt summary .adopt-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm);
+    background: rgba(217,119,6,0.1);
+    border: 1px solid rgba(217,119,6,0.3);
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.adopt summary:hover { color: var(--warm); }
+.adopt-body {
+    padding: 4px 26px 30px 96px;
+    max-width: 820px;
+}
+.adopt-body > p { font-size: 0.94rem; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+.adopt-steps { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 16px; }
+.adopt-steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 52px;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: var(--ink);
+}
+.adopt-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 1px;
+    width: 34px; height: 34px;
+    display: grid;
+    place-items: center;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--plum);
+    background: white;
+    border: 1.5px solid var(--rule);
+    border-radius: 50%;
+}
+.adopt-steps li strong { color: var(--navy); }
+.adopt-steps .step-detail { display: block; color: var(--muted); margin-top: 3px; }
+.adopt-coda {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.6;
+}
+.adopt-coda a { color: var(--plum); font-weight: 600; }
+@media (max-width: 760px) {
+    .adopt summary { padding-left: 26px; flex-wrap: wrap; }
+    .adopt-body { padding-left: 26px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -1271,6 +1359,39 @@ footer a:hover { text-decoration: underline; }
                 </div>
                 <span class="project-arrow">→</span>
             </a>
+
+            <details class="adopt" id="adopt-cap">
+                <summary>
+                    <span class="adopt-kicker">For Instructors</span>
+                    Drop CAP into your LMS — about 30 minutes, start to finish
+                </summary>
+                <div class="adopt-body">
+                    <p>CAP runs entirely in the browser, so there's nothing to install and nothing for your IT department to approve. You're creating ordinary LMS assignments that point students at the activity menu. Here's the whole process:</p>
+                    <ol class="adopt-steps">
+                        <li>
+                            <strong>Skim the menu first.</strong> Open the <a href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">CAP site</a> and browse the 39 activities and the instructor resources — rubrics, tracking tools, and student outcome data are all included.
+                            <span class="step-detail">Ten minutes of skimming will tell you which activity categories fit your course and your students.</span>
+                        </li>
+                        <li>
+                            <strong>Pick your scope.</strong> CAP works as a full exam replacement, a single-unit project, or extra credit.
+                            <span class="step-detail">If you're testing the waters, start with one category — Government Meeting Attendance is the most popular first pick, and the student stories on my home page show why.</span>
+                        </li>
+                        <li>
+                            <strong>Create the assignment in your LMS.</strong> In Canvas, Blackboard, or Brightspace: new Assignment → paste the link to your chosen CAP activity in the description → set the submission type to text entry <em>plus</em> file upload, so students can attach photos, agendas, or documents alongside their written reflection.
+                            <span class="step-detail">Set the point value to whatever the exam or assignment it replaces was worth. The stakes should feel real.</span>
+                        </li>
+                        <li>
+                            <strong>Attach the rubric.</strong> Use the included CAP rubric as-is, or rebuild it in your LMS's rubric tool so it grades inside SpeedGrader (or your platform's equivalent).
+                        </li>
+                        <li>
+                            <strong>Make it yours.</strong> Everything is licensed for adaptation — swap my Fort Worth examples for your own city council, county commissioners, and school board. Local is the whole point.
+                        </li>
+                    </ol>
+                    <div class="adopt-coda">
+                        Stuck on step three, or want the outcome data before pitching this to your department? <a href="mailto:jared.stewart@tccd.edu?subject=Adopting%20CAP">Email me</a> — I will happily talk your ear off about it. That's not a warning, it's a promise.
+                    </div>
+                </div>
+            </details>
 
             <a class="project reveal" href="https://professorjaredalanstewart.github.io/Texas-In-Action/">
                 <div class="project-info">
@@ -1457,6 +1578,16 @@ footer a:hover { text-decoration: underline; }
         if (e.key === 'Escape') closeLb();
     });
 
+
+    // auto-open the Adopt CAP panel when deep-linked
+    function openAdopt() {
+        if (location.hash === '#adopt-cap') {
+            var d = document.getElementById('adopt-cap');
+            if (d) { d.open = true; d.scrollIntoView({ block: 'start' }); }
+        }
+    }
+    window.addEventListener('hashchange', openAdopt);
+    openAdopt();
 })();
 </script>
 
