@@ -1085,6 +1085,95 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 860px) { .wild-grid { grid-template-columns: 1fr 1fr; } .wild-grid img { height: 200px; } }
 @media (max-width: 520px) { .wild-grid { grid-template-columns: 1fr; } }
 
+/* ---------- scrapbook collage ---------- */
+.scrapbook {
+    display: grid;
+    grid-template-columns: 190px 1fr 190px;
+    grid-template-areas:
+        "left center right"
+        "bottom bottom bottom";
+    gap: 20px;
+    align-items: start;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.sb-col { display: flex; flex-direction: column; gap: 16px; }
+.sb-left { grid-area: left; }
+.sb-right { grid-area: right; }
+.sb-bottom {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 2px;
+}
+.sb-text {
+    grid-area: center;
+    align-self: stretch;
+    background:
+        radial-gradient(ellipse at 80% 0%, rgba(217,119,6,0.14) 0%, transparent 55%),
+        var(--plum-deep);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 34px 32px;
+    box-shadow: 0 16px 44px rgba(36,19,65,0.24);
+    position: relative;
+}
+.sb-text::before {
+    /* gold star "pin" at the top center */
+    content: '';
+    position: absolute;
+    top: -16px; left: 50%; transform: translateX(-50%);
+    width: 34px; height: 34px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.35));
+}
+.sb-text .sb-kicker {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+.sb-text h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.5rem; color: #fff; margin-bottom: 18px;
+}
+.sb-text p {
+    color: rgba(255,255,255,0.86);
+    font-size: 0.95rem; line-height: 1.62; margin-bottom: 13px;
+}
+.sb-text p:last-child { margin-bottom: 0; }
+.sb-text strong { color: var(--gold); font-weight: 600; }
+
+.scrapbook figure { margin: 0; }
+.scrapbook img {
+    width: 100%; height: 148px; object-fit: cover; object-position: center 25%;
+    display: block; border-radius: 7px; border: 5px solid #fff;
+    box-shadow: 0 10px 26px rgba(36,19,65,0.18); cursor: zoom-in;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+}
+.scrapbook img.top-face { object-position: center 16%; }
+.scrapbook figcaption {
+    text-align: center; font-style: italic;
+    color: var(--muted); font-size: 0.72rem; margin-top: 6px; line-height: 1.3;
+}
+.scrapbook figure:nth-child(3n+1) img { transform: rotate(-2deg); }
+.scrapbook figure:nth-child(3n+2) img { transform: rotate(1.6deg); }
+.scrapbook figure:nth-child(3n) img { transform: rotate(-0.9deg); }
+.scrapbook figure:hover img {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 18px 42px rgba(36,19,65,0.3);
+    position: relative; z-index: 2;
+}
+@media (max-width: 860px) {
+    .scrapbook {
+        grid-template-columns: 1fr;
+        grid-template-areas: "center" "left" "right" "bottom";
+    }
+    .sb-col { flex-direction: row; flex-wrap: wrap; }
+    .sb-col figure { flex: 1 1 44%; }
+    .sb-bottom { grid-template-columns: repeat(2, 1fr); }
+    .scrapbook img { height: 180px; }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -1129,60 +1218,69 @@ footer a:hover { text-decoration: underline; }
 
 <main class="wild-wrap">
     <p class="wild-intro">Proof that the person behind the projects also touches grass &mdash; usually while a basset stops to smell every blade of it.</p>
-    <div class="wild-grid">
-        <figure>
-            <img src="jared-music.webp" width="900" height="1200" alt="Jared performing on stage with an acoustic guitar at sunset" loading="lazy">
-            <figcaption>A previous life on stage</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-bassets-hike.webp" width="900" height="1200" alt="Jared in a TCC shirt crouched on a trail boulder with his two basset hounds" loading="lazy">
-            <figcaption>The trail crew, setting the pace</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-snail.webp" width="900" height="1200" alt="Jared posing proudly next to a giant pink snail sculpture" loading="lazy">
-            <figcaption>Meeting with a constituent</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-bench.webp" width="900" height="675" alt="Jared and Levi sitting on a bench above a creek, mid-conversation" loading="lazy">
-            <figcaption>The creekside caucus</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-hat-dog.webp" width="900" height="1200" alt="One of Jared's basset hounds wearing his fedora, sitting beside him on the couch" loading="lazy">
-            <figcaption>My hat. I let her borrow it.</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-window.webp" width="1200" height="900" alt="Levi between two basset hounds, all looking out the window by the Christmas tree" loading="lazy">
-            <figcaption>Waiting for Santa</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-yoga-dogs.webp" width="900" height="1200" alt="Jared and Levi doing floor stretches while two bassets supervise and sprawl" loading="lazy">
-            <figcaption>Family yoga, fully supervised</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-family.webp" width="1400" height="1050" class="top-face" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window" loading="lazy">
-            <figcaption>The full delegation, in session at the beach</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-levi.webp" width="900" height="1200" alt="Jared and his son Levi crouched on a bluff overlooking a river on a misty hike" loading="lazy">
-            <figcaption>Surveying the kingdom with Levi</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-arcade.webp" width="900" height="1200" alt="Jared and Levi playing the Star Trek Voyager arcade game with a light gun" loading="lazy">
-            <figcaption>Teaching the next generation &mdash; wrong series, right kid</figcaption>
-        </figure>
-        <figure>
-            <img src="jared-trail.webp" width="1400" height="1050" alt="Jared on a hiking trail with two basset hounds in front of a cave" loading="lazy">
-            <figcaption>Somewhere on a trail, smelling everything</figcaption>
-        </figure>
-    </div>
 
-    <section class="wild-bio" style="max-width:760px; margin:54px auto 0; border-top:1px solid var(--rule); padding-top:44px;">
-        <div class="section-kicker" style="color:var(--plum); margin-bottom:10px;">The Person Behind the Projects</div>
-        <h2 style="font-family:'Libre Baskerville',Georgia,serif; font-size:1.7rem; color:var(--plum); margin-bottom:22px;">Beyond the classroom</h2>
-        <p style="margin-bottom:16px; line-height:1.8;">The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people &mdash; and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds &mdash; <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> &mdash; while they try to sleep. Jam!</p>
-        <p style="margin-bottom:16px; line-height:1.8;">I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> &mdash; yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
-        <p style="line-height:1.8;">I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
-    </section>
+    <div class="scrapbook reveal">
+        <div class="sb-col sb-left">
+            <figure>
+                <img src="jared-music.webp" width="900" height="1200" alt="Jared performing on stage with an acoustic guitar at sunset" loading="lazy">
+                <figcaption>A previous life on stage</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-bassets-hike.webp" width="900" height="1200" alt="Jared in a TCC shirt crouched on a trail boulder with his two basset hounds" loading="lazy">
+                <figcaption>The trail crew, setting the pace</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-snail.webp" width="900" height="1200" alt="Jared posing proudly next to a giant pink snail sculpture" loading="lazy">
+                <figcaption>Meeting with a constituent</figcaption>
+            </figure>
+        </div>
+
+        <div class="sb-text">
+            <div class="sb-kicker">The Person Behind the Projects</div>
+            <h2>Beyond the classroom</h2>
+            <p>The Stew abides. My path to academia was long, winding, and loud. Before heading to the University of Washington for a graduate degree in Political Science, I was a <strong>professional musician</strong>, parlaying guitar skills I've honed over 25-plus years. I was fortunate to play with and for some great people &mdash; and I learned a lot about entertaining a disengaged crowd. I don't perform publicly much anymore, but I co-sponsor the <strong>TCC Trinity River Guitar Club</strong>, which lets me watch the next generation of rockstars up close. If I'm not on campus, there's a good chance I have a guitar in my hands, annoying my basset hounds &mdash; <strong>Sadie Mae</strong> and <strong>Sammie Doo</strong> &mdash; while they try to sleep. Jam!</p>
+            <p>I'm married to <strong>Dr. Mikaela Stewart</strong>, Associate Professor of Biochemistry at TCU, and we have an eight-year-old son, <strong>Levi</strong> &mdash; yes, the same Levi behind the <em>Wheel of Levi</em> in the games library. He remains my most demanding user and my best sidekick. I work for him now.</p>
+            <p>I also believe <strong>The West Wing</strong> is the best television show ever made. This is not up for debate, though as a government professor I will happily moderate one.</p>
+        </div>
+
+        <div class="sb-col sb-right">
+            <figure>
+                <img src="jared-hat-dog.webp" width="900" height="1200" alt="One of Jared's basset hounds wearing his fedora, sitting beside him on the couch" loading="lazy">
+                <figcaption>My hat. I let her borrow it.</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-window.webp" width="1200" height="900" alt="Levi between two basset hounds, all looking out the window by the Christmas tree" loading="lazy">
+                <figcaption>Waiting for Santa</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-yoga-dogs.webp" width="900" height="1200" alt="Jared and Levi doing floor stretches while two bassets supervise and sprawl" loading="lazy">
+                <figcaption>Family yoga, fully supervised</figcaption>
+            </figure>
+        </div>
+
+        <div class="sb-bottom">
+            <figure>
+                <img src="jared-bench.webp" width="900" height="675" alt="Jared and Levi sitting on a bench above a creek, mid-conversation" loading="lazy">
+                <figcaption>The creekside caucus</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-family.webp" width="1400" height="1050" class="top-face" alt="Jared, his wife, and Levi relaxing in a beach house with the ocean out the window" loading="lazy">
+                <figcaption>The full delegation, at the beach</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-levi.webp" width="900" height="1200" alt="Jared and his son Levi crouched on a bluff overlooking a river on a misty hike" loading="lazy">
+                <figcaption>Surveying the kingdom with Levi</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-arcade.webp" width="900" height="1200" alt="Jared and Levi playing the Star Trek Voyager arcade game with a light gun" loading="lazy">
+                <figcaption>Wrong series, right kid</figcaption>
+            </figure>
+            <figure>
+                <img src="jared-trail.webp" width="1400" height="1050" alt="Jared on a hiking trail with two basset hounds in front of a cave" loading="lazy">
+                <figcaption>Somewhere on a trail, smelling everything</figcaption>
+            </figure>
+        </div>
+    </div>
 </main>
 
 
@@ -1246,7 +1344,7 @@ footer a:hover { text-decoration: underline; }
         });
     });
     lbPanel.addEventListener('click', function (e) { e.stopPropagation(); });
-    document.querySelectorAll('.qr-item img, .offclock-gallery img, .wild-grid img').forEach(function (img) {
+    document.querySelectorAll('.qr-item img, .offclock-gallery img, .wild-grid img, .scrapbook img').forEach(function (img) {
         img.addEventListener('click', function () {
             lbImg.src = img.src;
             lbImg.alt = img.alt;
