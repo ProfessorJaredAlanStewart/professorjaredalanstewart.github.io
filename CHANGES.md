@@ -50,3 +50,10 @@ pages now serve .webp.
   rubric → localize) with an email CTA. The home-page ballot's instructor
   choice now deep-links to it (projects.html#adopt-cap) and it auto-opens
   on arrival.
+
+## Round 3 — Show Up in Fort Worth (publish-ready)
+- New page show-up-fort-worth.html with verified speaker/comment card
+  mechanics from the City Secretary's instructions.
+- "Show Up" added to the nav on all four existing pages; the new page's nav
+  highlights itself in gold like the others.
+- sitemap.xml updated with the new URL.
