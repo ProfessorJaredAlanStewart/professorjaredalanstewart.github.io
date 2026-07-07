@@ -1242,7 +1242,7 @@ footer a:hover { text-decoration: underline; }
 }
 .ballot-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 18px;
     text-align: left;
 }
@@ -1357,6 +1357,8 @@ footer a:hover { text-decoration: underline; }
     <div class="quicknav-inner">
         <a href="projects.html">My Projects</a>
         <span class="sep">★</span>
+        <a href="research.html">Research</a>
+        <span class="sep">★</span>
         <a href="cv.html">CV</a>
         <span class="sep">★</span>
         <a href="in-the-wild.html">In the Wild</a>
@@ -1412,6 +1414,11 @@ footer a:hover { text-decoration: underline; }
                 <h3>I teach government</h3>
                 <p>Everything here is an open educational resource. Browse the full library, then take whatever fits your course and make it yours.</p>
                 <span class="ballot-go">Browse &amp; adopt →</span>
+            </a>
+            <a class="ballot-choice reveal" href="research.html">
+                <h3>I'm a researcher</h3>
+                <p>Fellow academic or grad student? The dissertation in practice — and the studies behind these tools — live here.</p>
+                <span class="ballot-go">See the research →</span>
             </a>
             <a class="ballot-choice reveal" href="#impact">
                 <h3>I'm just curious</h3>

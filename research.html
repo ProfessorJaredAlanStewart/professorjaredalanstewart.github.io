@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaredalanstewart.com/">
-    <meta property="og:title" content="Jared Alan Stewart — Projects">
-    <meta property="og:description" content="Free, open civic education tools: the Civic Action Project, Texas In Action, interactive government modules, simulations, and classroom resources.">
+    <meta property="og:title" content="Jared Alan Stewart — Research">
+    <meta property="og:description" content="The research behind the tools — a dissertation in practice on the Texas civic-education mandate, plus ongoing studies of civic learning at community colleges.">
     <meta property="og:image" content="https://jaredalanstewart.com/og-card.jpg">
     <meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jared Alan Stewart — Projects">
-    <meta name="twitter:description" content="Free, open civic education tools for American and Texas government — open to all, meant for all.">
+    <meta name="twitter:title" content="Jared Alan Stewart — Research">
+    <meta name="twitter:description" content="The research behind the tools — a dissertation in practice and ongoing civic-education studies.">
     <meta name="twitter:image" content="https://jaredalanstewart.com/og-card.jpg">
-<link rel="canonical" href="https://jaredalanstewart.com/projects.html">
-<title>Jared Alan Stewart — Projects</title>
-<meta name="description" content="Free, open civic education projects by Jared Alan Stewart: the Civic Action Project, Texas In Action, interactive government Treks, simulations, and a full games library.">
-<meta property="og:title" content="Jared Alan Stewart — Projects">
-<meta property="og:description" content="Decisions are made by those who show up. Free civic education projects, simulations, and open resources from Fort Worth, Texas.">
+<link rel="canonical" href="https://jaredalanstewart.com/research.html">
+<title>Jared Alan Stewart — Research</title>
+<meta name="description" content="The research behind the tools — Jared Alan Stewart's dissertation in practice and ongoing studies on civic learning in community-college government courses.">
+<meta property="og:title" content="Jared Alan Stewart — Research">
+<meta property="og:description" content="The research behind the tools: a dissertation in practice on the Texas government-course mandate, plus ongoing civic-education studies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jaredalanstewart.com">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -1368,6 +1368,25 @@ footer a:hover { text-decoration: underline; }
     }
     .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* ---------- research: status pills + note ---------- */
+.proj-status {
+    align-self: center;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--warm); background: rgba(217,119,6,0.10);
+    border: 1px solid rgba(217,119,6,0.28);
+    padding: 6px 13px; border-radius: 999px; white-space: nowrap;
+}
+.ongoing { padding-top: 22px; }
+.research-note {
+    margin-top: 32px; text-align: center;
+    font-size: 1.02rem; color: var(--muted); line-height: 1.7;
+}
+.research-note a { color: var(--plum); font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255,199,0,0.65); }
+.research-note a:hover { color: var(--plum-mid); }
+@media (max-width: 860px) {
+    .proj-status { justify-self: start; margin-top: 4px; }
+}
 </style>
 </head>
 <body>
@@ -1379,9 +1398,9 @@ footer a:hover { text-decoration: underline; }
     <div class="quicknav-inner">
         <a href="https://jaredalanstewart.com/">&#8592; Home</a>
         <span class="sep">★</span>
-        <a href="projects.html" style="color:var(--gold);">My Projects</a>
+        <a href="projects.html">My Projects</a>
         <span class="sep">★</span>
-        <a href="research.html">Research</a>
+        <a href="research.html" style="color:var(--gold);">Research</a>
         <span class="sep">★</span>
         <a href="cv.html">CV</a>
         <span class="sep">★</span>
@@ -1396,213 +1415,124 @@ footer a:hover { text-decoration: underline; }
 <header class="page-hero">
     <div class="ph-star"></div>
     <div class="ph-inner">
-        <div class="ph-kicker">The Work</div>
-        <h1>Projects I'm <em>proud of</em></h1>
-        <p>Every one of these opens free in any browser. No logins, no installs, no cost &mdash; just click and start.</p>
+        <div class="ph-kicker">Research</div>
+        <h1>The research <em>behind the work</em></h1>
+        <p>Everything I build starts as a question: does it actually help students show up? This is where I test that &mdash; a dissertation in practice, and the studies growing out of it.</p>
     </div>
 </header>
 
 <main class="projects-wrap">
     <section class="projects-section">
         <div class="creed reveal">
-            <p class="creed-line">Every project here exists to help more people <span class="showup">show up</span>.</p>
+            <p class="creed-line">Good teaching deserves <span class="showup">honest evidence</span>.</p>
             <div class="creed-venues">
-                <span>City council chambers</span>
+                <span>Community-college classrooms</span>
                 <span class="csep">★</span>
-                <span>School board meetings</span>
+                <span>A purpose-built instrument</span>
                 <span class="csep">★</span>
-                <span>The ballot box</span>
-                <span class="csep">★</span>
-                <span>Their own communities</span>
+                <span>Open, shareable findings</span>
             </div>
         </div>
+
+        <!-- ============================================================
+             THE DISSERTATION — featured. Links to the full brief.
+        ============================================================ -->
         <div class="project-list">
-
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">
+            <a class="project reveal" href="the-unmeasured-mandate.html">
                 <div class="project-info">
-                    <span class="flagship-banner">Flagship Project</span>
-                    <h3>The Civic Action Project (CAP)</h3>
-                    <p>My signature framework — and the subject of my doctoral research. CAP replaces traditional government exams with a menu of 39 hands-on civic engagement activities, from attending city council meetings to building public service directories. Includes complete instructor resources, rubrics, tracking tools, and student outcome data.</p>
+                    <span class="flagship-banner" style="white-space:nowrap;">Doctoral Research</span>
+                    <h3>The Unmeasured Mandate</h3>
+                    <p>Texas has required every public-college graduate to study government since 1929 &mdash; but no one has ever measured whether those courses build citizens. This is the full argument: the mandate, the civic-opportunity gap, the choice-based redesign (CAP), early returns from real classrooms, and the study built to measure it honestly.</p>
                     <div class="project-tags">
-                        <span class="tag tag-flagship">Flagship</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                        <span class="tag tag-instructors">For Instructors</span>
-                        <span class="tag tag-students">For Students</span>
+                        <span class="tag tag-flagship">Ed.D. Dissertation</span>
+                        <span class="tag tag-federal">GOVT 2305 / 2306</span>
+                        <span class="tag tag-instructors">Quasi-Experimental</span>
+                        <span class="tag tag-oer">Read the brief</span>
                     </div>
                 </div>
                 <span class="project-arrow">→</span>
             </a>
-
-            <details class="adopt" id="adopt-cap">
-                <summary>
-                    <span class="adopt-kicker">For Instructors</span>
-                    Drop CAP into your LMS — about 30 minutes, start to finish
-                </summary>
-                <div class="adopt-body">
-                    <p>CAP runs entirely in the browser, so there's nothing to install and nothing for your IT department to approve. You're creating ordinary LMS assignments that point students at the activity menu. Here's the whole process:</p>
-                    <ol class="adopt-steps">
-                        <li>
-                            <strong>Skim the menu first.</strong> Open the <a href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">CAP site</a> and browse the 39 activities and the instructor resources — rubrics, tracking tools, and student outcome data are all included.
-                            <span class="step-detail">Ten minutes of skimming will tell you which activity categories fit your course and your students.</span>
-                        </li>
-                        <li>
-                            <strong>Pick your scope.</strong> CAP works as a full exam replacement, a single-unit project, or extra credit.
-                            <span class="step-detail">If you're testing the waters, start with one category — Government Meeting Attendance is the most popular first pick, and the student stories on my home page show why.</span>
-                        </li>
-                        <li>
-                            <strong>Create the assignment in your LMS.</strong> In Canvas, Blackboard, or Brightspace: new Assignment → paste the link to your chosen CAP activity in the description → set the submission type to text entry <em>plus</em> file upload, so students can attach photos, agendas, or documents alongside their written reflection.
-                            <span class="step-detail">Set the point value to whatever the exam or assignment it replaces was worth. The stakes should feel real.</span>
-                        </li>
-                        <li>
-                            <strong>Attach the rubric.</strong> Use the included CAP rubric as-is, or rebuild it in your LMS's rubric tool so it grades inside SpeedGrader (or your platform's equivalent).
-                        </li>
-                        <li>
-                            <strong>Make it yours.</strong> Everything is licensed for adaptation — swap my Fort Worth examples for your own city council, county commissioners, and school board. Local is the whole point.
-                        </li>
-                    </ol>
-                    <div class="adopt-coda">
-                        Stuck on step three, or want the outcome data before pitching this to your department? <a href="mailto:jared.stewart@tccd.edu?subject=Adopting%20CAP">Email me</a> — I will happily talk your ear off about it. That's not a warning, it's a promise.
-                    </div>
-                </div>
-            </details>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Texas-In-Action/">
-                <div class="project-info">
-                    <h3>Texas In Action (TIA)</h3>
-                    <p>The Lone Star counterpart to CAP — civic engagement built specifically for Texas Government (GOVT 2306). Students connect directly with the state and local institutions that shape daily life in Texas, from the Capitol in Austin to their own county courthouse.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <details class="adopt" id="adopt-tia">
-                <summary>
-                    <span class="adopt-kicker">For Instructors</span>
-                    Drop TIA into your LMS — same setup, built for GOVT 2306
-                </summary>
-                <div class="adopt-body">
-                    <p>TIA is the Texas Government counterpart to CAP, and it adopts exactly the same way: browser-based, nothing to install, no IT approval needed. If you already run CAP, this will feel familiar. If you're starting here, the whole process takes about half an hour:</p>
-                    <ol class="adopt-steps">
-                        <li>
-                            <strong>Skim the menu first.</strong> Open the <a href="https://professorjaredalanstewart.github.io/Texas-In-Action/">TIA site</a> and browse the activities. They're built specifically around Texas institutions — the Legislature, the plural executive, county and municipal government — so students connect with the bodies that actually govern their daily lives in Texas.
-                            <span class="step-detail">Ten minutes of skimming will tell you which activities map onto your GOVT 2306 units.</span>
-                        </li>
-                        <li>
-                            <strong>Pick your scope.</strong> TIA works as a full exam replacement, a single-unit project, or extra credit.
-                            <span class="step-detail">Contacting a state representative and attending a county commissioners court meeting are the two activities students find most eye-opening — both pair naturally with the Texas legislative and local-government units.</span>
-                        </li>
-                        <li>
-                            <strong>Create the assignment in your LMS.</strong> In Canvas, Blackboard, or Brightspace: new Assignment → paste the link to your chosen TIA activity in the description → set the submission type to text entry <em>plus</em> file upload, so students can attach photos, agendas, or correspondence alongside their written reflection.
-                            <span class="step-detail">Set the point value to whatever the exam or assignment it replaces was worth. The stakes should feel real.</span>
-                        </li>
-                        <li>
-                            <strong>Attach the rubric.</strong> Use the included rubric as-is, or rebuild it in your LMS's rubric tool so it grades inside SpeedGrader (or your platform's equivalent).
-                        </li>
-                        <li>
-                            <strong>Make it local.</strong> Everything is licensed for adaptation — swap my Tarrant County and Fort Worth examples for your own county courthouse, city hall, and state legislative district. The closer to home, the better it lands.
-                        </li>
-                    </ol>
-                    <div class="adopt-coda">
-                        Teaching both Federal and Texas government? CAP and TIA share a design, so running them together is straightforward — and my <a href="show-up-fort-worth.html">Show Up in Fort Worth</a> guide gives Texas students a ready-made on-ramp to the meetings and offices these activities point them toward. Questions? <a href="mailto:jared.stewart@tccd.edu?subject=Adopting%20TIA">Email me</a>.
-                    </div>
-                </div>
-            </details>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/tcc-govt-modules/">
-                <div class="project-info">
-                    <h3>Federal Government Trailblazer Trek</h3>
-                    <p>Sixteen gamified, interactive learning modules covering all of American federal government. Students earn points, unlock reveal cards, pass knowledge checks, and generate integrity-coded completion reports — entirely in the browser, with zero tracking.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-federal">GOVT 2305</span>
-                        <span class="tag tag-students">For Students</span>
-                        <span class="tag tag-oer">16 Modules</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/texas-govt-modules/">
-                <div class="project-info">
-                    <h3>Texas Government Trailblazer Trek</h3>
-                    <p>Fifteen interactive modules on the same engine, rebuilt for Texas government — the Texas Constitution, the Legislature, the plural executive, and local government. Adds written reflection checkpoints so students connect each chapter to their own communities.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-texas">GOVT 2306</span>
-                        <span class="tag tag-students">For Students</span>
-                        <span class="tag tag-oer">15 Modules</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Keep%20Your%20Seat%20-%20Texas%20State%20Senate%20Simulation.html">
-                <div class="project-info">
-                    <h3>Keep Your Seat — Texas State Senate Simulation</h3>
-                    <p>Students serve as Texas State Senators, navigating committee assignments, floor votes, party pressure, and constituent demands — and discover firsthand why governing means making trade-offs. Built for the classroom: project it, play it, debrief it.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-sim">Simulation</span>
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/Generic%20Schedule%20Builder%20(For%20Dist%20to%20Chairs).html">
-                <div class="project-info">
-                    <h3>Course Schedule Builder</h3>
-                    <p>A flexible, browser-based tool for building and distributing course schedules — designed for department chairs and lead instructors who need clean, consistent schedules without wrestling with spreadsheets.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-instructors">For Instructors</span>
-                        <span class="tag tag-oer">Utility</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/">
-                <div class="project-info">
-                    <h3>The Full Games &amp; Simulations Library</h3>
-                    <p>The complete collection: congressional and presidential primary simulations, crossword generators, Texas Jeopardy, Wheel of Fortune review games, and more. Ten-plus activities for American and Texas government courses, all free and browser-based.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-sim">Simulations</span>
-                        <span class="tag tag-federal">Federal</span>
-                        <span class="tag tag-texas">Texas</span>
-                        <span class="tag tag-oer">Open Resource</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
-        
         </div>
     </section>
 
-<section class="qr-section sec-divider">
-    <div class="container">
-        <div class="section-kicker reveal" style="display:inline-block;">Spread the Word</div>
-        <h2 class="reveal">Take it <span class="accent">with you</span></h2>
-        <p class="section-lead reveal">Print-ready QR cards for syllabi, conference tables, and handout materials. Scan one now — or download, print, and share. That's the whole point of open resources.</p>
-        <div class="qr-grid">
-            <div class="qr-item reveal">
-                <img src="qr-civic-action-project-card.png" alt="Scannable QR card linking to the Civic Action Project" loading="lazy">
-                <a class="dl" href="qr-civic-action-project-card.png" download>Download the CAP card</a>
-            </div>
-            <div class="qr-item reveal">
-                <img src="qr-texas-in-action-card.png" alt="Scannable QR card linking to Texas In Action" loading="lazy">
-                <a class="dl" href="qr-texas-in-action-card.png" download>Download the TIA card</a>
-            </div>
-            <div class="qr-item reveal">
-                <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
-                <a class="dl" href="qr-jaredalanstewart-card.png" download>Download the site card</a>
-            </div>
+    <!-- ============================================================
+         ONGOING RESEARCH — edit this list as projects progress.
+
+         TO ADD AN ENTRY: copy one <article class="project"> ... </article>
+         block below and change the title, description, and tags. Change
+         the <span class="proj-status"> text to one of:
+             In Progress · Data Collection · Under Review · Published · Upcoming
+         When a project gets its own page or publication, change
+         <article class="project"> to <a class="project" href="URL"> and
+         swap the status pill for <span class="project-arrow">→</span>.
+    ============================================================ -->
+    <section class="projects-section sec-divider ongoing">
+        <div class="container" style="padding:0;">
+            <div class="section-kicker reveal" style="display:inline-block;">In the Lab</div>
+            <h2 class="reveal">Ongoing &amp; <span class="accent">upcoming</span></h2>
+            <p class="section-lead reveal">Studies and instruments in motion. I update this as work moves from design to data to daylight.</p>
         </div>
-    </div>
-</section>
+        <div class="project-list">
+
+            <article class="project reveal">
+                <div class="project-info">
+                    <h3>Government Engagement Assessment (GEA)</h3>
+                    <p>A purpose-built pre/post instrument for community-college students &mdash; measuring not just voting, but the social civic life (mentoring, translating, community work) that voting-centered surveys render invisible. Being validated alongside the dissertation for others to adopt.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-instructors">Instrument</span>
+                        <span class="tag tag-students">Community College · HSI</span>
+                    </div>
+                </div>
+                <span class="proj-status">Data Collection</span>
+            </article>
+
+            <article class="project reveal">
+                <div class="project-info">
+                    <h3>CAP Outcomes at a Commuter HSI</h3>
+                    <p>The core quasi-experimental study: does a choice-based, action-civics redesign of the required government course move measured civic capacity for the students the opportunity gap passed over? Pilot data shows feasibility and strong reception; the outcomes study is underway.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-flagship">Core Study</span>
+                        <span class="tag tag-federal">GOVT 2305</span>
+                    </div>
+                </div>
+                <span class="proj-status">In Progress</span>
+            </article>
+
+            <article class="project reveal">
+                <div class="project-info">
+                    <h3>Texas In Action &mdash; Civic Outcomes (GOVT 2306)</h3>
+                    <p>Extending the model to Texas Government: adapting the CAP framework and the GEA to the state-and-local institutions that shape daily life in Texas, and testing whether the outcomes travel.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-texas">Texas · GOVT 2306</span>
+                        <span class="tag tag-oer">Design Phase</span>
+                    </div>
+                </div>
+                <span class="proj-status">Upcoming</span>
+            </article>
+
+        </div>
+
+        <div class="research-note reveal">
+            Working on something adjacent &mdash; replication, co-authoring, or adopting the GEA in your own classroom? <a href="mailto:jared.stewart@tccd.edu?subject=Research%20collaboration">Let&rsquo;s compare notes.</a>
+        </div>
+    </section>
+
+    <section class="qr-section sec-divider">
+        <div class="container">
+            <div class="section-kicker reveal" style="display:inline-block;">Spread the Word</div>
+            <h2 class="reveal">Take it <span class="accent">with you</span></h2>
+            <p class="section-lead reveal">A print-ready card for syllabi, conference tables, and office doors. Scan it, or download and share &mdash; the whole point of open work is that it travels.</p>
+            <div class="qr-grid" style="grid-template-columns:1fr;max-width:360px;">
+                <div class="qr-item reveal">
+                    <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
+                    <a class="dl" href="qr-jaredalanstewart-card.png" download>Download the site card</a>
+                </div>
+            </div>
+            <!-- Want a card that opens research.html specifically? Generate a QR for
+                 https://jaredalanstewart.com/research.html, save it as qr-research-card.png
+                 in the repo root, and swap both filenames just above. -->
+        </div>
+    </section>
 </main>
 
 <footer>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unmeasured Mandate: A Dissertation in Practice | Jared Alan Stewart</title>
+<meta name="description" content="Texas has required every college graduate to study government since 1929. No one has ever checked whether those courses build citizens. This dissertation checks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,600;0,800;1,400&family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEEFE9;
+  --paper-deep:#E4E6DD;
+  --ink:#14243D;
+  --ink-soft:#3C4A63;
+  --rule:#A9B8C8;
+  --stamp:#B5321F;
+  --mark:#F3D372;
+  --thesis-scale:1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Public Sans',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--mark);color:var(--ink)}
+
+/* ---------- shared ---------- */
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.exhibit{padding:88px 0 72px;border-top:1px solid var(--rule);position:relative}
+
+/* ---------- alternating section tint (full-bleed) ---------- */
+.exhibit:nth-of-type(even)::before{
+  content:"";position:absolute;z-index:-1;top:0;bottom:0;
+  left:calc(50% - 50vw);width:100vw;background:#E1E3D7;
+}
+.exhibit:nth-of-type(even) .fig,
+.exhibit:nth-of-type(even) .fork,
+.exhibit:nth-of-type(even) .ledger{background:var(--paper)}
+
+/* ---------- exhibit margin spine ---------- */
+@media(min-width:1080px){
+  .wrap{position:relative}
+  .wrap::before{content:"";position:absolute;top:0;bottom:0;left:-46px;width:2px;background:var(--rule)}
+  .exhibit[data-ex]::after{
+    content:attr(data-ex);
+    position:absolute;left:-69px;top:88px;
+    width:46px;height:46px;display:grid;place-items:center;
+    font-family:'Besley',serif;font-weight:800;font-size:23px;line-height:1;
+    color:var(--paper);background:var(--stamp);
+    box-shadow:0 2px 6px rgba(20,36,61,.22);
+  }
+}
+.tab{
+  font-family:'Courier Prime',monospace;font-weight:700;
+  font-size:clamp(15px,2vw,18px);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--stamp);
+  display:inline-block;margin-bottom:22px;
+  border:2px solid var(--stamp);
+  padding:6px 14px 5px;
+  background:var(--paper);
+}
+h2{
+  font-family:'Besley',serif;font-weight:800;
+  font-size:clamp(28px,4.6vw,44px);line-height:1.12;
+  margin-bottom:22px;letter-spacing:-.01em;
+}
+p{margin-bottom:18px;max-width:64ch}
+p.lede{font-size:clamp(18px,2.4vw,21px);color:var(--ink)}
+strong{font-weight:700}
+em{font-style:italic}
+.hl{
+  background:linear-gradient(104deg, transparent 2%, var(--mark) 3%, var(--mark) 97%, transparent 98%);
+  padding:.02em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  font-size:1.07em;font-weight:600;
+}
+.cite{
+  font-family:'Courier Prime',monospace;font-size:12.5px;color:var(--ink-soft);
+  display:block;margin-top:-8px;margin-bottom:20px;
+}
+a{color:var(--stamp)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--stamp);outline-offset:3px}
+
+/* ---------- stamp ---------- */
+.stamp{
+  display:inline-block;
+  font-family:'Courier Prime',monospace;font-weight:700;
+  font-size:clamp(13px,1.8vw,17px);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stamp);
+  border:3px double var(--stamp);
+  padding:8px 18px 6px;
+  transform:rotate(-4deg);
+  opacity:.92;
+  mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .82 0'/></filter><rect width='120' height='40' filter='url(%23n)'/></svg>");
+  mask-size:cover;
+  -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 .82 0'/></filter><rect width='120' height='40' filter='url(%23n)'/></svg>");
+  -webkit-mask-size:cover;
+}
+
+/* ---------- hero ---------- */
+header{padding:64px 0 84px;position:relative;overflow:hidden}
+.docline{
+  font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:.1em;
+  color:var(--ink-soft);text-transform:uppercase;line-height:1.5;
+  display:grid;grid-template-columns:1fr auto;gap:8px 28px;align-items:start;
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:56px;
+}
+.docline span:nth-child(2){text-align:right}
+.docline span:nth-child(3){grid-column:1 / -1}
+.statute{
+  border:1px solid var(--rule);
+  background:var(--paper-deep);
+  padding:34px 34px 28px;
+  margin-bottom:44px;
+  position:relative;
+}
+.statute h1{
+  font-family:'Besley',serif;font-weight:600;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  margin-bottom:16px;
+}
+.statute blockquote{
+  font-family:'Besley',serif;font-size:clamp(17px,2.6vw,22px);
+  line-height:1.55;font-weight:400;
+}
+.statute .stamp{
+  position:absolute;right:22px;bottom:-22px;
+  background:var(--paper);
+  animation:stampIn .5s cubic-bezier(.2,1.6,.4,1) .7s both;
+}
+@keyframes stampIn{
+  0%{transform:rotate(-4deg) scale(2.4);opacity:0}
+  100%{transform:rotate(-4deg) scale(1);opacity:.92}
+}
+@media (prefers-reduced-motion:reduce){
+  .statute .stamp{animation:none}
+  html{scroll-behavior:auto}
+}
+.thesis{
+  font-family:'Besley',serif;font-weight:800;
+  font-size:calc(clamp(30px,5.4vw,56px) * var(--thesis-scale,1));
+  line-height:1.06;letter-spacing:-.02em;
+  margin-bottom:26px;padding-left:26px;border-left:7px solid var(--stamp);
+}
+.thesis .soft{color:var(--ink-soft);font-weight:400;font-style:italic}
+.kicker{font-size:clamp(18px,2.4vw,21px);max-width:56ch;color:var(--ink-soft)}
+.kicker b{color:var(--ink)}
+
+/* ---------- hero hook (the intellectual grab) ---------- */
+.hook{
+  font-family:'Besley',serif;font-weight:600;font-style:italic;
+  font-size:clamp(19px,2.7vw,25px);line-height:1.4;
+  max-width:58ch;margin-top:34px;padding:2px 0 4px 24px;
+  border-left:5px solid var(--mark);color:var(--ink);
+}
+.hook b{font-style:normal;font-weight:800}
+
+/* ---------- keystone (the line the argument turns on) ---------- */
+.keystone{
+  width:100vw;margin:64px 0 64px calc(50% - 50vw);
+  background:var(--ink);color:var(--paper);
+  padding:78px 0;position:relative;
+}
+.keystone .kline{
+  max-width:880px;margin:0 auto;
+  box-sizing:border-box;padding-left:30px;margin-left:max(24px,calc(50vw - 440px));margin-right:24px;
+  border-left:7px solid var(--stamp);
+  font-family:'Besley',serif;font-weight:800;
+  font-size:clamp(32px,5.6vw,56px);line-height:1.26;letter-spacing:-.02em;
+}
+.keystone .mk{
+  color:var(--mark);
+  box-shadow:inset 0 -0.14em 0 var(--mark), inset 0 -0.2em 0 rgba(243,211,114,.28);
+  padding:0 .04em .06em;
+}
+
+/* ---------- data cards ---------- */
+.figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:36px 0 10px}
+.fig{
+  border:1px solid var(--rule);border-top:3px solid var(--stamp);
+  background:var(--paper-deep);
+  padding:24px 22px 20px;
+}
+.fig .num{
+  font-family:'Besley',serif;font-weight:800;
+  font-size:clamp(34px,4.7vw,50px);line-height:1.02;color:var(--ink);
+  letter-spacing:-.015em;
+  display:block;margin-bottom:10px;
+}
+.fig .lbl{font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.fig .src{font-family:'Courier Prime',monospace;font-size:11.5px;color:var(--ink-soft);display:block;margin-top:10px}
+
+/* ---------- ledger (CAP menu sampler) ---------- */
+.ledger{border:1px solid var(--rule);background:var(--paper-deep);margin:34px 0}
+.ledger .row{
+  display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+  padding:13px 20px;border-bottom:1px dashed var(--rule);
+  font-family:'Courier Prime',monospace;font-size:14.5px;
+}
+.ledger .row:last-child{border-bottom:none}
+.ledger .row span:last-child{white-space:nowrap;font-weight:700}
+.ledger .head{
+  font-family:'Public Sans',sans-serif;font-weight:700;font-size:12.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  border-bottom:1px solid var(--rule);
+}
+
+/* ---------- theory chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 26px}
+.chip{
+  font-family:'Courier Prime',monospace;font-size:13px;
+  border:1px solid var(--ink-soft);color:var(--ink-soft);
+  padding:5px 12px 4px;background:var(--paper);
+}
+
+/* ---------- either-way panel ---------- */
+.forks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:30px 0}
+.fork{border:1px solid var(--rule);padding:24px;background:var(--paper-deep)}
+.fork h3{font-family:'Besley',serif;font-size:19px;font-weight:600;margin-bottom:10px}
+.fork p{font-size:15.5px;margin-bottom:0;color:var(--ink-soft)}
+
+/* ---------- testimony ---------- */
+.testimony{margin:36px 0 8px}
+.testimony blockquote{
+  font-family:'Besley',serif;font-style:italic;
+  font-size:clamp(18px,2.6vw,23px);line-height:1.45;
+  border-left:4px solid var(--mark);
+  padding:10px 0 10px 24px;margin:0 0 14px;
+}
+.testimony .who{
+  font-family:'Courier Prime',monospace;font-size:12.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  display:block;margin:0 0 30px 28px;
+}
+
+/* ---------- audiences ---------- */
+.aud{border-left:4px solid var(--stamp);padding:6px 0 6px 22px;margin:30px 0}
+.aud h3{font-family:'Besley',serif;font-size:20px;font-weight:600;margin-bottom:8px}
+.aud p{margin-bottom:0;color:var(--ink-soft)}
+.aud p b{color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{
+  width:100vw;margin:96px 0 0 calc(50% - 50vw);
+  background:var(--ink);color:var(--paper);
+  border-top:6px solid var(--stamp);
+}
+.foot-in{max-width:880px;margin:0 auto;padding:52px 24px 68px}
+footer .docline{border-bottom:1px solid rgba(255,255,255,.16);color:rgba(238,239,233,.62);margin-bottom:22px}
+footer p{font-size:15px;color:rgba(238,239,233,.72)}
+footer a{color:var(--mark)}
+.sig{font-family:'Besley',serif;font-style:italic;font-size:26px;margin:14px 0 4px;color:var(--paper)}
+
+@media(max-width:600px){
+  .exhibit{padding:64px 0 52px}
+  .statute{padding:26px 20px 30px}
+  .statute .stamp{right:12px}
+}
+/* ---------- tweaks panel ---------- */
+body.no-tint .exhibit:nth-of-type(even)::before{display:none}
+body.no-tint .exhibit:nth-of-type(even) .fig,
+body.no-tint .exhibit:nth-of-type(even) .fork,
+body.no-tint .exhibit:nth-of-type(even) .ledger{background:var(--paper-deep)}
+#tweak-fab{
+  position:fixed;right:20px;bottom:20px;z-index:9998;
+  width:46px;height:46px;border-radius:50%;border:none;
+  background:var(--ink);color:var(--paper);cursor:pointer;font-size:19px;
+  display:grid;place-items:center;box-shadow:0 4px 16px rgba(20,36,61,.32);
+}
+#tweak-panel{
+  position:fixed;right:20px;bottom:78px;z-index:9999;
+  width:280px;max-width:calc(100vw - 40px);
+  background:var(--paper);border:1px solid var(--rule);
+  box-shadow:0 14px 44px rgba(20,36,61,.3);padding:20px 22px 8px;display:none;
+  font-family:'Public Sans',sans-serif;
+}
+#tweak-panel.open{display:block}
+#tweak-panel h4{
+  font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--stamp);border:2px solid var(--stamp);
+  padding:5px 11px;display:inline-block;margin-bottom:18px;
+}
+.tw-row{margin-bottom:18px}
+.tw-row > label{
+  display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:9px;font-family:'Courier Prime',monospace;
+}
+.tw-row input[type=range]{width:100%;accent-color:var(--stamp)}
+.tw-val{float:right;color:var(--ink);font-weight:700}
+.tw-swatches{display:flex;gap:9px}
+.tw-sw{width:26px;height:26px;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;padding:0;outline:1px solid var(--rule);outline-offset:-1px}
+.tw-sw.sel{border-color:var(--ink)}
+.tw-toggle{display:flex;align-items:center;justify-content:space-between}
+.tw-switch{
+  font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;border:1px solid var(--rule);background:var(--paper-deep);
+  color:var(--ink-soft);padding:5px 15px;cursor:pointer;
+}
+.tw-switch.on{background:var(--stamp);color:var(--paper);border-color:var(--stamp)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <header>
+    <div class="docline">
+      <span>Dissertation in Practice &middot; Ed.D.</span>
+      <span>Stewart, J. A. &middot; Tarleton State University</span>
+      <span>In re: Tex. Educ. Code &sect; 51.301</span>
+    </div>
+
+    <div class="statute">
+      <h1>Texas Education Code &sect; 51.301 &middot; enacted 1929</h1>
+      <blockquote>
+        &ldquo;Every college and university receiving state support&hellip; shall give a course of instruction in government or political science&hellip; <span class="hl">This course shall have a credit value of not less than six semester hours</span>&hellip; a college or university&hellip; <span class="hl">may not grant a baccalaureate degree or a lesser degree</span> or academic certificate to any person unless the person has credit for such a course.&rdquo;
+      </blockquote>
+      <span class="stamp">Never&nbsp;Measured</span>
+    </div>
+
+    <h1 class="thesis">
+      Texas built the classroom in 1929.<br>
+      <span class="soft">No one ever checked whether it works.</span>
+    </h1>
+
+    <p class="kicker">
+      For almost a century, every degree earned at a Texas public college has required six credit hours of government. The state calls civic capability an <b>intended outcome</b> of those hours. This dissertation asks the question nobody has answered: <b>do the courses deliver?</b> And it tests a redesign built for the students who need the answer to be yes.
+    </p>
+
+    <p class="hook">The premise underneath all of it: <b>civic capability is built, not inborn.</b> Nobody arrives knowing how to work a city council or read a ballot &mdash; a classroom builds that, or nobody does. So the real question was never whether these students are apathetic. It&rsquo;s whether the course is doing its job.</p>
+  </header>
+
+  <!-- ================= EXHIBIT A ================= -->
+  <section class="exhibit" data-ex="A" id="mandate">
+    <span class="tab">Exhibit A &middot; The Mandate</span>
+    <h2>The state already decided this matters.</h2>
+    <p class="lede">This project doesn&rsquo;t begin with an opinion about civics. It begins with a law.</p>
+    <p>Since 1929, Texas has required six semester hours of government or political science for every degree at a public institution. Community college students meet the requirement through two courses: <strong>GOVT 2305</strong> (Federal Government) and <strong>GOVT 2306</strong> (Texas Government). Then the Texas Higher Education Coordinating Board tells those courses what they exist to produce. Among the required core objectives is <em>social responsibility</em>: <span class="hl">&ldquo;knowledge of civic responsibility, and the ability to engage effectively in regional, national, and global communities.&rdquo;</span></p>
+    <span class="cite">Tex. Educ. Code &sect; 51.301; Texas Higher Education Coordinating Board, 2018</span>
+    <p>Read those two documents together and the conclusion is unavoidable: the government course is not trivia for a transcript. <strong>It is democratic infrastructure, by law.</strong> The state guarantees every single graduate one structured encounter with civic learning, and it happens in this course or it happens nowhere.</p>
+    <p>Which raises the question this whole project turns on: <strong>is the infrastructure actually working?</strong></p>
+  </section>
+
+  <!-- ================= EXHIBIT B ================= -->
+  <section class="exhibit" data-ex="B" id="gap">
+    <span class="tab">Exhibit B &middot; The Gap</span>
+    <h2>The evidence says: probably not. And not for everyone equally.</h2>
+    <p class="lede">I have taught these courses for years, and I can tell you what the traditional version produces: students who can name the three branches on a scantron and still feel like strangers to the government running their lives. The national data says my classroom is not the exception.</p>
+    <p>Civic participation in America has been sliding for half a century, and the slide is steepest among the young. But the decline is not evenly spread, and that unevenness is the heart of this project.</p>
+
+    <div class="figures">
+      <div class="fig">
+        <span class="num">50% &rarr; &lt;33%</span>
+        <span class="lbl">Youth voting (ages 18&ndash;24), 1972 to the late 1990s. The habit of participation is eroding fastest where it should be forming.</span>
+        <span class="src">Westheimer &amp; Kahne, 2004</span>
+      </div>
+      <div class="fig">
+        <span class="num">The middle child</span>
+        <span class="lbl">Community college students consistently land between high-school graduates and four-year students on voting, volunteering, and news habits.</span>
+        <span class="src">Lopez &amp; Brown, 2006; Kisker et al., 2016</span>
+      </div>
+      <div class="fig">
+        <span class="num">1/10th</span>
+        <span class="lbl">Civic-engagement staffing per student at commuter campuses versus residential ones, across 1,100+ institutions, even after controlling for money, size, and selectivity.</span>
+        <span class="src">Evans et al., 2019</span>
+      </div>
+    </div>
+
+    <p>Tarrant County College is a commuter, open-access, Hispanic-Serving Institution. It is a near-exact portrait of the campus type that research identifies as <strong>poorest in civic opportunity</strong>. There is no residence hall, no dense club culture, no civic-engagement office with deep staffing to pick up the slack. For TCC students, the required government course isn&rsquo;t one civic opportunity among many. <span class="hl">It is carrying nearly the entire load.</span></p>
+  </section>
+
+  <!-- ================= EXHIBIT C ================= -->
+  <section class="exhibit" data-ex="C" id="mechanism">
+    <span class="tab">Exhibit C &middot; The Mechanism</span>
+    <h2>Civic engagement is taught, not inherited.</h2>
+    <p class="lede">This is the hinge the whole argument turns on: the fact that converts a civic worry into an educational problem, and an educational problem into something a classroom can fix.</p>
+    <p>The chance to argue a current event, work a community issue, or practice speaking in public does not fall from the sky. Schools distribute those chances, and which students get them is no accident. It tracks race and family income. Researchers call it the <strong>civic opportunity gap</strong>: students of color and students from lower-income homes receive fewer of the classroom experiences known to build engagement. Follow the gap downstream and it becomes a <strong>civic empowerment gap</strong> in knowledge, skill, and confidence that runs along the same lines.</p>
+    <span class="cite">Kahne &amp; Middaugh, 2008; Levinson, 2012</span>
+    <p>Benjamin Barber put the underlying principle plainly decades ago: <span class="hl">&ldquo;citizens are certainly not born, but made.&rdquo;</span> Nobody arrives civically capable. Somebody teaches you, or nobody does.</p>
+    <span class="cite">Barber, 1984</span>
+    <div class="keystone"><p class="kline">Schools built this gap &mdash;<br>so schools can <span class="mk">close it.</span></p></div>
+    <p>That&rsquo;s the part that should make anyone in education sit up &mdash; and the evidence says the tools work. Classroom civic learning builds lasting commitment to participation more effectively than general academic support does, with meaningful effects among exactly the low-income students and students of color the system has shortchanged.</p>
+    <span class="cite">Kahne &amp; Sporte, 2008 (effect size .41 on civic commitment); Ballard et al., 2016</span>
+    <p>Community colleges sit at the center of all of this. They enroll the very students the K&ndash;12 opportunity gap already passed over, with the least campus infrastructure to compensate. The students who most need what the government course was mandated to provide are the least likely to find it anywhere else. <strong>One required course. One guaranteed shot. That&rsquo;s the pressure point this dissertation pushes on.</strong></p>
+  </section>
+
+  <!-- ================= EXHIBIT D ================= -->
+  <section class="exhibit" data-ex="D" id="wager">
+    <span class="tab">Exhibit D &middot; The Wager</span>
+    <h2>What if the course stopped describing citizenship and started requiring it?</h2>
+    <p class="lede">First, name the culprit. In the traditional course, as much as <strong>40% of the grade rides on high-stakes, multiple-choice exams</strong>. That format does two things badly at once: it measures memorization instead of understanding, and it teaches students that government is something to observe from a distance rather than something they do. The exam is not a neutral measuring stick. It is a lesson, and the lesson is: <em>stay in your seat.</em></p>
+    <p>The intervention is called the <strong>Civic Action Project</strong>, and the idea fits in one sentence: replace the exams with the real thing.</p>
+    <p>In a CAP course, that same 40% doesn&rsquo;t come from tests. It comes from a menu of <strong>39 real civic activities</strong> across three effort tiers. Students choose their own path to 100 points. Attend the city council meeting. Write the representative. Work the food bank. Interview an election judge. Register to vote, then help someone else do it. The course stops assuming students already know how to participate and starts teaching participation the way we teach everything else that matters: <em>by having them do it.</em></p>
+
+    <div class="ledger">
+      <div class="row head"><span>From the menu (sample of 39)</span><span>Tier</span></div>
+      <div class="row"><span>Attend &amp; document a city council or school board meeting</span><span>Higher</span></div>
+      <div class="row"><span>Contact your representative on an issue you researched</span><span>Medium</span></div>
+      <div class="row"><span>Volunteer with a community organization</span><span>Higher</span></div>
+      <div class="row"><span>Interview someone whose civic life differs from yours</span><span>Medium</span></div>
+      <div class="row"><span>Register to vote, then help someone else register</span><span>Quick</span></div>
+    </div>
+
+    <p>None of this is guesswork. The design sits on established science:</p>
+    <div class="chips">
+      <span class="chip">Self-Determination Theory &middot; choice fuels motivation</span>
+      <span class="chip">Kolb &middot; experience &rarr; reflection &rarr; learning</span>
+      <span class="chip">Action civics &middot; doing builds civic identity</span>
+      <span class="chip">Choice research &middot; d &asymp; .30 on intrinsic motivation</span>
+      <span class="chip">62-study meta-analysis &middot; strongest effect: academic achievement</span>
+    </div>
+    <p>And to the inevitable question, <em>&ldquo;sounds engaging, but is it rigorous?&rdquo;</em>: a meta-analysis of 62 service-learning studies found significant positive effects across five outcome areas, and the strongest effect of all was on <strong>academic achievement</strong>. Experiential civic learning doesn&rsquo;t trade rigor for relevance. The evidence says it delivers both.</p>
+    <span class="cite">Celio, Durlak, &amp; Dymnicki, 2011</span>
+    <p>Choice isn&rsquo;t a gimmick here; it&rsquo;s the mechanism. Meta-analytic research shows student choice reliably raises intrinsic motivation, and the community-college study closest to this one found that taking a government course, inside an institution that treats civic engagement as intentional, predicts higher civic agency, capacity, behavior, and knowledge. CAP is that intentionality, built directly into the state&rsquo;s own required course. <strong>No new money. No new course. No legislation. Just a redesigned 40% of a class Texas already requires.</strong></p>
+    <span class="cite">Patall et al., 2008; Ryan &amp; Deci, 2000; Kisker et al., 2016</span>
+  </section>
+
+  <!-- ================= EXHIBIT E: EARLY RETURNS ================= -->
+  <section class="exhibit" data-ex="E" id="returns">
+    <span class="tab">Exhibit E &middot; Early Returns</span>
+    <h2>This isn&rsquo;t hypothetical. It&rsquo;s already running.</h2>
+    <p class="lede">CAP has already run in real TCC classrooms. In Fall 2025, 75 students finished a full semester of it and told us what happened.</p>
+
+    <div class="figures">
+      <div class="fig">
+        <span class="num">93%</span>
+        <span class="lbl">said CAP helped them understand government better than traditional study methods.</span>
+        <span class="src">CAP Reflection Survey, Fall 2025 &middot; n=75</span>
+      </div>
+      <div class="fig">
+        <span class="num">0%</span>
+        <span class="lbl">said it was worse. Not one student out of seventy-five.</span>
+        <span class="src">CAP Reflection Survey, Fall 2025</span>
+      </div>
+      <div class="fig">
+        <span class="num">85%</span>
+        <span class="lbl">rated the overall CAP experience Good or Excellent, and the same share found the 100-point requirement manageable.</span>
+        <span class="src">CAP Reflection Survey, Fall 2025</span>
+      </div>
+    </div>
+
+    <p>Survey numbers are one kind of evidence. Here is the other kind.</p>
+
+    <div class="testimony">
+      <blockquote>&ldquo;It&rsquo;s the first time I&rsquo;ve ever been able to remember something I&rsquo;ve learned in school. I usually remember just enough to pass a test.&rdquo;</blockquote>
+      <span class="who">TCC student &middot; Fall 2025</span>
+
+      <blockquote>&ldquo;Before, it seemed far off and confusing. Now I see it is regular people like me who choose to reach out.&rdquo;</blockquote>
+      <span class="who">TCC student &middot; Fall 2025</span>
+
+      <blockquote>&ldquo;The activities made me actually think about how I interacted with my local government instead of just memorizing facts.&rdquo;</blockquote>
+      <span class="who">TCC student &middot; Fall 2025</span>
+    </div>
+
+    <p>Read that first one again. A student telling you that this is the first time school has ever stuck is the entire problem of practice and its answer, in two sentences. To be clear about what this evidence is and isn&rsquo;t: these are self-reported perceptions from one pilot semester, not measured outcomes. They prove the model is feasible, welcomed, and workable at this institution with these students. What they cannot yet prove is that civic capacity actually moved. That is precisely the job of the study.</p>
+  </section>
+
+  <!-- ================= EXHIBIT F: THE PROOF ================= -->
+  <section class="exhibit" data-ex="F" id="proof">
+    <span class="tab">Exhibit F &middot; The Proof</span>
+    <h2>Then we measure it. Honestly.</h2>
+    <p>Here is the strange truth about this whole field: almost all civic-outcomes research in higher education has happened at four-year and liberal-arts campuses. Very few studies have measured civic outcomes at community colleges at all, and the big national datasets tend to miss this population entirely: older students, recent immigrants, students whose civic lives don&rsquo;t fit the standard checkboxes.</p>
+    <span class="cite">Kisker et al., 2016; Alcantar, 2014; Lopez &amp; Brown, 2006</span>
+    <p>So the study builds the yardstick it needs: the <strong>Government Engagement Assessment (GEA)</strong>, administered before and after the course in a quasi-experimental design. And it measures civic engagement the way the research says it must be measured for this population: not just voting, but <em>social</em> civic life too, the mentoring, translating, and community work that voting-centered surveys turn invisible. Measured too narrowly, engaged students look apathetic. This instrument is built not to make that mistake.</p>
+    <div class="forks">
+      <div class="fork">
+        <h3>If CAP moves the needle&hellip;</h3>
+        <p>Texas gets an evidence-backed, zero-cost model for activating a mandate it has carried since 1929, ready to travel through the very course every public college already teaches.</p>
+      </div>
+      <div class="fork">
+        <h3>If it doesn&rsquo;t&hellip;</h3>
+        <p>The field gets something it has almost none of: rigorous civic-outcomes data from a community college HSI, plus an instrument others can use. Either answer is a contribution. That&rsquo;s the mark of a question worth asking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXHIBIT F ================= -->
+  <section class="exhibit" data-ex="G" id="reach">
+    <span class="tab">Exhibit G &middot; The Reach</span>
+    <h2>Built to travel.</h2>
+    <p>A fix that lives in one instructor&rsquo;s classroom isn&rsquo;t a fix; it&rsquo;s a fluke. So this project treats spread as part of the design, not an afterthought. The full CAP system, all 39 activities, rubrics, planning tools, and tracking, is published as an <strong>open educational resource</strong>: free, forkable, and adaptable by any instructor at any institution. A Texas Government companion, <strong>Texas In Action</strong>, extends the model to GOVT 2306. The diffusion strand of the dissertation draws on decades of research about how innovations actually move between faculty, so the model spreads by design rather than by luck.</p>
+    <span class="cite">Rogers, 2003; Foote et al., 2014; Porter &amp; Graham, 2016</span>
+    <p>The scale case writes itself. Every degree-seeking student at every public college in Texas takes these courses. The delivery infrastructure has existed since 1929. The only question this dissertation leaves open is whether we choose to use it.</p>
+  </section>
+
+  <!-- ================= THE CASE, THREE WAYS ================= -->
+  <section class="exhibit" data-ex="§" id="pitch">
+    <span class="tab">Closing &middot; The Case, Three Ways</span>
+    <h2>This is a contribution three times over.</h2>
+
+    <div class="aud">
+      <h3>To a neighbor</h3>
+      <p>Every college kid in Texas has to take two government classes. The state says those classes should turn them into capable citizens. <b>Nobody has ever checked if they do.</b> I redesigned mine so students practice citizenship instead of memorizing it, and now I&rsquo;m measuring whether it works.</p>
+    </div>
+
+    <div class="aud">
+      <h3>To a committee</h3>
+      <p>A quasi-experimental pre/post study of a choice-based, action-civics redesign of the state-mandated government courses at a commuter Hispanic-Serving Institution, measured with a purpose-built instrument. The intervention is already piloted, with a semester of implementation data demonstrating feasibility and strong student reception. It targets a documented evidentiary vacuum in community-college civic outcomes, operationalizes <em>servingness</em> as measurable practice, and carries a diffusion strand so the findings ship as an open resource rather than sit on a shelf. <b>Grounded theory, demonstrated feasibility, honest measurement, built-in reach.</b></p>
+    </div>
+
+    <div class="aud">
+      <h3>To the field</h3>
+      <p>Three deliverables, each usable with or without the others: <b>evidence</b> where there is nearly none, an <b>instrument</b> tuned to a population national datasets miss, and a <b>zero-cost, statute-compatible course model</b> any government instructor can adopt Monday morning. That&rsquo;s a problem of practice answered at the point of practice.</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="foot-in">
+    <div class="docline">
+      <span>Respectfully submitted</span>
+      <span>Fort Worth, Texas</span>
+    </div>
+    <p class="sig">Jared Alan Stewart</p>
+    <p>Government Instructor &amp; Chair, Social Sciences &middot; Tarrant County College<br>
+    Ed.D. Candidate, Educational Technology Leadership &middot; Tarleton State University</p>
+    <p style="margin-top:18px">Civic Action Project &middot; open educational resource &middot; <a href="https://jaredalanstewart.com">jaredalanstewart.com</a></p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
