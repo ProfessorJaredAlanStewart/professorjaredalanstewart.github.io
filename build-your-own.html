@@ -382,12 +382,92 @@ fieldset.q legend { font-weight: 700; color: var(--navy); font-size: 0.98rem; ma
 .try-say b { font-style: normal; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; margin-right: 6px; }
 
 /* ---------- phrase list ---------- */
-.phrases { margin-top: 28px; background: var(--cream); border: 1px solid var(--rule); border-radius: 6px; padding: 22px 24px; }
-.phrases h3 { font-size: 1.02rem; margin-bottom: 10px; }
-.phrases ul { list-style: none; display: grid; gap: 8px; }
-.phrases li { font-size: 0.95rem; line-height: 1.5; padding-left: 20px; position: relative; }
-.phrases li::before { content: '★'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; top: 4px; }
-.phrases li em { color: var(--plum); font-style: normal; font-weight: 600; }
+/* ---------- steering phrases (feature band) ---------- */
+.steer {
+    position: relative;
+    background: var(--plum-deep);
+    color: #fff;
+    padding: 62px 24px 66px;
+    overflow: hidden;
+    border-top: 5px solid var(--gold);
+}
+.steer::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+.steer-star {
+    position: absolute; left: -110px; bottom: -130px;
+    width: 400px; height: 400px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.05; pointer-events: none;
+}
+.steer-inner { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; }
+.steer .kicker { color: var(--gold); }
+.steer h2 { color: #fff; margin-bottom: 12px; }
+.steer h2 em { color: var(--gold); font-style: italic; }
+.steer .lead { color: rgba(255,255,255,0.86); max-width: 720px; }
+.steer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+}
+.phrase {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,199,0,0.28);
+    border-radius: 7px;
+    padding: 20px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.phrase .say {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.06rem;
+    line-height: 1.45;
+    color: var(--gold);
+}
+.phrase .why { font-size: 0.93rem; line-height: 1.55; color: rgba(255,255,255,0.8); }
+.phrase .row { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.copy-phrase {
+    font-family: inherit;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid rgba(255,199,0,0.55);
+    border-radius: 4px;
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    flex-shrink: 0;
+}
+.copy-phrase:hover { background: var(--gold); color: var(--plum-deepest); }
+.copy-phrase:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.copy-phrase.done { background: var(--gold); color: var(--plum-deepest); border-color: var(--gold); }
+.steer-coda {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.82);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    max-width: 780px;
+}
+.steer-coda strong { color: var(--gold); }
+.steer-pointer {
+    margin-top: 28px;
+    background: linear-gradient(90deg, rgba(255,199,0,0.16), transparent 65%), var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    border-radius: 5px;
+    padding: 17px 22px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.steer-pointer a { font-weight: 700; }
 
 /* ---------- faq ---------- */
 .faq { margin-top: 24px; }
@@ -509,7 +589,12 @@ footer a { color: rgba(255,255,255,0.75); }
     .topbar, .quicknav, .to-top, .closing, .builder-actions, .prompt-bar button { display: none !important; }
     .reveal { opacity: 1 !important; transform: none !important; }
     body { font-size: 12pt; }
-    .page-hero, .journey { background: #fff !important; color: #000 !important; }
+    .page-hero, .journey, .steer { background: #fff !important; color: #000 !important; }
+    .steer h2, .steer .lead, .steer-coda, .phrase .why { color: #000 !important; }
+    .steer .kicker, .steer h2 em, .phrase .say, .steer-coda strong { color: #92400e !important; }
+    .phrase { border: 1px solid #999 !important; background: #fff !important; break-inside: avoid; }
+    .copy-phrase { display: none !important; }
+    .steer-star { display: none !important; }
     .page-hero p, .jstep, .jstep b { color: #000 !important; }
     .page-hero h1 em, .page-hero .ph-kicker { color: #92400e !important; }
 }
@@ -549,6 +634,7 @@ footer a { color: rgba(255,255,255,0.75); }
         <span>Starts from your learning goals</span>
         <span>About an hour</span>
         <span>No AI experience needed</span>
+        <span>Includes what to type</span>
         <span>Works in any field</span>
         <span>Free to copy and adapt</span>
     </div>
@@ -558,7 +644,7 @@ footer a { color: rgba(255,255,255,0.75); }
     <div class="journey-inner">
         <div class="jstep"><span class="jnum">1</span><span><b>Answer the questions.</b><br>Learning goals first.</span></div>
         <div class="jstep"><span class="jnum">2</span><span><b>Copy the prompt.</b><br>This page writes it for you.</span></div>
-        <div class="jstep"><span class="jnum">3</span><span><b>Have the conversation.</b><br>Five stages, you approve each.</span></div>
+        <div class="jstep"><span class="jnum">3</span><span><b>Have the conversation.</b><br><a href="#steering" style="color:var(--gold);">Eight sentences steer it.</a></span></div>
         <div class="jstep"><span class="jnum">4</span><span><b>Run it once.</b><br>Then fix what breaks.</span></div>
     </div>
 </div>
@@ -800,19 +886,90 @@ footer a { color: rgba(255,255,255,0.75); }
             </div>
         </div>
 
-        <div class="phrases">
-            <h3>Useful things to type at any point in the conversation</h3>
-            <ul>
-                <li><em>"That's too generic. Make it specific to my field and my students."</em> The single most useful sentence in AI-assisted design.</li>
-                <li><em>"Stop and summarize everything we've decided so far."</em> Do this every so often; it keeps a long conversation from drifting, and it gives you a snapshot to save.</li>
-                <li><em>"Which of my learning goals is this serving? If none, cut it."</em> Keeps the backwards design honest.</li>
-                <li><em>"Give me three options instead of one."</em> Options are cheap for the AI and make you the chooser, not the receiver.</li>
-                <li><em>"I don't like this. Try a completely different approach."</em> You will not hurt its feelings. Blunt beats polite here.</li>
-                <li><em>"Put the whole final version in one message so I can copy it."</em> Use this at the end of each stage you approve.</li>
-            </ul>
+        <div class="steer-pointer">
+            <strong>Do not skip the next section.</strong> The eight sentences below are what turn a
+            mediocre draft into your assessment. They work at any point in the conversation, in any
+            AI, and you can copy them straight off the page.
         </div>
 
         <p style="margin-top:26px;">At the end you have an activity menu mapped to your learning goals, rubrics, a student handout, and a planning activity. All drafts. All yours. Then the real work starts, which is running it once and fixing what breaks.</p>
+    </div>
+</section>
+
+<!-- ===================== STEERING PHRASES ===================== -->
+<section class="steer" id="steering">
+    <div class="steer-star"></div>
+    <div class="steer-inner">
+        <div class="kicker">The part nobody shows you</div>
+        <h2>Eight sentences that do <em>most of the work</em></h2>
+        <p class="lead">A prompt starts a conversation. These finish it. Every one of them works at any
+        point, with any AI, in any discipline. If you remember nothing else from this page, remember
+        that steering the conversation is the actual skill, and that it is made of ordinary sentences
+        like these.</p>
+
+        <div class="steer-grid">
+            <div class="phrase">
+                <p class="say">&ldquo;That's too generic. Make it specific to my field and my students.&rdquo;</p>
+                <p class="why">The single most useful sentence in AI-assisted design. Vagueness is the default failure mode, and this is the cure. Say it as often as you need to.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="That&#39;s too generic. Make it specific to my field and my students.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Which of my learning goals does this serve? If none, cut it.&rdquo;</p>
+                <p class="why">Keeps the backwards design honest. Ask it at every stage and watch decorative busywork disappear on its own.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Which of my learning goals does this serve? If none, cut it.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Would my students actually be able to do this in one week?&rdquo;</p>
+                <p class="why">AI is relentlessly optimistic about student time. Naming the real window forces it to shrink the task to something people with jobs can finish.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Would my students actually be able to do this in one week?">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Give me three options instead of one.&rdquo;</p>
+                <p class="why">Options cost the AI nothing and they make you the chooser rather than the receiver. Use it whenever a single suggestion feels close but wrong.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Give me three options instead of one.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;I don't like this. Try a completely different approach.&rdquo;</p>
+                <p class="why">You will not hurt its feelings, and hedging wastes your time. Blunt gets you a genuinely new direction instead of a lightly reworded one.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="I don&#39;t like this. Try a completely different approach.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Ask me one question at a time.&rdquo;</p>
+                <p class="why">For when it fires off four questions at once and you lose your footing. It will slow down and wait, which makes the whole thing feel like a conversation again.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Ask me one question at a time.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Stop and summarize everything we've decided so far.&rdquo;</p>
+                <p class="why">Do this every so often. It stops a long conversation from drifting, gives you a snapshot to paste into your notes, and rescues you if a free-tier chat cuts off.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Stop and summarize everything we&#39;ve decided so far.">Copy this line</button>
+                </div>
+            </div>
+            <div class="phrase">
+                <p class="say">&ldquo;Put the whole final version in one message so I can copy it.&rdquo;</p>
+                <p class="why">Use this at the end of every stage you approve. It saves you from stitching a menu together out of nine scattered replies.</p>
+                <div class="row">
+                    <button type="button" class="copy-phrase" data-say="Put the whole final version in one message so I can copy it.">Copy this line</button>
+                </div>
+            </div>
+        </div>
+
+        <p class="steer-coda"><strong>Say these in your own words.</strong> The AI is not grading your
+        phrasing, and there is no magic wording to get right. Being direct about what you do not like
+        is the whole technique, and it is the same instinct you already use when a colleague hands you
+        a draft that is not quite there yet.</p>
     </div>
 </section>
 
@@ -1149,6 +1306,37 @@ footer a { color: rgba(255,255,255,0.75); }
         });
         document.querySelectorAll('input[name="scope"], input[name="duration"]').forEach(function (r) { r.checked = false; });
         render('Answers cleared.');
+    });
+
+    /* ---------- copy an individual steering phrase ---------- */
+    function copyText(text, cb) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () { cb(true); },
+                                                     function () { cb(false); });
+        } else {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(ta);
+            cb(ok);
+        }
+    }
+    document.querySelectorAll('.copy-phrase').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            copyText(btn.getAttribute('data-say'), function (ok) {
+                btn.textContent = ok ? 'Copied' : 'Select and press Ctrl+C';
+                btn.classList.toggle('done', ok);
+                setTimeout(function () {
+                    btn.textContent = 'Copy this line';
+                    btn.classList.remove('done');
+                }, 2200);
+            });
+        });
     });
 
     document.getElementById('copyBtn').addEventListener('click', function () {
