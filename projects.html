@@ -925,9 +925,9 @@ section h2 .accent { color: var(--warm); }
 .qr-section .section-lead { margin-left: auto; margin-right: auto; }
 .qr-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 28px;
-    max-width: 940px;
+    max-width: 1240px;
     margin: 0 auto;
 }
 .qr-item img {
@@ -1643,6 +1643,10 @@ footer a:hover { text-decoration: underline; }
             <div class="qr-item reveal">
                 <img src="qr-texas-in-action-card.png" alt="Scannable QR card linking to Texas In Action" loading="lazy">
                 <a class="dl" href="qr-texas-in-action-card.png" download>Download the TIA card</a>
+            </div>
+            <div class="qr-item reveal">
+                <img src="qr-build-your-own-card.png" alt="Scannable QR card linking to the Build Your Own Project-Based Assessment guide" loading="lazy">
+                <a class="dl" href="qr-build-your-own-card.png" download>Download the Build Your Own card</a>
             </div>
             <div class="qr-item reveal">
                 <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
