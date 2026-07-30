@@ -47,6 +47,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+section[id], main section { scroll-margin-top: 72px; }
 body {
     font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
     background: var(--cream);
@@ -121,7 +122,7 @@ a { color: var(--warm); }
 .page-hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; }
 .page-hero .ph-star { position: absolute; right: -90px; top: -90px; width: 360px; height: 360px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain; opacity: 0.06; pointer-events: none; }
 .page-hero .ph-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
-.page-hero .ph-kicker { color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
+.page-hero .ph-kicker { color: var(--gold); font-size: 18px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; }
 .page-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.12; margin-bottom: 16px; }
 .page-hero h1 em { font-style: italic; color: var(--gold); }
 .page-hero p { color: rgba(255,255,255,0.85); font-size: 1.08rem; max-width: 660px; margin: 0 auto; }
@@ -150,7 +151,25 @@ a { color: var(--warm); }
 .band { padding: 58px 0; border-top: 1px solid var(--rule); }
 .band:first-of-type { border-top: none; }
 .band-paper { background: var(--paper); }
-.kicker { color: var(--warm); font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
+.kicker {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--warm);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.kicker::before {
+    content: '★';
+    color: var(--amber);
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
 h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.95rem); color: var(--navy); line-height: 1.25; margin-bottom: 14px; }
 h2 em { font-style: italic; color: var(--warm); }
 h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color: var(--navy); margin-bottom: 6px; }
@@ -227,7 +246,7 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
 }
 .qgroup { margin: 30px 0 6px; }
 .qgroup-title {
-    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    font-size: 0.95rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--plum);
     border-bottom: 2px solid var(--sand);
     padding-bottom: 6px;
@@ -405,6 +424,7 @@ fieldset.q legend { font-weight: 700; color: var(--navy); font-size: 0.98rem; ma
 }
 .steer-inner { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; }
 .steer .kicker { color: var(--gold); }
+.steer .kicker::before { color: var(--gold); }
 .steer h2 { color: #fff; margin-bottom: 12px; }
 .steer h2 em { color: var(--gold); font-style: italic; }
 .steer .lead { color: rgba(255,255,255,0.86); max-width: 720px; }
@@ -591,7 +611,7 @@ footer a { color: rgba(255,255,255,0.75); }
     body { font-size: 12pt; }
     .page-hero, .journey, .steer { background: #fff !important; color: #000 !important; }
     .steer h2, .steer .lead, .steer-coda, .phrase .why { color: #000 !important; }
-    .steer .kicker, .steer h2 em, .phrase .say, .steer-coda strong { color: #92400e !important; }
+    .steer .kicker, .steer .kicker::before, .steer h2 em, .phrase .say, .steer-coda strong { color: #92400e !important; }
     .phrase { border: 1px solid #999 !important; background: #fff !important; break-inside: avoid; }
     .copy-phrase { display: none !important; }
     .steer-star { display: none !important; }
