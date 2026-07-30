@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://jaredalanstewart.com/build-your-own.html">
+<title>Build Your Own Project-Based Assessment — Jared Alan Stewart</title>
+<meta name="description" content="A step-by-step guide for college instructors in any discipline who want to replace an exam with a project-based assessment, using AI to do the heavy lifting. No AI experience needed. Free and open.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jaredalanstewart.com/build-your-own.html">
+<meta property="og:title" content="Build Your Own Project-Based Assessment">
+<meta property="og:description" content="Replace an exam with authentic project work. A walkthrough for instructors in any field, written for people with no AI experience.">
+<meta property="og:image" content="https://jaredalanstewart.com/og-card.jpg">
+<meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Build Your Own Project-Based Assessment">
+<meta name="twitter:description" content="Replace an exam with authentic project work. Written for instructors with no AI experience.">
+<meta name="twitter:image" content="https://jaredalanstewart.com/og-card.jpg">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #1a2744;
+    --navy-deep: #131d33;
+    --ink: #1e293b;
+    --warm: #92400e;
+    --amber: #d97706;
+    --gold: #FFC700;
+    --cream: #fefbf4;
+    --paper: #faf6ec;
+    --sand: #e8e0d0;
+    --rule: #d4cabb;
+    --muted: #6b7280;
+    --oxblood: #7f1d1d;
+    --red-accent: #b91c1c;
+    --green-accent: #15803d;
+    --plum-deepest: #241341;
+    --plum-deep: #38215f;
+    --plum: #4B2E83;
+    --plum-mid: #5d3a9e;
+    --heritage: #B7A57A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 17px;
+    overflow-x: hidden;
+}
+a { color: var(--warm); }
+
+/* ---------- topbar ---------- */
+.topbar {
+    background: var(--plum-deep);
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    padding: 9px 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+.topbar span { color: var(--gold); }
+
+/* ---------- quicknav ---------- */
+.quicknav {
+    background: var(--plum-deepest);
+    border-bottom: 1px solid rgba(255,199,0,0.28);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 18px rgba(20,8,40,0.35);
+}
+.quicknav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.quicknav-inner::-webkit-scrollbar { display: none; }
+.quicknav a {
+    color: rgba(255,255,255,0.78);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+.quicknav a:hover { color: var(--gold); }
+.quicknav .sep { color: rgba(255,199,0,0.4); font-size: 11px; flex-shrink: 0; }
+.scroll-progress {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--heritage), var(--gold));
+    box-shadow: 0 0 10px rgba(255,199,0,0.55);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ---------- hero ---------- */
+.page-hero { position: relative; background: var(--plum-deep); color: #fff; padding: 70px 24px 60px; overflow: hidden; text-align: center; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; }
+.page-hero .ph-star { position: absolute; right: -90px; top: -90px; width: 360px; height: 360px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain; opacity: 0.06; pointer-events: none; }
+.page-hero .ph-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+.page-hero .ph-kicker { color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
+.page-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.12; margin-bottom: 16px; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { color: rgba(255,255,255,0.85); font-size: 1.08rem; max-width: 640px; margin: 0 auto; }
+.hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; position: relative; z-index: 1; }
+.hero-facts span { color: rgba(255,255,255,0.75); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.hero-facts span::before { content: '★'; color: var(--gold); margin-right: 8px; font-size: 0.8rem; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+.band { padding: 58px 0; border-top: 1px solid var(--rule); }
+.band:first-of-type { border-top: none; }
+.band-paper { background: var(--paper); }
+.kicker { color: var(--warm); font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
+h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.95rem); color: var(--navy); line-height: 1.25; margin-bottom: 14px; }
+h2 em { font-style: italic; color: var(--warm); }
+h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color: var(--navy); margin-bottom: 6px; }
+.lead { font-size: 1.1rem; color: var(--ink); margin-bottom: 22px; }
+.band p + p { margin-top: 15px; }
+.muted { color: var(--muted); }
+
+/* ---------- reassurance grid ---------- */
+.fears { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 26px; }
+.fear {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 22px;
+}
+.fear .worry { font-weight: 700; color: var(--oxblood); font-size: 0.95rem; margin-bottom: 7px; display: block; }
+.fear .worry::before { content: '\201C'; }
+.fear .worry::after { content: '\201D'; }
+.fear p { font-size: 0.95rem; color: var(--ink); line-height: 1.6; }
+
+/* ---------- how it works diagram ---------- */
+.model { margin-top: 26px; display: grid; gap: 14px; }
+.model-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+    align-items: start;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    border-radius: 5px;
+    padding: 17px 22px;
+}
+.model-row .label {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--warm);
+    font-weight: 700;
+    line-height: 1.35;
+}
+.model-row p { font-size: 0.97rem; line-height: 1.6; }
+
+/* ---------- steps ---------- */
+.step { display: grid; grid-template-columns: 54px 1fr; gap: 22px; align-items: start; margin-top: 30px; }
+.step-num {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--plum);
+    color: var(--gold);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.step h3 { margin-bottom: 8px; }
+
+/* ---------- prompt builder ---------- */
+.builder { margin-top: 26px; }
+.builder-note {
+    background: rgba(255,199,0,0.12);
+    border: 1px solid rgba(217,119,6,0.35);
+    border-radius: 5px;
+    padding: 14px 18px;
+    font-size: 0.94rem;
+    margin-bottom: 22px;
+}
+.q { margin-bottom: 18px; }
+.q label { display: block; font-weight: 700; color: var(--navy); font-size: 0.98rem; margin-bottom: 3px; }
+.q .hint { display: block; color: var(--muted); font-size: 0.87rem; margin-bottom: 7px; line-height: 1.5; }
+.q textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 10px 13px;
+    resize: vertical;
+    min-height: 62px;
+}
+.q textarea:focus { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber); }
+.builder-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 6px 0 24px; }
+.btn {
+    font-family: inherit;
+    font-size: 0.97rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 12px 22px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s, border-color 0.2s;
+}
+.btn-gold { background: var(--gold); color: var(--plum-deepest); }
+.btn-gold:hover { background: #ffd426; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--plum); border: 2px solid var(--plum); }
+.btn-outline:hover { background: rgba(75,46,131,0.07); transform: translateY(-1px); }
+.btn:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.copy-status { font-size: 0.9rem; font-weight: 700; color: var(--green-accent); }
+
+.prompt-shell {
+    background: var(--navy-deep);
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255,199,0,0.22);
+}
+.prompt-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+    padding: 11px 16px;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+.prompt-bar .ttl { color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.prompt-bar button {
+    font-family: inherit; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--gold); color: var(--plum-deepest);
+    border: none; border-radius: 4px; padding: 7px 14px; cursor: pointer;
+}
+.prompt-bar button:hover { background: #ffd426; }
+#promptOut {
+    width: 100%;
+    min-height: 400px;
+    background: transparent;
+    color: #e8eefc;
+    border: none;
+    padding: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    resize: vertical;
+    white-space: pre-wrap;
+}
+#promptOut:focus { outline: none; }
+
+/* ---------- stages ---------- */
+.stages { margin-top: 24px; display: grid; gap: 0; }
+.stage {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 22px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+}
+.stage:last-child { border-bottom: 1px solid var(--rule); }
+.stage .tag {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--plum); background: #f3e8ff; border: 1px solid #ddd0f5;
+    padding: 5px 8px; border-radius: 3px; text-align: center;
+}
+.stage h3 { font-size: 1.05rem; margin-bottom: 5px; }
+.stage p { font-size: 0.97rem; line-height: 1.62; }
+.your-move {
+    display: block;
+    margin-top: 9px;
+    padding-left: 14px;
+    border-left: 3px solid var(--gold);
+    font-size: 0.93rem;
+    color: var(--warm);
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+/* ---------- faq ---------- */
+.faq { margin-top: 24px; }
+.faq details {
+    border-top: 1px solid var(--rule);
+    background: var(--cream);
+}
+.faq details:last-of-type { border-bottom: 1px solid var(--rule); }
+.faq summary {
+    cursor: pointer; list-style: none;
+    display: flex; align-items: baseline; gap: 13px;
+    padding: 16px 8px;
+    font-weight: 700; color: var(--navy); font-size: 1rem;
+    user-select: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: '\FF0B'; color: var(--warm); font-weight: 800; flex-shrink: 0; }
+.faq details[open] summary::before { content: '\2212'; }
+.faq summary:hover { color: var(--warm); }
+.faq .a { padding: 0 8px 20px 34px; font-size: 0.97rem; line-height: 1.68; }
+.faq .a p + p { margin-top: 12px; }
+
+/* ---------- tips ---------- */
+.tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 26px; }
+.tip { background: var(--cream); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; }
+.tip .n { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.7rem; color: var(--gold); line-height: 1; display: block; margin-bottom: 10px; text-shadow: 0 1px 0 var(--warm); }
+.tip h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.tip p { font-size: 0.94rem; line-height: 1.6; }
+
+/* ---------- examples ---------- */
+.examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+.example {
+    display: block;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.example:hover { border-color: var(--amber); transform: translateY(-2px); }
+.example h3 { color: var(--navy); }
+.example:hover h3 { color: var(--warm); }
+.example p { font-size: 0.94rem; line-height: 1.6; color: var(--ink); }
+.example .go { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--warm); font-size: 0.92rem; }
+
+/* ---------- closing ---------- */
+.closing {
+    background: var(--plum-deep);
+    color: #fff;
+    text-align: center;
+    padding: 56px 28px;
+}
+.closing h2 { color: #fff; margin-bottom: 12px; }
+.closing h2 em { color: var(--gold); }
+.closing p { color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 22px; }
+.closing .btn-gold { margin-top: 4px; }
+
+/* ---------- footer ---------- */
+footer {
+    background: var(--plum-deepest);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 44px 24px;
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+footer a { color: rgba(255,255,255,0.75); }
+.footer-quote { font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; color: var(--gold); font-size: 1.02rem; margin-top: 18px; }
+.footer-joke { font-size: 0.74rem; color: rgba(255,255,255,0.28); margin-top: 16px; font-style: italic; }
+
+/* ---------- to top ---------- */
+.to-top {
+    position: fixed;
+    right: 22px; bottom: 22px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--plum);
+    color: var(--gold);
+    border: 2px solid rgba(255,199,0,0.55);
+    font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(36,19,65,0.4);
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    z-index: 300;
+}
+.to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* ---------- reveal ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 700px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    .band { padding: 44px 0; }
+    .step { grid-template-columns: 1fr; gap: 12px; }
+    .model-row { grid-template-columns: 1fr; gap: 6px; }
+    .stage { grid-template-columns: 1fr; gap: 10px; }
+    .stage .tag { justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    .btn, .example, .to-top { transition: none; }
+    .btn:hover, .example:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education — Open to All, Meant for All</div>
+
+<nav class="quicknav" aria-label="Site navigation">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="quicknav-inner">
+        <a href="https://jaredalanstewart.com/">&#8592; Home</a>
+        <span class="sep">★</span>
+        <a href="projects.html" style="color:var(--gold);">My Projects</a>
+        <span class="sep">★</span>
+        <a href="research.html">Research</a>
+        <span class="sep">★</span>
+        <a href="cv.html">CV</a>
+        <span class="sep">★</span>
+        <a href="in-the-wild.html">In the Wild</a>
+        <span class="sep">★</span>
+        <a href="show-up-fort-worth.html">Show Up</a>
+        <span class="sep">★</span>
+        <a href="https://jaredalanstewart.com/#contact">Contact</a>
+    </div>
+</nav>
+
+<header class="page-hero">
+    <div class="ph-star"></div>
+    <div class="ph-inner">
+        <div class="ph-kicker">For Instructors · Any Discipline</div>
+        <h1>Build your own <em>project-based assessment</em></h1>
+        <p>You want to replace an exam with work that actually means something. You have a full teaching load and no time to build it. Here is how to get from that idea to a real, gradeable assignment, with an AI assistant doing the tedious part.</p>
+    </div>
+    <div class="hero-facts">
+        <span>About an hour</span>
+        <span>No AI experience needed</span>
+        <span>Works in any field</span>
+        <span>Free to copy and adapt</span>
+    </div>
+</header>
+
+<main>
+
+<!-- ===================== START HERE ===================== -->
+<section class="band">
+    <div class="wrap reveal">
+        <div class="kicker">Start here</div>
+        <h2>If this feels like too big a project, read this first</h2>
+        <p class="lead">I built the Civic Action Project because I was tired of watching students memorize government facts for a test and forget them by Friday. What stopped me for a long time was not the idea. It was the work: dozens of activities to write, a rubric for every one, instructions, deadlines, a way to track it all. That is the wall most of us hit, and it is the reason good assessment ideas die in a Google Doc.</p>
+        <p>An AI assistant does not solve the hard part. You still decide what is worth academic credit in your field, and no chatbot can do that for you. What it does solve is the production work: the drafting, the formatting, the tenth rubric at 11 p.m. That is the wall it knocks down, and knocking it down is enough.</p>
+        <p>Before you start, four things that are probably worrying you:</p>
+
+        <div class="fears">
+            <div class="fear">
+                <span class="worry">I'm not a technology person.</span>
+                <p>You will type in a box and read what comes back. That is the entire technical requirement. If you can use email, you can do this.</p>
+            </div>
+            <div class="fear">
+                <span class="worry">I don't have time for a big overhaul.</span>
+                <p>Budget an hour, split across two sittings. And you do not have to replace a whole exam on the first try. One unit, or extra credit, is a real place to start.</p>
+            </div>
+            <div class="fear">
+                <span class="worry">Won't the AI just write generic junk?</span>
+                <p>Some of it, yes. I cut or rewrote about a third of what mine produced. You are the editor, and rejecting things is how the drafts get better. Expect that, and it stops feeling like failure.</p>
+            </div>
+            <div class="fear">
+                <span class="worry">Isn't it my job to design my own course?</span>
+                <p>It still is. Every decision stays yours. This is closer to a research assistant who types fast than to a colleague handing you a finished syllabus.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== THE MODEL ===================== -->
+<section class="band band-paper">
+    <div class="wrap reveal">
+        <div class="kicker">The model</div>
+        <h2>What a project-based assessment actually looks like</h2>
+        <p class="lead">The version I use is a menu, not a single big project. Students pick activities from a list until they reach a point total. Five design pieces make it work, and they carry over to any discipline.</p>
+
+        <div class="model">
+            <div class="model-row">
+                <div class="label">A menu of activities</div>
+                <p>A list of authentic tasks students choose from. Choice is the engine: a student with a night shift and three kids builds a different path than a student with free afternoons, and both do real work.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">Three effort tiers</div>
+                <p>Higher effort, medium effort, and quick engagement, each with a point range. Tiers let students mix one ambitious task with several small ones instead of facing an all-or-nothing project.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">A point target</div>
+                <p>One number students must reach, replacing the exam's weight in your gradebook. Mine is 100 points at 40% of the grade. Yours can be anything, as long as the stakes feel real.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">Checkpoints</div>
+                <p>Three or four interim deadlines across the term. This is the single most important piece for community college students, and the one I would defend hardest. Without it, everything lands in the final week and the quality collapses.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">Complete / incomplete rubrics</div>
+                <p>Each activity gets a short checklist of specific criteria. Meet all of them, earn full points. Miss one, revise and resubmit. This is what keeps the model from eating your evenings: grading a submission takes about two minutes, and there is nothing to argue about.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== STEP 1 ===================== -->
+<section class="band">
+    <div class="wrap reveal">
+        <div class="kicker">Step one</div>
+        <h2>Answer six questions about your course</h2>
+        <p class="lead">Rough answers are fine. A sentence or two each. This is the context that turns generic AI output into something that fits your actual students, and it is the highest-value five minutes you will spend.</p>
+
+        <div class="builder">
+            <div class="builder-note">
+                <strong>Type your answers below and the prompt builds itself.</strong> Nothing you type here is saved, sent, or tracked; it stays in your browser. Leave any box blank and the finished prompt will simply show a placeholder you can fill in later.
+            </div>
+
+            <div class="q">
+                <label for="q1">1. What course is this for?</label>
+                <span class="hint">Course name and level. Example: Intro to Sociology, Anatomy &amp; Physiology I, U.S. History to 1877, Composition II.</span>
+                <textarea id="q1" rows="2"></textarea>
+            </div>
+            <div class="q">
+                <label for="q2">2. Who are your students?</label>
+                <span class="hint">Anything that shapes what is realistic. Example: community college, mostly working adults, many first-generation, 16-week online section, rural campus with long commutes.</span>
+                <textarea id="q2" rows="3"></textarea>
+            </div>
+            <div class="q">
+                <label for="q3">3. What does the exam you want to replace cover?</label>
+                <span class="hint">The units, topics, or skills it currently tests.</span>
+                <textarea id="q3" rows="3"></textarea>
+            </div>
+            <div class="q">
+                <label for="q4">4. What do you actually want students to be able to <em>do</em>?</label>
+                <span class="hint">The thing the exam never quite measured. This is the most important answer on the page, so take a minute with it.</span>
+                <textarea id="q4" rows="3"></textarea>
+            </div>
+            <div class="q">
+                <label for="q5">5. What is this worth?</label>
+                <span class="hint">Percent of the final grade, or the points it replaces.</span>
+                <textarea id="q5" rows="2"></textarea>
+            </div>
+            <div class="q">
+                <label for="q6">6. What are your constraints?</label>
+                <span class="hint">Anything that rules activities out. Example: fully online, no required travel, no activities involving minors, no costs to students, must fit an 8-week term.</span>
+                <textarea id="q6" rows="3"></textarea>
+            </div>
+
+            <div class="builder-actions">
+                <button type="button" class="btn btn-gold" id="buildBtn">Build my prompt</button>
+                <button type="button" class="btn btn-outline" id="clearBtn">Clear answers</button>
+                <span class="copy-status" id="buildStatus" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== STEP 2 ===================== -->
+<section class="band band-paper">
+    <div class="wrap reveal">
+        <div class="kicker">Step two</div>
+        <h2>Copy this prompt into any AI assistant</h2>
+        <p class="lead">Claude, ChatGPT, and Microsoft Copilot all work, and the free versions are fine. Copy the whole block, paste it into the chat box, and send it. That is the entire operation.</p>
+
+        <div class="prompt-shell">
+            <div class="prompt-bar">
+                <span class="ttl">Your prompt</span>
+                <button type="button" id="copyBtn">Copy to clipboard</button>
+            </div>
+            <textarea id="promptOut" spellcheck="false" aria-label="Generated prompt, editable"></textarea>
+        </div>
+        <p class="muted" style="margin-top:14px; font-size:0.93rem;">Edit anything in that box before you copy it. It is a starting point, not a spell.</p>
+    </div>
+</section>
+
+<!-- ===================== STEP 3 ===================== -->
+<section class="band">
+    <div class="wrap reveal">
+        <div class="kicker">Step three</div>
+        <h2>Have the conversation</h2>
+        <p class="lead">The prompt tells the AI to work in five stages and to stop after each one. That structure is deliberate: it keeps you from getting a wall of text you did not ask for, and it keeps you in the driver's seat. Here is what each stage looks like and what you should do.</p>
+
+        <div class="stages">
+            <div class="stage">
+                <span class="tag">Stage 0</span>
+                <div>
+                    <h3>It asks you questions</h3>
+                    <p>Before designing anything, it will ask a few short questions about your course, your students, or your goals.</p>
+                    <span class="your-move">Your move: answer casually, the way you would talk to a colleague in the hallway. Complete sentences are not required.</span>
+                </div>
+            </div>
+            <div class="stage">
+                <span class="tag">Stage 1</span>
+                <div>
+                    <h3>It proposes a skeleton</h3>
+                    <p>Effort tiers, a point target, checkpoint deadlines, and eight to ten candidate activities described in one line each.</p>
+                    <span class="your-move">Your move: be opinionated. Cut anything that would not work for your students and say why. This is the single highest-leverage moment in the whole conversation, because every later draft inherits what you rejected here.</span>
+                </div>
+            </div>
+            <div class="stage">
+                <span class="tag">Stage 2</span>
+                <div>
+                    <h3>It builds the menu</h3>
+                    <p>Your approved activities, fully written out: title, student-facing description, point value, time estimate, and what students have to turn in as evidence.</p>
+                    <span class="your-move">Your move: check the time estimates against your real students, not ideal ones. AI is consistently optimistic here. If something says two hours and you know it is four, say so.</span>
+                </div>
+            </div>
+            <div class="stage">
+                <span class="tag">Stage 3</span>
+                <div>
+                    <h3>It writes the rubrics</h3>
+                    <p>A short complete/incomplete checklist for each activity: three to five specific criteria, no partial credit, no judgment calls.</p>
+                    <span class="your-move">Your move: spend your revision energy here. Vague criteria are what generate grade disputes at 10 p.m., and a criterion you cannot verify from the submission is not a criterion.</span>
+                </div>
+            </div>
+            <div class="stage">
+                <span class="tag">Stage 4</span>
+                <div>
+                    <h3>It packages everything</h3>
+                    <p>A one-page student-facing assignment sheet explaining the system, plus a short week-one planning activity where students map out what they intend to do and when.</p>
+                    <span class="your-move">Your move: read the student handout out loud. If a sentence sounds like an administrator wrote it, rewrite it in your own voice before it goes anywhere near a student.</span>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top:26px;">At the end you have an activity menu, rubrics, a student handout, and a planning activity. All drafts. All yours. Then the real work starts, which is running it once and fixing what breaks.</p>
+    </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="band band-paper">
+    <div class="wrap reveal">
+        <div class="kicker">Honest answers</div>
+        <h2>The questions I actually get asked</h2>
+
+        <div class="faq">
+            <details>
+                <summary>Which AI should I use, and do I have to pay?</summary>
+                <div class="a">
+                    <p>Claude, ChatGPT, and Microsoft Copilot all handle this well, and the free tiers are enough for a conversation this size. If your college already licenses one, use that one, since it likely comes with institutional data protections that consumer accounts do not.</p>
+                    <p>One practical note: free tiers sometimes cut off long conversations. If that happens partway through, paste the last thing it produced into a fresh chat along with the original prompt, and pick up where you left off.</p>
+                </div>
+            </details>
+            <details>
+                <summary>Is it ethical for me to use AI to build my own course materials?</summary>
+                <div class="a">
+                    <p>You are the author of record, and you are responsible for everything you assign. That does not change here. What changes is who does the typing on the first draft.</p>
+                    <p>Two things I would do anyway. Check your institution's AI policy, since some require disclosure for instructional materials. And be candid with colleagues about how you built it, because the specifics are useful to them and hiding it makes it look shadier than it is.</p>
+                </div>
+            </details>
+            <details>
+                <summary>Can I paste student work or grades into a chatbot?</summary>
+                <div class="a">
+                    <p>No. Keep student names, grades, submissions, and anything else from your gradebook out of consumer AI tools entirely. Under FERPA those are education records, and pasting them into a service your institution has not vetted is exactly the kind of disclosure the law is about.</p>
+                    <p>You do not need any of it for this task. You are designing an assignment, not analyzing students. If you later want AI help with something involving real student data, that conversation goes through your institution's approved tools and your registrar.</p>
+                </div>
+            </details>
+            <details>
+                <summary>What stops students from using AI to fake the work?</summary>
+                <div class="a">
+                    <p>The design does, and this turned out to be the unplanned benefit of the whole approach. Authentic tasks require presence and evidence: attending something, interviewing someone, visiting a place, building a physical thing, documenting a process with original photographs. A chatbot can write a competent paragraph about federalism. It cannot sit through a zoning hearing.</p>
+                    <p>Require evidence that would be a real hassle to fabricate: a photo of the agenda with a timestamp, a recording of the interview, a signature from the office they visited. That is cheaper and more pleasant than escalating proctoring, and it makes the assignment better rather than more adversarial.</p>
+                </div>
+            </details>
+            <details>
+                <summary>What if my department or accreditor pushes back?</summary>
+                <div class="a">
+                    <p>Come with three things. First, the alignment: name the course learning outcomes and the institutional or state objectives each activity addresses. Authentic assessment usually maps onto those requirements more cleanly than a multiple-choice exam ever did.</p>
+                    <p>Second, the rubrics, because a published checklist is more defensible under scrutiny than an answer key nobody outside your course has seen. Third, run it as a pilot in one section and collect student feedback. Data from your own students ends most of these conversations.</p>
+                </div>
+            </details>
+            <details>
+                <summary>My discipline doesn't have "civic activities." Does this still work?</summary>
+                <div class="a">
+                    <p>Yes, and the translation is usually obvious once you look for it. Nursing students shadow a clinic and document a workflow. Business students interview a small-business owner about a real regulatory headache. Biology students survey a local habitat. Art history students visit a collection and write about one object. Composition students report a story that requires talking to a stranger.</p>
+                    <p>The test is not "is it civic." The test is whether a student has to leave the browser tab and come back with something only they could have produced.</p>
+                </div>
+            </details>
+            <details>
+                <summary>How do I grade this without losing my weekends?</summary>
+                <div class="a">
+                    <p>Complete/incomplete against a published checklist. That one decision is what makes the model survivable. There is no partial credit to calculate, no rubric row to agonize over, and no negotiation, because the criteria were public before the student started.</p>
+                    <p>It took me three rounds of rubric revision to get there. The first versions had criteria I could not actually verify from what students submitted, which is the mistake to watch for.</p>
+                </div>
+            </details>
+            <details>
+                <summary>What if it does not work?</summary>
+                <div class="a">
+                    <p>Parts of it will not, the first time. My checkpoint pacing was wrong for 8-week sections, verifying attendance took more of my time than I planned for, and a few activities drew almost no takers.</p>
+                    <p>None of that is a reason to go back to the exam. Keep what worked, cut what did not, and run it again. That is not a flaw in the method. That is the method.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TIPS ===================== -->
+<section class="band">
+    <div class="wrap reveal">
+        <div class="kicker">From experience</div>
+        <h2>Three things I wish I had known</h2>
+        <div class="tips">
+            <div class="tip">
+                <span class="n">1</span>
+                <h3>Start smaller than you think</h3>
+                <p>Eight to twelve activities is plenty for a first semester. I have 39 now, and I did not start with 39. A short menu you actually launch beats a long one you never finish.</p>
+            </div>
+            <div class="tip">
+                <span class="n">2</span>
+                <h3>The rubrics are the whole ballgame</h3>
+                <p>Everything else is adjustable. If your criteria are specific and checkable, this model is sustainable across five sections. If they are vague, it will bury you by week six.</p>
+            </div>
+            <div class="tip">
+                <span class="n">3</span>
+                <h3>Tell your students why</h3>
+                <p>Say out loud that you are replacing the exam because you want them to be able to do something, not recite something. Students take the work more seriously when they know the reasoning, and they will tell you what to fix.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EXAMPLES ===================== -->
+<section class="band band-paper">
+    <div class="wrap reveal">
+        <div class="kicker">See a finished one</div>
+        <h2>Two working examples you can pull apart</h2>
+        <p class="lead">Both of these are live, in use, and free to copy. Looking at a finished menu and rubric set is the fastest way to understand what you are aiming at, so borrow the structure and swap in your own discipline.</p>
+        <div class="examples">
+            <a class="example" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">
+                <h3>The Civic Action Project</h3>
+                <p>39 activities, three tiers, complete instructor resources, rubrics, tracking tools, and student outcome data from my own sections. Built for federal government, structured to be stolen.</p>
+                <span class="go">Open the CAP →</span>
+            </a>
+            <a class="example" href="https://professorjaredalanstewart.github.io/Texas-In-Action/">
+                <h3>Texas In Action</h3>
+                <p>The same framework rebuilt for Texas Government, with 39 distinct state and local activities. A useful look at how the model adapts to a different course without starting over.</p>
+                <span class="go">Open the TIA →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+    <h2>Stuck anywhere in this? <em>Write to me.</em></h2>
+    <p>I would rather answer a question than have you abandon a good idea at step three. If you want to talk through your activity menu, see the outcome data before pitching this to your department, or just have someone tell you your rubric is fine, I am genuinely happy to help.</p>
+    <a class="btn btn-gold" href="mailto:jared.stewart@tccd.edu?subject=Building%20my%20own%20project-based%20assessment">Email me about your project</a>
+</section>
+
+</main>
+
+<footer>
+    <strong>Jared Alan Stewart</strong><br>
+    Government Faculty · Tarrant County College · Fort Worth, Texas<br>
+    All projects shared freely as open educational resources.<br>
+    <a href="mailto:jared.stewart@tccd.edu">jared.stewart@tccd.edu</a> · <a href="https://www.linkedin.com/in/jaredalanstewart" target="_blank" rel="noopener">linkedin.com/in/jaredalanstewart</a> · <a href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">github.com/ProfessorJaredAlanStewart</a>
+    <div class="footer-quote">Decisions are made by those who show up.</div>
+    <div class="footer-joke">No trees were killed in the creation of these materials. However, a large number of electrons were terribly inconvenienced.</div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Return to top" title="Back to top">&#8593;</button>
+
+<script>
+(function () {
+    /* ---------- reveal on scroll ---------- */
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    /* ---------- scroll progress + back to top ---------- */
+    var prog = document.getElementById('scrollProgress');
+    var toTop = document.getElementById('toTop');
+    function updProg() {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        if (prog) prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+        if (toTop) toTop.classList.toggle('show', h.scrollTop > 600);
+    }
+    if (toTop) toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+    window.addEventListener('scroll', updProg, { passive: true });
+    window.addEventListener('resize', updProg, { passive: true });
+    updProg();
+
+    /* ---------- prompt builder ---------- */
+    var FIELDS = [
+        ['q1', 'MY COURSE', '[your course name and level]'],
+        ['q2', 'MY STUDENTS', '[who your students are]'],
+        ['q3', 'THE EXAM I WANT TO REPLACE COVERS', '[the units or skills it tests]'],
+        ['q4', 'WHAT I WANT STUDENTS TO BE ABLE TO DO', '[the thing the exam never measured]'],
+        ['q5', 'GRADE WEIGHT', '[percent of the course grade]'],
+        ['q6', 'MY CONSTRAINTS', '[anything that rules activities out]']
+    ];
+
+    var BASE = [
+        'You are an experienced instructional designer and a friendly colleague in my',
+        'discipline. I am a college instructor designing a project-based assessment to',
+        'REPLACE an exam in my course. I want a menu of authentic, real-world activities',
+        'that students choose from to earn points, instead of taking a test. My answers to',
+        'six planning questions are at the bottom of this message.',
+        '',
+        'Work with me in stages. Never skip ahead, and never produce more than one stage',
+        'without stopping to check in with me.',
+        '',
+        'STAGE 0 - UNDERSTAND MY COURSE.',
+        'Before designing anything, ask me up to four short questions about my course, my',
+        'students, or my goals, so your suggestions fit my situation. Wait for my answers.',
+        '',
+        'STAGE 1 - PROPOSE THE SKELETON.',
+        'Suggest a structure with: (a) three effort tiers such as higher effort, medium',
+        'effort, and quick engagement, with a point range for each; (b) a total point',
+        'target students must reach; (c) three or four checkpoint deadlines spread across',
+        'the term so students cannot cram it all into the final week; and (d) a rule',
+        'requiring students to complete activities from at least two tiers. Then list 8 to',
+        '10 candidate activities across the tiers, each in one sentence. Ask me which ones',
+        'fit my students and which to cut, and invite me to add my own ideas.',
+        '',
+        'STAGE 2 - BUILD THE MENU.',
+        'Expand only the activities I approved into a full menu. For each one give: a',
+        'title, a two-to-three sentence student-facing description, a point value, an',
+        'honest time estimate, and the evidence a student must submit (photo, reflection,',
+        'recording, document, etc.). Then stop and let me revise.',
+        '',
+        'STAGE 3 - WRITE THE RUBRICS.',
+        'For each approved activity, write a short complete/incomplete rubric: a checklist',
+        'of 3 to 5 specific criteria. If a student meets all of them, they earn full',
+        'points; if not, they revise and resubmit. No partial credit and no subjective',
+        'judgment calls. Every criterion must be something I can verify from what the',
+        'student turns in.',
+        '',
+        'STAGE 4 - PACKAGE IT.',
+        'Draft a one-page student-facing assignment sheet explaining the whole system,',
+        'plus a short week-one planning activity where students map out which activities',
+        'they intend to complete and when.',
+        '',
+        'RULES FOR THE WHOLE CONVERSATION:',
+        '- Favor activities that require real-world action a chatbot cannot fake:',
+        '  attending something, interviewing someone, visiting somewhere, observing,',
+        '  building, or documenting with original evidence.',
+        '- Time estimates must reflect real students with jobs and families, not ideal',
+        '  students with free afternoons.',
+        '- Flag any activity that raises safety, privacy, cost, accessibility, or',
+        '  verification concerns, and suggest a safer variant.',
+        '- Use plain language throughout. No education jargon in anything a student',
+        '  will read.',
+        '- I make every final decision. Treat your drafts as raw material for me to',
+        '  approve, change, or throw out.',
+        '- Keep the tone encouraging and collegial. This should feel like planning',
+        '  something exciting with a colleague, because it is.',
+        '',
+        'HERE ARE MY SIX ANSWERS:'
+    ].join('\n');
+
+    var out = document.getElementById('promptOut');
+    var status = document.getElementById('buildStatus');
+
+    function compose() {
+        var lines = [BASE, ''];
+        FIELDS.forEach(function (f, i) {
+            var el = document.getElementById(f[0]);
+            var val = el && el.value.trim() ? el.value.trim().replace(/\s*\n\s*/g, ' ') : f[2];
+            lines.push((i + 1) + '. ' + f[1] + ': ' + val);
+        });
+        return lines.join('\n');
+    }
+    function render(msg) {
+        out.value = compose();
+        if (msg && status) {
+            status.textContent = msg;
+            setTimeout(function () { status.textContent = ''; }, 2600);
+        }
+    }
+
+    render();
+    FIELDS.forEach(function (f) {
+        var el = document.getElementById(f[0]);
+        if (el) el.addEventListener('input', function () { render(); });
+    });
+
+    document.getElementById('buildBtn').addEventListener('click', function () {
+        render('Prompt updated below.');
+        document.querySelector('.prompt-shell').scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            block: 'start'
+        });
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function () {
+        FIELDS.forEach(function (f) {
+            var el = document.getElementById(f[0]);
+            if (el) el.value = '';
+        });
+        render('Answers cleared.');
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', function () {
+        var btn = this;
+        function done(ok) {
+            btn.textContent = ok ? 'Copied' : 'Press Ctrl+C';
+            setTimeout(function () { btn.textContent = 'Copy to clipboard'; }, 2200);
+        }
+        out.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(out.value).then(function () { done(true); },
+                                                          function () { done(false); });
+        } else {
+            try { done(document.execCommand('copy')); } catch (e) { done(false); }
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
