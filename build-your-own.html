@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://jaredalanstewart.com/build-your-own.html">
 <title>Build Your Own Project-Based Assessment — Jared Alan Stewart</title>
-<meta name="description" content="A step-by-step guide for college instructors in any discipline who want to replace an exam with a project-based assessment, using AI to do the heavy lifting. No AI experience needed. Free and open.">
+<meta name="description" content="A backwards-design walkthrough for college instructors in any discipline: start from your learning goals, answer a few questions, and get a ready-to-paste AI prompt that builds your project-based assessment with you. No AI experience needed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jaredalanstewart.com/build-your-own.html">
 <meta property="og:title" content="Build Your Own Project-Based Assessment">
-<meta property="og:description" content="Replace an exam with authentic project work. A walkthrough for instructors in any field, written for people with no AI experience.">
+<meta property="og:description" content="Start from your learning goals, then design the work. A walkthrough for instructors in any field, written for people with no AI experience.">
 <meta property="og:image" content="https://jaredalanstewart.com/og-card.jpg">
 <meta property="og:image:alt" content="Professor Jared Alan Stewart at the JFK memorial in Fort Worth">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Build Your Own Project-Based Assessment">
-<meta name="twitter:description" content="Replace an exam with authentic project work. Written for instructors with no AI experience.">
+<meta name="twitter:description" content="Start from your learning goals, then design the work. Written for instructors with no AI experience.">
 <meta name="twitter:image" content="https://jaredalanstewart.com/og-card.jpg">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -117,17 +117,33 @@ a { color: var(--warm); }
 }
 
 /* ---------- hero ---------- */
-.page-hero { position: relative; background: var(--plum-deep); color: #fff; padding: 70px 24px 60px; overflow: hidden; text-align: center; }
+.page-hero { position: relative; background: var(--plum-deep); color: #fff; padding: 68px 24px 56px; overflow: hidden; text-align: center; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; }
 .page-hero .ph-star { position: absolute; right: -90px; top: -90px; width: 360px; height: 360px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 3 L61.8 36.2 L97.6 36.2 L68.9 57.6 L79.4 90.5 L50 70 L20.6 90.5 L31.1 57.6 L2.4 36.2 L38.2 36.2 Z' fill='%23FFC700'/%3E%3C/svg%3E") no-repeat center / contain; opacity: 0.06; pointer-events: none; }
 .page-hero .ph-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
 .page-hero .ph-kicker { color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; }
 .page-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.12; margin-bottom: 16px; }
 .page-hero h1 em { font-style: italic; color: var(--gold); }
-.page-hero p { color: rgba(255,255,255,0.85); font-size: 1.08rem; max-width: 640px; margin: 0 auto; }
+.page-hero p { color: rgba(255,255,255,0.85); font-size: 1.08rem; max-width: 660px; margin: 0 auto; }
 .hero-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; position: relative; z-index: 1; }
 .hero-facts span { color: rgba(255,255,255,0.75); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
 .hero-facts span::before { content: '★'; color: var(--gold); margin-right: 8px; font-size: 0.8rem; }
+
+/* ---------- journey strip ---------- */
+.journey { background: var(--plum-deepest); padding: 22px 24px; }
+.journey-inner { max-width: 940px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.jstep { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-size: 0.92rem; line-height: 1.35; }
+.jstep b { color: #fff; }
+.jnum {
+    width: 34px; height: 34px; flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+}
 
 /* ---------- layout ---------- */
 .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
@@ -155,6 +171,28 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
 .fear .worry::after { content: '\201D'; }
 .fear p { font-size: 0.95rem; color: var(--ink); line-height: 1.6; }
 
+/* ---------- glossary ---------- */
+.gloss { margin-top: 30px; border: 1px dashed var(--rule); border-radius: 6px; background: var(--cream); padding: 20px 24px; }
+.gloss h3 { font-size: 1rem; margin-bottom: 12px; }
+.gloss dl { display: grid; gap: 9px; }
+.gloss dt { font-weight: 700; color: var(--navy); display: inline; }
+.gloss dd { display: inline; margin: 0; font-size: 0.96rem; }
+.gloss .gitem { line-height: 1.55; }
+
+/* ---------- backwards design note ---------- */
+.bd-note {
+    margin-top: 4px;
+    margin-bottom: 26px;
+    background: linear-gradient(90deg, rgba(255,199,0,0.1), transparent 60%), var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    border-radius: 5px;
+    padding: 18px 22px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+.bd-note strong { color: var(--warm); }
+
 /* ---------- how it works diagram ---------- */
 .model { margin-top: 26px; display: grid; gap: 14px; }
 .model-row {
@@ -177,21 +215,6 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
 }
 .model-row p { font-size: 0.97rem; line-height: 1.6; }
 
-/* ---------- steps ---------- */
-.step { display: grid; grid-template-columns: 54px 1fr; gap: 22px; align-items: start; margin-top: 30px; }
-.step-num {
-    width: 54px; height: 54px;
-    border-radius: 50%;
-    background: var(--plum);
-    color: var(--gold);
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-}
-.step h3 { margin-bottom: 8px; }
-
 /* ---------- prompt builder ---------- */
 .builder { margin-top: 26px; }
 .builder-note {
@@ -202,9 +225,17 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
     font-size: 0.94rem;
     margin-bottom: 22px;
 }
-.q { margin-bottom: 18px; }
-.q label { display: block; font-weight: 700; color: var(--navy); font-size: 0.98rem; margin-bottom: 3px; }
-.q .hint { display: block; color: var(--muted); font-size: 0.87rem; margin-bottom: 7px; line-height: 1.5; }
+.qgroup { margin: 30px 0 6px; }
+.qgroup-title {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--plum);
+    border-bottom: 2px solid var(--sand);
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+}
+.q { margin-bottom: 20px; }
+.q label, .q .qlabel { display: block; font-weight: 700; color: var(--navy); font-size: 0.98rem; margin-bottom: 3px; }
+.q .hint { display: block; color: var(--muted); font-size: 0.87rem; margin-bottom: 8px; line-height: 1.5; }
 .q textarea {
     width: 100%;
     font-family: inherit;
@@ -219,6 +250,27 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
     min-height: 62px;
 }
 .q textarea:focus { outline: 2px solid var(--amber); outline-offset: 1px; border-color: var(--amber); }
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.choices label {
+    display: flex; align-items: flex-start; gap: 11px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 13px 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+.choices label:hover { border-color: var(--amber); }
+.choices input { margin-top: 4px; accent-color: var(--plum); width: 17px; height: 17px; flex-shrink: 0; cursor: pointer; }
+.choices input:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.choices label:has(input:checked) { border-color: var(--plum); background: rgba(75,46,131,0.06); }
+fieldset.q { border: none; }
+fieldset.q legend { font-weight: 700; color: var(--navy); font-size: 0.98rem; margin-bottom: 3px; padding: 0; }
+
 .builder-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 6px 0 24px; }
 .btn {
     font-family: inherit;
@@ -263,7 +315,7 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
 .prompt-bar button:hover { background: #ffd426; }
 #promptOut {
     width: 100%;
-    min-height: 400px;
+    min-height: 420px;
     background: transparent;
     color: #e8eefc;
     border: none;
@@ -275,6 +327,19 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
     white-space: pre-wrap;
 }
 #promptOut:focus { outline: none; }
+.paste-help { margin-top: 14px; font-size: 0.93rem; }
+
+/* ---------- expectation callout ---------- */
+.expect {
+    margin-top: 30px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--oxblood);
+    border-radius: 5px;
+    padding: 20px 24px;
+}
+.expect h3 { color: var(--oxblood); font-size: 1.05rem; margin-bottom: 8px; }
+.expect p { font-size: 0.97rem; line-height: 1.65; }
 
 /* ---------- stages ---------- */
 .stages { margin-top: 24px; display: grid; gap: 0; }
@@ -304,6 +369,25 @@ h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.14rem; color
     font-weight: 600;
     line-height: 1.55;
 }
+.try-say {
+    display: block;
+    margin-top: 8px;
+    padding: 9px 14px;
+    background: rgba(75,46,131,0.05);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--plum);
+    line-height: 1.5;
+}
+.try-say b { font-style: normal; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; margin-right: 6px; }
+
+/* ---------- phrase list ---------- */
+.phrases { margin-top: 28px; background: var(--cream); border: 1px solid var(--rule); border-radius: 6px; padding: 22px 24px; }
+.phrases h3 { font-size: 1.02rem; margin-bottom: 10px; }
+.phrases ul { list-style: none; display: grid; gap: 8px; }
+.phrases li { font-size: 0.95rem; line-height: 1.5; padding-left: 20px; position: relative; }
+.phrases li::before { content: '★'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; top: 4px; }
+.phrases li em { color: var(--plum); font-style: normal; font-weight: 600; }
 
 /* ---------- faq ---------- */
 .faq { margin-top: 24px; }
@@ -401,20 +485,33 @@ footer a { color: rgba(255,255,255,0.75); }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+@media (max-width: 860px) {
+    .journey-inner { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 700px) {
     body { font-size: 16px; }
     .wrap { padding: 0 20px; }
     .band { padding: 44px 0; }
-    .step { grid-template-columns: 1fr; gap: 12px; }
     .model-row { grid-template-columns: 1fr; gap: 6px; }
     .stage { grid-template-columns: 1fr; gap: 10px; }
     .stage .tag { justify-self: start; }
+}
+@media (max-width: 500px) {
+    .journey-inner { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1 !important; transform: none !important; transition: none; }
     .btn, .example, .to-top { transition: none; }
     .btn:hover, .example:hover { transform: none; }
+}
+@media print {
+    .topbar, .quicknav, .to-top, .closing, .builder-actions, .prompt-bar button { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    body { font-size: 12pt; }
+    .page-hero, .journey { background: #fff !important; color: #000 !important; }
+    .page-hero p, .jstep, .jstep b { color: #000 !important; }
+    .page-hero h1 em, .page-hero .ph-kicker { color: #92400e !important; }
 }
 </style>
 </head>
@@ -446,15 +543,25 @@ footer a { color: rgba(255,255,255,0.75); }
     <div class="ph-inner">
         <div class="ph-kicker">For Instructors · Any Discipline</div>
         <h1>Build your own <em>project-based assessment</em></h1>
-        <p>You want to replace an exam with work that actually means something. You have a full teaching load and no time to build it. Here is how to get from that idea to a real, gradeable assignment, with an AI assistant doing the tedious part.</p>
+        <p>You want students doing work that actually means something. You have a full teaching load and no time to build it. This page walks you from your learning goals to a real, gradeable project, with an AI assistant doing the tedious part.</p>
     </div>
     <div class="hero-facts">
+        <span>Starts from your learning goals</span>
         <span>About an hour</span>
         <span>No AI experience needed</span>
         <span>Works in any field</span>
         <span>Free to copy and adapt</span>
     </div>
 </header>
+
+<div class="journey" aria-label="The whole path at a glance">
+    <div class="journey-inner">
+        <div class="jstep"><span class="jnum">1</span><span><b>Answer the questions.</b><br>Learning goals first.</span></div>
+        <div class="jstep"><span class="jnum">2</span><span><b>Copy the prompt.</b><br>This page writes it for you.</span></div>
+        <div class="jstep"><span class="jnum">3</span><span><b>Have the conversation.</b><br>Five stages, you approve each.</span></div>
+        <div class="jstep"><span class="jnum">4</span><span><b>Run it once.</b><br>Then fix what breaks.</span></div>
+    </div>
+</div>
 
 <main>
 
@@ -464,7 +571,7 @@ footer a { color: rgba(255,255,255,0.75); }
         <div class="kicker">Start here</div>
         <h2>If this feels like too big a project, read this first</h2>
         <p class="lead">I built the Civic Action Project because I was tired of watching students memorize government facts for a test and forget them by Friday. What stopped me for a long time was not the idea. It was the work: dozens of activities to write, a rubric for every one, instructions, deadlines, a way to track it all. That is the wall most of us hit, and it is the reason good assessment ideas die in a Google Doc.</p>
-        <p>An AI assistant does not solve the hard part. You still decide what is worth academic credit in your field, and no chatbot can do that for you. What it does solve is the production work: the drafting, the formatting, the tenth rubric at 11 p.m. That is the wall it knocks down, and knocking it down is enough.</p>
+        <p>An AI assistant does not solve the hard part. You still decide what students need to learn and what is worth academic credit in your field, and no chatbot can do that for you. What it does solve is the production work: the drafting, the formatting, the tenth rubric at 11 p.m. That is the wall it knocks down, and knocking it down is enough.</p>
         <p>Before you start, four things that are probably worrying you:</p>
 
         <div class="fears">
@@ -482,8 +589,17 @@ footer a { color: rgba(255,255,255,0.75); }
             </div>
             <div class="fear">
                 <span class="worry">Isn't it my job to design my own course?</span>
-                <p>It still is. Every decision stays yours. This is closer to a research assistant who types fast than to a colleague handing you a finished syllabus.</p>
+                <p>It still is. Every decision stays yours, starting with the learning goals. This is closer to a research assistant who types fast than to a colleague handing you a finished syllabus.</p>
             </div>
+        </div>
+
+        <div class="gloss">
+            <h3>Three words this page uses, in plain English</h3>
+            <dl>
+                <div class="gitem"><dt>AI assistant (or chatbot):</dt> <dd>a website where you type a message and get a written reply. ChatGPT, Claude, and Microsoft Copilot are the big three. You do not install anything.</dd></div>
+                <div class="gitem"><dt>Prompt:</dt> <dd>the message you send. That is all it is. The long block this page builds for you is one big prompt.</dd></div>
+                <div class="gitem"><dt>Chat box:</dt> <dd>the typing area at the bottom of the chatbot's screen, like the message field in a text conversation.</dd></div>
+            </dl>
         </div>
     </div>
 </section>
@@ -493,9 +609,13 @@ footer a { color: rgba(255,255,255,0.75); }
     <div class="wrap reveal">
         <div class="kicker">The model</div>
         <h2>What a project-based assessment actually looks like</h2>
-        <p class="lead">The version I use is a menu, not a single big project. Students pick activities from a list until they reach a point total. Five design pieces make it work, and they carry over to any discipline.</p>
+        <p class="lead">The version I use is a menu, not a single big project. Students pick activities from a list until they reach a point total. Six design pieces make it work, and they carry over to any discipline.</p>
 
         <div class="model">
+            <div class="model-row">
+                <div class="label">Learning goals first</div>
+                <p>This is backwards design: decide what students should know and be able to do, then build the work that gets them there. Every activity in the menu has to serve at least one of your learning goals, or it gets cut. This is also what makes the whole thing defensible to your department and your accreditor.</p>
+            </div>
             <div class="model-row">
                 <div class="label">A menu of activities</div>
                 <p>A list of authentic tasks students choose from. Choice is the engine: a student with a night shift and three kids builds a different path than a student with free afternoons, and both do real work.</p>
@@ -506,11 +626,11 @@ footer a { color: rgba(255,255,255,0.75); }
             </div>
             <div class="model-row">
                 <div class="label">A point target</div>
-                <p>One number students must reach, replacing the exam's weight in your gradebook. Mine is 100 points at 40% of the grade. Yours can be anything, as long as the stakes feel real.</p>
+                <p>One number students must reach. Mine is 100 points at 40% of the grade, replacing the exams entirely. Yours can be any size, from a full exam replacement to a few-week project, as long as the stakes feel real.</p>
             </div>
             <div class="model-row">
                 <div class="label">Checkpoints</div>
-                <p>Three or four interim deadlines across the term. This is the single most important piece for community college students, and the one I would defend hardest. Without it, everything lands in the final week and the quality collapses.</p>
+                <p>Interim deadlines across the project window. This is the single most important piece for community college students, and the one I would defend hardest. Without it, everything lands in the final week and the quality collapses.</p>
             </div>
             <div class="model-row">
                 <div class="label">Complete / incomplete rubrics</div>
@@ -524,43 +644,74 @@ footer a { color: rgba(255,255,255,0.75); }
 <section class="band">
     <div class="wrap reveal">
         <div class="kicker">Step one</div>
-        <h2>Answer six questions about your course</h2>
-        <p class="lead">Rough answers are fine. A sentence or two each. This is the context that turns generic AI output into something that fits your actual students, and it is the highest-value five minutes you will spend.</p>
+        <h2>Tell the AI about your course, learning goals first</h2>
+        <div class="bd-note">
+            <strong>Why learning goals come first.</strong> True backwards design starts from what students need to learn, and only then designs the assignments. So this page asks for your goals before anything else. If your course has official learning outcomes, or your state publishes objectives for it, paste them in as-is. If not, write what you would want a student to honestly claim on a job interview after passing your course. Either works.
+        </div>
+        <p class="lead">Rough answers are fine everywhere below; a sentence or two each is plenty. The AI knows nothing about your course except what you write here, so this is the highest-value ten minutes on the page.</p>
 
         <div class="builder">
             <div class="builder-note">
-                <strong>Type your answers below and the prompt builds itself.</strong> Nothing you type here is saved, sent, or tracked; it stays in your browser. Leave any box blank and the finished prompt will simply show a placeholder you can fill in later.
+                <strong>Type your answers and the prompt at Step Two writes itself.</strong> Nothing you enter here is saved, sent, or tracked; it stays on your screen and disappears when you close the page. Leave any box blank and the finished prompt will simply show a placeholder you can fill in later.
             </div>
 
+            <div class="qgroup"><div class="qgroup-title">The Learning</div></div>
             <div class="q">
-                <label for="q1">1. What course is this for?</label>
+                <label for="q_course">1. What course is this for?</label>
                 <span class="hint">Course name and level. Example: Intro to Sociology, Anatomy &amp; Physiology I, U.S. History to 1877, Composition II.</span>
-                <textarea id="q1" rows="2"></textarea>
+                <textarea id="q_course" rows="2"></textarea>
             </div>
             <div class="q">
-                <label for="q2">2. Who are your students?</label>
+                <label for="q_goals">2. What are your learning goals for this course?</label>
+                <span class="hint">Paste your official course learning outcomes or your state's objectives, or write your own in plain language. A bulleted list pasted straight from your syllabus is perfect. Everything the AI designs will be built backwards from these.</span>
+                <textarea id="q_goals" rows="5"></textarea>
+            </div>
+            <div class="q">
+                <label for="q_do">3. Beyond the official goals, what do you want students to actually be able to <em>do</em>?</label>
+                <span class="hint">The honest version. The thing an exam never quite measured. Example: "hold their own in a conversation about local zoning," "read a journal article without panicking," "interview a stranger and write it up."</span>
+                <textarea id="q_do" rows="3"></textarea>
+            </div>
+
+            <div class="qgroup"><div class="qgroup-title">The Learners</div></div>
+            <div class="q">
+                <label for="q_students">4. Who are your students?</label>
                 <span class="hint">Anything that shapes what is realistic. Example: community college, mostly working adults, many first-generation, 16-week online section, rural campus with long commutes.</span>
-                <textarea id="q2" rows="3"></textarea>
+                <textarea id="q_students" rows="3"></textarea>
+            </div>
+
+            <div class="qgroup"><div class="qgroup-title">The Shape of the Project</div></div>
+            <fieldset class="q">
+                <legend>5. What is this project's job in your course?</legend>
+                <span class="hint">This changes how the AI frames everything, so pick the closest fit.</span>
+                <div class="choices" role="radiogroup">
+                    <label><input type="radio" name="scope" value="replace"> Replace an exam entirely</label>
+                    <label><input type="radio" name="scope" value="standalone"> A standalone project alongside my existing tests</label>
+                    <label><input type="radio" name="scope" value="extra"> An optional extra-credit project</label>
+                </div>
+            </fieldset>
+            <fieldset class="q">
+                <legend>6. How long will students have?</legend>
+                <span class="hint">A shorter window means a smaller menu and fewer checkpoints. The prompt adjusts automatically.</span>
+                <div class="choices" role="radiogroup">
+                    <label><input type="radio" name="duration" value="semester"> The full semester</label>
+                    <label><input type="radio" name="duration" value="half"> About half the term</label>
+                    <label><input type="radio" name="duration" value="short"> A few weeks (2&ndash;4)</label>
+                </div>
+            </fieldset>
+            <div class="q">
+                <label for="q_weight">7. What is it worth?</label>
+                <span class="hint">Percent of the final grade, or the points it replaces. Example: "40% of the grade" or "one exam's worth, about 150 points."</span>
+                <textarea id="q_weight" rows="2"></textarea>
             </div>
             <div class="q">
-                <label for="q3">3. What does the exam you want to replace cover?</label>
-                <span class="hint">The units, topics, or skills it currently tests.</span>
-                <textarea id="q3" rows="3"></textarea>
+                <label for="q_content">8. What content or units should it cover?</label>
+                <span class="hint">The chapters, units, or topics this project is responsible for. If it replaces an exam, list what that exam covered.</span>
+                <textarea id="q_content" rows="3"></textarea>
             </div>
             <div class="q">
-                <label for="q4">4. What do you actually want students to be able to <em>do</em>?</label>
-                <span class="hint">The thing the exam never quite measured. This is the most important answer on the page, so take a minute with it.</span>
-                <textarea id="q4" rows="3"></textarea>
-            </div>
-            <div class="q">
-                <label for="q5">5. What is this worth?</label>
-                <span class="hint">Percent of the final grade, or the points it replaces.</span>
-                <textarea id="q5" rows="2"></textarea>
-            </div>
-            <div class="q">
-                <label for="q6">6. What are your constraints?</label>
+                <label for="q_constraints">9. What are your constraints?</label>
                 <span class="hint">Anything that rules activities out. Example: fully online, no required travel, no activities involving minors, no costs to students, must fit an 8-week term.</span>
-                <textarea id="q6" rows="3"></textarea>
+                <textarea id="q_constraints" rows="3"></textarea>
             </div>
 
             <div class="builder-actions">
@@ -581,12 +732,17 @@ footer a { color: rgba(255,255,255,0.75); }
 
         <div class="prompt-shell">
             <div class="prompt-bar">
-                <span class="ttl">Your prompt</span>
+                <span class="ttl">Your prompt &mdash; built from your answers above</span>
                 <button type="button" id="copyBtn">Copy to clipboard</button>
             </div>
             <textarea id="promptOut" spellcheck="false" aria-label="Generated prompt, editable"></textarea>
         </div>
-        <p class="muted" style="margin-top:14px; font-size:0.93rem;">Edit anything in that box before you copy it. It is a starting point, not a spell.</p>
+        <p class="paste-help"><strong>To paste it:</strong> click inside the chatbot's chat box, then press <strong>Ctrl+V</strong> (or <strong>Cmd+V</strong> on a Mac), then press Enter or the send arrow. You can also edit anything in the box above before copying; it is a starting point, not a spell.</p>
+
+        <div class="expect">
+            <h3>One honest expectation before you send it</h3>
+            <p>This prompt gets the conversation started on the right structure, and that is all a prompt can do. What comes back depends on which AI you use, the day you use it, and most of all on what you say next. The same prompt gives different results to different people, because the people steer differently. Your judgment in the follow-up replies, cutting weak ideas, correcting time estimates, demanding specifics, is what turns a decent draft into your assessment. The next section shows you exactly how to steer.</p>
+        </div>
     </div>
 </section>
 
@@ -594,8 +750,8 @@ footer a { color: rgba(255,255,255,0.75); }
 <section class="band">
     <div class="wrap reveal">
         <div class="kicker">Step three</div>
-        <h2>Have the conversation</h2>
-        <p class="lead">The prompt tells the AI to work in five stages and to stop after each one. That structure is deliberate: it keeps you from getting a wall of text you did not ask for, and it keeps you in the driver's seat. Here is what each stage looks like and what you should do.</p>
+        <h2>Have the conversation, and steer it</h2>
+        <p class="lead">The prompt tells the AI to work in five stages and to stop after each one. That structure is deliberate: it keeps you from getting a wall of text you did not ask for, and it keeps you in the driver's seat. Here is what each stage looks like, what to do, and, because the steering is the part nobody shows you, what you might literally type.</p>
 
         <div class="stages">
             <div class="stage">
@@ -603,23 +759,25 @@ footer a { color: rgba(255,255,255,0.75); }
                 <div>
                     <h3>It asks you questions</h3>
                     <p>Before designing anything, it will ask a few short questions about your course, your students, or your goals.</p>
-                    <span class="your-move">Your move: answer casually, the way you would talk to a colleague in the hallway. Complete sentences are not required.</span>
+                    <span class="your-move">Your move: answer casually, the way you would talk to a colleague in the hallway. Complete sentences are not required, and you can volunteer anything it did not think to ask.</span>
                 </div>
             </div>
             <div class="stage">
                 <span class="tag">Stage 1</span>
                 <div>
                     <h3>It proposes a skeleton</h3>
-                    <p>Effort tiers, a point target, checkpoint deadlines, and eight to ten candidate activities described in one line each.</p>
-                    <span class="your-move">Your move: be opinionated. Cut anything that would not work for your students and say why. This is the single highest-leverage moment in the whole conversation, because every later draft inherits what you rejected here.</span>
+                    <p>Effort tiers, a point target, checkpoint deadlines, and a short list of candidate activities, each mapped to one of your learning goals.</p>
+                    <span class="your-move">Your move: be opinionated. Cut anything that would not work for your students and say why. This is the single highest-leverage moment in the whole conversation, because every later draft inherits what you rejected here. And check the goal mapping: if an activity does not clearly serve a learning goal, it is decoration.</span>
+                    <span class="try-say"><b>Try typing:</b> "Cut activities 2 and 6; my students can't travel on weekdays. Give me two replacements they can do entirely online, and tell me which learning goal each one serves."</span>
                 </div>
             </div>
             <div class="stage">
                 <span class="tag">Stage 2</span>
                 <div>
                     <h3>It builds the menu</h3>
-                    <p>Your approved activities, fully written out: title, student-facing description, point value, time estimate, and what students have to turn in as evidence.</p>
+                    <p>Your approved activities, fully written out: title, student-facing description, point value, time estimate, the learning goal it serves, and what students have to turn in as evidence.</p>
                     <span class="your-move">Your move: check the time estimates against your real students, not ideal ones. AI is consistently optimistic here. If something says two hours and you know it is four, say so.</span>
+                    <span class="try-say"><b>Try typing:</b> "Double the time estimate on the interview activity, and change the evidence to something I can actually verify from my desk."</span>
                 </div>
             </div>
             <div class="stage">
@@ -628,19 +786,33 @@ footer a { color: rgba(255,255,255,0.75); }
                     <h3>It writes the rubrics</h3>
                     <p>A short complete/incomplete checklist for each activity: three to five specific criteria, no partial credit, no judgment calls.</p>
                     <span class="your-move">Your move: spend your revision energy here. Vague criteria are what generate grade disputes at 10 p.m., and a criterion you cannot verify from the submission is not a criterion.</span>
+                    <span class="try-say"><b>Try typing:</b> "Criterion 2 is too vague. Rewrite it so I could check it in under a minute from what the student submits."</span>
                 </div>
             </div>
             <div class="stage">
                 <span class="tag">Stage 4</span>
                 <div>
                     <h3>It packages everything</h3>
-                    <p>A one-page student-facing assignment sheet explaining the system, plus a short week-one planning activity where students map out what they intend to do and when.</p>
+                    <p>A one-page student-facing assignment sheet explaining the system, including what students will learn in plain language, plus a short planning activity where students map out what they intend to do and when.</p>
                     <span class="your-move">Your move: read the student handout out loud. If a sentence sounds like an administrator wrote it, rewrite it in your own voice before it goes anywhere near a student.</span>
+                    <span class="try-say"><b>Try typing:</b> "Rewrite the handout at a plainer reading level, cut it to one page, and make the first paragraph explain why I ditched the exam."</span>
                 </div>
             </div>
         </div>
 
-        <p style="margin-top:26px;">At the end you have an activity menu, rubrics, a student handout, and a planning activity. All drafts. All yours. Then the real work starts, which is running it once and fixing what breaks.</p>
+        <div class="phrases">
+            <h3>Useful things to type at any point in the conversation</h3>
+            <ul>
+                <li><em>"That's too generic. Make it specific to my field and my students."</em> The single most useful sentence in AI-assisted design.</li>
+                <li><em>"Stop and summarize everything we've decided so far."</em> Do this every so often; it keeps a long conversation from drifting, and it gives you a snapshot to save.</li>
+                <li><em>"Which of my learning goals is this serving? If none, cut it."</em> Keeps the backwards design honest.</li>
+                <li><em>"Give me three options instead of one."</em> Options are cheap for the AI and make you the chooser, not the receiver.</li>
+                <li><em>"I don't like this. Try a completely different approach."</em> You will not hurt its feelings. Blunt beats polite here.</li>
+                <li><em>"Put the whole final version in one message so I can copy it."</em> Use this at the end of each stage you approve.</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:26px;">At the end you have an activity menu mapped to your learning goals, rubrics, a student handout, and a planning activity. All drafts. All yours. Then the real work starts, which is running it once and fixing what breaks.</p>
     </div>
 </section>
 
@@ -655,7 +827,7 @@ footer a { color: rgba(255,255,255,0.75); }
                 <summary>Which AI should I use, and do I have to pay?</summary>
                 <div class="a">
                     <p>Claude, ChatGPT, and Microsoft Copilot all handle this well, and the free tiers are enough for a conversation this size. If your college already licenses one, use that one, since it likely comes with institutional data protections that consumer accounts do not.</p>
-                    <p>One practical note: free tiers sometimes cut off long conversations. If that happens partway through, paste the last thing it produced into a fresh chat along with the original prompt, and pick up where you left off.</p>
+                    <p>One practical note: free tiers sometimes cut off long conversations. If that happens partway through, paste the last thing it produced into a fresh chat along with the original prompt, and pick up where you left off. The "stop and summarize" phrase above makes this painless.</p>
                 </div>
             </details>
             <details>
@@ -673,6 +845,13 @@ footer a { color: rgba(255,255,255,0.75); }
                 </div>
             </details>
             <details>
+                <summary>The AI stated something false, or invented a source. Is that normal?</summary>
+                <div class="a">
+                    <p>Yes, and it is the most important limitation to know about. AI assistants sometimes state wrong things with complete confidence, and they are notorious for inventing citations, statistics, and quotations that look real and are not. The industry calls this "hallucination."</p>
+                    <p>For this task it is mostly harmless, because you are asking for structures and drafts, not facts. But treat any factual claim, any citation, and any statistic it produces as unverified until you check it yourself. If it names a study or a source, assume it is made up unless you can find it. And never let an AI-drafted factual claim reach a student handout without your own verification. The rule of thumb: trust it with the typing, never with the truth.</p>
+                </div>
+            </details>
+            <details>
                 <summary>What stops students from using AI to fake the work?</summary>
                 <div class="a">
                     <p>The design does, and this turned out to be the unplanned benefit of the whole approach. Authentic tasks require presence and evidence: attending something, interviewing someone, visiting a place, building a physical thing, documenting a process with original photographs. A chatbot can write a competent paragraph about federalism. It cannot sit through a zoning hearing.</p>
@@ -682,7 +861,7 @@ footer a { color: rgba(255,255,255,0.75); }
             <details>
                 <summary>What if my department or accreditor pushes back?</summary>
                 <div class="a">
-                    <p>Come with three things. First, the alignment: name the course learning outcomes and the institutional or state objectives each activity addresses. Authentic assessment usually maps onto those requirements more cleanly than a multiple-choice exam ever did.</p>
+                    <p>Come with three things. First, the alignment: because you built this backwards from your learning goals, every activity already names the outcome it serves. That mapping is the language departments and accreditors speak, and it is usually cleaner than anything a multiple-choice exam can show.</p>
                     <p>Second, the rubrics, because a published checklist is more defensible under scrutiny than an answer key nobody outside your course has seen. Third, run it as a pilot in one section and collect student feedback. Data from your own students ends most of these conversations.</p>
                 </div>
             </details>
@@ -720,7 +899,7 @@ footer a { color: rgba(255,255,255,0.75); }
             <div class="tip">
                 <span class="n">1</span>
                 <h3>Start smaller than you think</h3>
-                <p>Eight to twelve activities is plenty for a first semester. I have 39 now, and I did not start with 39. A short menu you actually launch beats a long one you never finish.</p>
+                <p>Eight to twelve activities is plenty for a first semester, and for a few-week project, six is fine. I have 39 now, and I did not start with 39. A short menu you actually launch beats a long one you never finish.</p>
             </div>
             <div class="tip">
                 <span class="n">2</span>
@@ -730,7 +909,7 @@ footer a { color: rgba(255,255,255,0.75); }
             <div class="tip">
                 <span class="n">3</span>
                 <h3>Tell your students why</h3>
-                <p>Say out loud that you are replacing the exam because you want them to be able to do something, not recite something. Students take the work more seriously when they know the reasoning, and they will tell you what to fix.</p>
+                <p>Say out loud that you designed this from what you want them to learn, not from what is easy to grade. Students take the work more seriously when they know the reasoning, and they will tell you what to fix.</p>
             </div>
         </div>
     </div>
@@ -760,7 +939,7 @@ footer a { color: rgba(255,255,255,0.75); }
 <!-- ===================== CLOSING ===================== -->
 <section class="closing">
     <h2>Stuck anywhere in this? <em>Write to me.</em></h2>
-    <p>I would rather answer a question than have you abandon a good idea at step three. If you want to talk through your activity menu, see the outcome data before pitching this to your department, or just have someone tell you your rubric is fine, I am genuinely happy to help.</p>
+    <p>I would rather answer a question than have you abandon a good idea at step three. If you want to talk through your learning-goal mapping, see the outcome data before pitching this to your department, or just have someone tell you your rubric is fine, I am genuinely happy to help.</p>
     <a class="btn btn-gold" href="mailto:jared.stewart@tccd.edu?subject=Building%20my%20own%20project-based%20assessment">Email me about your project</a>
 </section>
 
@@ -803,87 +982,141 @@ footer a { color: rgba(255,255,255,0.75); }
     window.addEventListener('resize', updProg, { passive: true });
     updProg();
 
-    /* ---------- prompt builder ---------- */
-    var FIELDS = [
-        ['q1', 'MY COURSE', '[your course name and level]'],
-        ['q2', 'MY STUDENTS', '[who your students are]'],
-        ['q3', 'THE EXAM I WANT TO REPLACE COVERS', '[the units or skills it tests]'],
-        ['q4', 'WHAT I WANT STUDENTS TO BE ABLE TO DO', '[the thing the exam never measured]'],
-        ['q5', 'GRADE WEIGHT', '[percent of the course grade]'],
-        ['q6', 'MY CONSTRAINTS', '[anything that rules activities out]']
-    ];
+    /* ---------- open all FAQs when printing ---------- */
+    window.addEventListener('beforeprint', function () {
+        document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+    });
 
-    var BASE = [
-        'You are an experienced instructional designer and a friendly colleague in my',
-        'discipline. I am a college instructor designing a project-based assessment to',
-        'REPLACE an exam in my course. I want a menu of authentic, real-world activities',
-        'that students choose from to earn points, instead of taking a test. My answers to',
-        'six planning questions are at the bottom of this message.',
-        '',
-        'Work with me in stages. Never skip ahead, and never produce more than one stage',
-        'without stopping to check in with me.',
-        '',
-        'STAGE 0 - UNDERSTAND MY COURSE.',
-        'Before designing anything, ask me up to four short questions about my course, my',
-        'students, or my goals, so your suggestions fit my situation. Wait for my answers.',
-        '',
-        'STAGE 1 - PROPOSE THE SKELETON.',
-        'Suggest a structure with: (a) three effort tiers such as higher effort, medium',
-        'effort, and quick engagement, with a point range for each; (b) a total point',
-        'target students must reach; (c) three or four checkpoint deadlines spread across',
-        'the term so students cannot cram it all into the final week; and (d) a rule',
-        'requiring students to complete activities from at least two tiers. Then list 8 to',
-        '10 candidate activities across the tiers, each in one sentence. Ask me which ones',
-        'fit my students and which to cut, and invite me to add my own ideas.',
-        '',
-        'STAGE 2 - BUILD THE MENU.',
-        'Expand only the activities I approved into a full menu. For each one give: a',
-        'title, a two-to-three sentence student-facing description, a point value, an',
-        'honest time estimate, and the evidence a student must submit (photo, reflection,',
-        'recording, document, etc.). Then stop and let me revise.',
-        '',
-        'STAGE 3 - WRITE THE RUBRICS.',
-        'For each approved activity, write a short complete/incomplete rubric: a checklist',
-        'of 3 to 5 specific criteria. If a student meets all of them, they earn full',
-        'points; if not, they revise and resubmit. No partial credit and no subjective',
-        'judgment calls. Every criterion must be something I can verify from what the',
-        'student turns in.',
-        '',
-        'STAGE 4 - PACKAGE IT.',
-        'Draft a one-page student-facing assignment sheet explaining the whole system,',
-        'plus a short week-one planning activity where students map out which activities',
-        'they intend to complete and when.',
-        '',
-        'RULES FOR THE WHOLE CONVERSATION:',
-        '- Favor activities that require real-world action a chatbot cannot fake:',
-        '  attending something, interviewing someone, visiting somewhere, observing,',
-        '  building, or documenting with original evidence.',
-        '- Time estimates must reflect real students with jobs and families, not ideal',
-        '  students with free afternoons.',
-        '- Flag any activity that raises safety, privacy, cost, accessibility, or',
-        '  verification concerns, and suggest a safer variant.',
-        '- Use plain language throughout. No education jargon in anything a student',
-        '  will read.',
-        '- I make every final decision. Treat your drafts as raw material for me to',
-        '  approve, change, or throw out.',
-        '- Keep the tone encouraging and collegial. This should feel like planning',
-        '  something exciting with a colleague, because it is.',
-        '',
-        'HERE ARE MY SIX ANSWERS:'
-    ].join('\n');
+    /* ---------- prompt builder ---------- */
+    function val(id) {
+        var el = document.getElementById(id);
+        return el && el.value.trim() ? el.value.trim() : '';
+    }
+    function radioVal(name) {
+        var el = document.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : '';
+    }
+    function oneLine(text, joiner) {
+        return text.replace(/\s*\n+\s*/g, joiner || ' ');
+    }
+
+    var SCOPE_TEXT = {
+        replace:    'This project will REPLACE an exam entirely. Students will not take that test; this is the assessment.',
+        standalone: 'This is a standalone project that will run alongside my existing exams and assignments, not replace them.',
+        extra:      'This is an optional extra-credit project. It must reward real effort without punishing students who skip it.',
+        '':         '[replace an exam / standalone project / extra credit \u2014 tell the AI which]'
+    };
+    var SCOPE_OPENER = {
+        replace:    'a project-based assessment to REPLACE an exam',
+        standalone: 'a standalone project-based assessment that will run alongside my existing exams',
+        extra:      'an optional extra-credit project-based assessment',
+        '':         'a project-based assessment'
+    };
+    var DUR_TEXT = {
+        semester: 'Students will have the full semester.',
+        half:     'Students will have about half the term.',
+        short:    'Students will only have a few weeks (2\u20134).',
+        '':       '[full semester / half the term / a few weeks \u2014 tell the AI which]'
+    };
+    var DUR_CHECKPOINTS = {
+        semester: 'three or four checkpoint deadlines spread across the term so students cannot cram it all into the final week',
+        half:     'two or three checkpoint deadlines spread across the project window so students cannot cram it all into the last days',
+        short:    'one or two interim check-ins, since the window is only a few weeks',
+        '':       'checkpoint deadlines spread across the project window so students cannot cram it all in at the end'
+    };
+    var DUR_MENU = {
+        semester: 'list 8 to 10 candidate activities',
+        half:     'list 6 to 8 candidate activities',
+        short:    'list 5 to 6 candidate activities \u2014 keep the menu small for a short window',
+        '':       'list 6 to 10 candidate activities'
+    };
+
+    function compose() {
+        var scope = radioVal('scope');
+        var dur = radioVal('duration');
+
+        var head = [
+            'You are an experienced instructional designer and a friendly colleague in my',
+            'discipline. I am a college instructor designing ' + SCOPE_OPENER[scope] + ' in my',
+            'course. I want a menu of authentic, real-world activities that students choose',
+            'from to earn points. Design everything BACKWARDS from my learning goals, which',
+            'are listed with my other answers at the bottom of this message: every activity',
+            'must serve at least one of those goals, and you must say which one.',
+            '',
+            'Work with me in stages. Never skip ahead, and never produce more than one stage',
+            'without stopping to check in with me.',
+            '',
+            'STAGE 0 - UNDERSTAND MY COURSE.',
+            'Before designing anything, ask me up to four short questions about my course, my',
+            'students, or my goals, so your suggestions fit my situation. Wait for my answers.',
+            '',
+            'STAGE 1 - PROPOSE THE SKELETON.',
+            'Suggest a structure with: (a) three effort tiers such as higher effort, medium',
+            'effort, and quick engagement, with a point range for each; (b) a total point',
+            'target students must reach; (c) ' + DUR_CHECKPOINTS[dur] + ';',
+            'and (d) a rule requiring students to complete activities from at least two',
+            'tiers. Then ' + DUR_MENU[dur] + ' across the tiers, each',
+            'described in one sentence with the learning goal it serves in parentheses. If a',
+            'candidate activity serves none of my goals, cut it before showing me. Ask me',
+            'which ones fit my students and which to cut, and invite me to add my own ideas.',
+            '',
+            'STAGE 2 - BUILD THE MENU.',
+            'Expand only the activities I approved into a full menu. For each one give: a',
+            'title, a two-to-three sentence student-facing description, a point value, an',
+            'honest time estimate, the learning goal(s) it serves, and the evidence a student',
+            'must submit (photo, reflection, recording, document, etc.). Then stop and let',
+            'me revise.',
+            '',
+            'STAGE 3 - WRITE THE RUBRICS.',
+            'For each approved activity, write a short complete/incomplete rubric: a checklist',
+            'of 3 to 5 specific criteria. If a student meets all of them, they earn full',
+            'points; if not, they revise and resubmit. No partial credit and no subjective',
+            'judgment calls. Every criterion must be something I can verify from what the',
+            'student turns in.',
+            '',
+            'STAGE 4 - PACKAGE IT.',
+            'Draft a one-page student-facing assignment sheet explaining the whole system,',
+            'including a short plain-language section on what students will learn, based on',
+            'my learning goals. Then draft a short planning activity for the start of the',
+            'project window where students map out which activities they intend to complete',
+            'and when.',
+            '',
+            'RULES FOR THE WHOLE CONVERSATION:',
+            '- Favor activities that require real-world action a chatbot cannot fake:',
+            '  attending something, interviewing someone, visiting somewhere, observing,',
+            '  building, or documenting with original evidence.',
+            '- Time estimates must reflect real students with jobs and families, not ideal',
+            '  students with free afternoons.',
+            '- Flag any activity that raises safety, privacy, cost, accessibility, or',
+            '  verification concerns, and suggest a safer variant.',
+            '- Use plain language throughout. No education jargon in anything a student',
+            '  will read.',
+            '- I make every final decision. Treat your drafts as raw material for me to',
+            '  approve, change, or throw out.',
+            '- Keep the tone encouraging and collegial. This should feel like planning',
+            '  something exciting with a colleague, because it is.',
+            '',
+            'HERE ARE MY ANSWERS:',
+            ''
+        ];
+
+        var answers = [
+            '1. MY COURSE: ' + (oneLine(val('q_course')) || '[your course name and level]'),
+            '2. MY LEARNING GOALS: ' + (oneLine(val('q_goals'), '; ') || '[paste your course learning outcomes or state objectives here]'),
+            '3. WHAT I WANT STUDENTS TO BE ABLE TO DO BY THE END: ' + (oneLine(val('q_do')) || '[the honest version an exam never measured]'),
+            '4. MY STUDENTS: ' + (oneLine(val('q_students')) || '[who your students are]'),
+            '5. SCOPE: ' + SCOPE_TEXT[scope],
+            '6. TIME WINDOW: ' + DUR_TEXT[dur],
+            '7. GRADE WEIGHT: ' + (oneLine(val('q_weight')) || '[percent of the course grade, or the points it replaces]'),
+            '8. CONTENT OR UNITS TO COVER: ' + (oneLine(val('q_content')) || '[the chapters, units, or topics this project is responsible for]'),
+            '9. MY CONSTRAINTS: ' + (oneLine(val('q_constraints')) || '[anything that rules activities out]')
+        ];
+
+        return head.join('\n') + answers.join('\n');
+    }
 
     var out = document.getElementById('promptOut');
     var status = document.getElementById('buildStatus');
-
-    function compose() {
-        var lines = [BASE, ''];
-        FIELDS.forEach(function (f, i) {
-            var el = document.getElementById(f[0]);
-            var val = el && el.value.trim() ? el.value.trim().replace(/\s*\n\s*/g, ' ') : f[2];
-            lines.push((i + 1) + '. ' + f[1] + ': ' + val);
-        });
-        return lines.join('\n');
-    }
     function render(msg) {
         out.value = compose();
         if (msg && status) {
@@ -891,11 +1124,14 @@ footer a { color: rgba(255,255,255,0.75); }
             setTimeout(function () { status.textContent = ''; }, 2600);
         }
     }
-
     render();
-    FIELDS.forEach(function (f) {
-        var el = document.getElementById(f[0]);
+
+    ['q_course','q_goals','q_do','q_students','q_weight','q_content','q_constraints'].forEach(function (id) {
+        var el = document.getElementById(id);
         if (el) el.addEventListener('input', function () { render(); });
+    });
+    document.querySelectorAll('input[name="scope"], input[name="duration"]').forEach(function (r) {
+        r.addEventListener('change', function () { render(); });
     });
 
     document.getElementById('buildBtn').addEventListener('click', function () {
@@ -907,10 +1143,11 @@ footer a { color: rgba(255,255,255,0.75); }
     });
 
     document.getElementById('clearBtn').addEventListener('click', function () {
-        FIELDS.forEach(function (f) {
-            var el = document.getElementById(f[0]);
+        ['q_course','q_goals','q_do','q_students','q_weight','q_content','q_constraints'].forEach(function (id) {
+            var el = document.getElementById(id);
             if (el) el.value = '';
         });
+        document.querySelectorAll('input[name="scope"], input[name="duration"]').forEach(function (r) { r.checked = false; });
         render('Answers cleared.');
     });
 
