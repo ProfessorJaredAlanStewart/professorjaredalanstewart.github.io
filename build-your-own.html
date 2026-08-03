@@ -47,7 +47,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-section[id], main section { scroll-margin-top: 72px; }
+[id] { scroll-margin-top: 72px; }
 body {
     font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
     background: var(--cream);
@@ -489,6 +489,99 @@ fieldset.q legend { font-weight: 700; color: var(--navy); font-size: 0.98rem; ma
 }
 .steer-pointer a { font-weight: 700; }
 
+/* ---------- time badges on kickers ---------- */
+.kicker .time {
+    margin-left: auto;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--ink);
+    background: var(--sand);
+    border-radius: 999px;
+    padding: 4px 13px;
+    white-space: nowrap;
+}
+
+/* ---------- decide section ---------- */
+.costs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 26px; }
+.cost {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--plum);
+    border-radius: 6px;
+    padding: 22px;
+}
+.cost h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.cost p { font-size: 0.95rem; line-height: 1.6; }
+.cost .sum { display: block; margin-top: 10px; font-weight: 700; color: var(--warm); font-size: 0.93rem; }
+.proof { margin-top: 34px; background: var(--cream); border: 1px solid var(--rule); border-radius: 6px; padding: 24px; }
+.proof h3 { margin-bottom: 14px; }
+.proof-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.pstat { text-align: center; }
+.pstat .n { font-family: 'Libre Baskerville', Georgia, serif; font-size: 2.1rem; color: var(--plum); line-height: 1.1; display: block; }
+.pstat .l { font-size: 0.85rem; color: var(--muted); line-height: 1.4; display: block; margin-top: 4px; }
+.proof .cap { margin-top: 16px; font-size: 0.86rem; color: var(--muted); font-style: italic; line-height: 1.55; }
+.check { margin-top: 34px; }
+.check-item {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+}
+.check-item:last-of-type { border-bottom: 1px solid var(--rule); }
+.check-num {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--plum); color: var(--gold);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.35rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+.check-item h3 { margin-bottom: 5px; }
+.check-item p { font-size: 0.97rem; line-height: 1.62; }
+.check-item .route { display: block; margin-top: 8px; font-weight: 700; color: var(--warm); font-size: 0.94rem; }
+.email-tpl {
+    margin-top: 10px;
+    background: var(--paper);
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.55;
+}
+.pilot {
+    margin-top: 36px;
+    background: linear-gradient(90deg, rgba(255,199,0,0.14), transparent 70%), var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 26px 28px;
+}
+.pilot .pk { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); margin-bottom: 8px; }
+.pilot h3 { font-size: 1.25rem; margin-bottom: 10px; }
+.pilot p { font-size: 0.99rem; line-height: 1.65; }
+.pilot p + p { margin-top: 12px; }
+
+/* ---------- journey links ---------- */
+a.jstep { text-decoration: none; color: rgba(255,255,255,0.85); border-radius: 6px; padding: 6px 8px; margin: -6px -8px; transition: background 0.18s; }
+a.jstep:hover { background: rgba(255,255,255,0.07); }
+a.jstep:hover .jnum { background: var(--gold); color: var(--plum-deepest); }
+a.jstep:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.jnum { transition: background 0.18s, color 0.18s; }
+
+@media (max-width: 700px) {
+    .kicker { flex-wrap: wrap; }
+    .kicker .time { margin-left: 0; }
+    .check-item { grid-template-columns: 1fr; gap: 10px; }
+}
+@media print {
+    .cost, .proof, .pilot, .check-item { break-inside: avoid; }
+}
+
 /* ---------- faq ---------- */
 .faq { margin-top: 24px; }
 .faq details {
@@ -652,7 +745,7 @@ footer a { color: rgba(255,255,255,0.75); }
     </div>
     <div class="hero-facts">
         <span>Starts from your learning goals</span>
-        <span>About an hour</span>
+        <span>A one-hour design conversation</span>
         <span>No AI experience needed</span>
         <span>Includes what to type</span>
         <span>Works in any field</span>
@@ -662,10 +755,10 @@ footer a { color: rgba(255,255,255,0.75); }
 
 <div class="journey" aria-label="The whole path at a glance">
     <div class="journey-inner">
-        <div class="jstep"><span class="jnum">1</span><span><b>Answer the questions.</b><br>Learning goals first.</span></div>
-        <div class="jstep"><span class="jnum">2</span><span><b>Copy the prompt.</b><br>This page writes it for you.</span></div>
-        <div class="jstep"><span class="jnum">3</span><span><b>Have the conversation.</b><br><a href="#steering" style="color:var(--gold);">Eight sentences steer it.</a></span></div>
-        <div class="jstep"><span class="jnum">4</span><span><b>Run it once.</b><br>Then fix what breaks.</span></div>
+        <a class="jstep" href="#step-one"><span class="jnum">1</span><span><b>Answer the questions.</b><br>Learning goals first.</span></a>
+        <a class="jstep" href="#step-two"><span class="jnum">2</span><span><b>Copy the prompt.</b><br>This page writes it for you.</span></a>
+        <a class="jstep" href="#steering"><span class="jnum">3</span><span><b>Have the conversation.</b><br>Eight sentences steer it.</span></a>
+        <a class="jstep" href="#first-weeks"><span class="jnum">4</span><span><b>Run it once.</b><br>Then fix what breaks.</span></a>
     </div>
 </div>
 
@@ -696,6 +789,14 @@ footer a { color: rgba(255,255,255,0.75); }
             <div class="fear">
                 <span class="worry">Isn't it my job to design my own course?</span>
                 <p>It still is. Every decision stays yours, starting with the learning goals. This is closer to a research assistant who types fast than to a colleague handing you a finished syllabus.</p>
+            </div>
+            <div class="fear">
+                <span class="worry">Will my students be using AI for this?</span>
+                <p>No. The AI helps you build the assignment once. Students attend, interview, visit, and document. None of that requires AI, and most of it cannot be done with AI at all, which is rather the point.</p>
+            </div>
+            <div class="fear">
+                <span class="worry">I'm an adjunct. Am I even allowed?</span>
+                <p>Maybe not unilaterally. Many departments require coordinator sign-off for assessment changes, common finals complicate things, and dual-credit sections have their own rules. The pilot in the next section is designed to fit inside almost anyone's authority, and it comes with the two-line email to ask.</p>
             </div>
         </div>
 
@@ -736,20 +837,92 @@ footer a { color: rgba(255,255,255,0.75); }
             </div>
             <div class="model-row">
                 <div class="label">Checkpoints</div>
-                <p>Interim deadlines across the project window. This is the single most important piece for community college students, and the one I would defend hardest. Without it, everything lands in the final week and the quality collapses.</p>
+                <p>Interim deadlines across the project window. This is the single most important piece for community college students, and the one I would defend hardest. Without it, everything lands in the final week and the quality collapses. Decide up front what a missed checkpoint means: I treat each one as a hard minimum with a small grade attached, so a miss costs something real that week without torpedoing the whole project.</p>
             </div>
             <div class="model-row">
                 <div class="label">Complete / incomplete rubrics</div>
-                <p>Each activity gets a short checklist of specific criteria. Meet all of them, earn full points. Miss one, revise and resubmit. This is what keeps the model from eating your evenings: grading a submission takes about two minutes, and there is nothing to argue about.</p>
+                <p>Each activity gets a short checklist of specific criteria. Meet all of them, earn full points. Miss one, revise and resubmit. This is what keeps the model from eating your evenings: grading a submission takes about two minutes, and disputes mostly vanish, because the remedy is always the same. There is no partial credit to litigate when the answer to every complaint is "fix the missing criterion and send it back."</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===================== STEP 1 ===================== -->
-<section class="band">
+<!-- ===================== DECIDE ===================== -->
+<section class="band" id="decide">
     <div class="wrap reveal">
-        <div class="kicker">Step one</div>
+        <div class="kicker">Before you build<span class="time">5 honest minutes</span></div>
+        <h2>The real cost, the real payoff, and a decision</h2>
+        <p class="lead">"An hour" is true of the design conversation and false of adoption, and you have been burned by that kind of arithmetic before. So here is the whole bill up front, next to the bill you are already paying.</p>
+
+        <div class="costs">
+            <div class="cost">
+                <h3>What it costs to build</h3>
+                <p>One hour of AI conversation. Two to three hours revising what comes back into your voice and your standards. An hour or two loading it into your LMS.</p>
+                <span class="sum">Call it one working day, best spent in a term break.</span>
+            </div>
+            <div class="cost">
+                <h3>What it costs to run</h3>
+                <p>Thirty students reaching 100 points at 10&ndash;15 points per activity is roughly 250&ndash;300 submissions per section. At about two minutes each against a checklist rubric, that is 8&ndash;10 hours of grading per semester, arriving in four predictable checkpoint waves instead of three exam-week spikes.</p>
+                <span class="sum">Roughly 2&ndash;2.5 hours per checkpoint week.</span>
+            </div>
+            <div class="cost">
+                <h3>What your exams cost now</h3>
+                <p>Test-bank upkeep, proctoring arrangements, integrity cases, grade disputes, and the great hidden tax of exam courses: makeup exams. If you grade written exams, this model is a wash or better. If you run scantrons, it is honestly more grading time, traded for assessment you believe and the end of the proctoring arms race.</p>
+                <span class="sum">Count last semester's makeups before deciding.</span>
+            </div>
+        </div>
+
+        <div class="proof">
+            <h3>What my students said after a semester without exams</h3>
+            <div class="proof-stats">
+                <div class="pstat"><span class="n">89%</span><span class="l">said it beat traditional exams; 0% said it was worse</span></div>
+                <div class="pstat"><span class="n">87%</span><span class="l">rated the experience Good or Excellent</span></div>
+                <div class="pstat"><span class="n">86%</span><span class="l">found the complete/incomplete rubrics helpful</span></div>
+                <div class="pstat"><span class="n">n&thinsp;=&thinsp;78</span><span class="l">anonymous end-of-course feedback, my sections</span></div>
+            </div>
+            <p class="cap">Course-improvement feedback from my own government sections, not IRB-approved research. A formal study with a validated instrument is in development. Grades held, complaints did not spike, and colleagues' first reaction has been to ask for the materials.</p>
+        </div>
+
+        <div class="check">
+            <div class="check-item">
+                <span class="check-num">1</span>
+                <div>
+                    <h3>Are you free to change your assessment?</h3>
+                    <p>Full-timers usually are. Adjuncts and instructors on shared courses often are not, and finding out in week one of the semester is the wrong time.</p>
+                    <div class="email-tpl">"I'd like to pilot three optional extra-credit activities this term to test a project-based approach before proposing anything bigger. Can I proceed?"</div>
+                    <span class="route">Send that today. Almost no coordinator says no to it.</span>
+                </div>
+            </div>
+            <div class="check-item">
+                <span class="check-num">2</span>
+                <div>
+                    <h3>Do your exams cost more than you admit?</h3>
+                    <p>Count last semester honestly: hours writing and updating tests, makeup sessions scheduled, integrity cases filed, grade disputes fielded. Most people who do this arithmetic stop defending the exam on workload grounds and start defending it on habit grounds, which is at least an honest place to decide from.</p>
+                </div>
+            </div>
+            <div class="check-item">
+                <span class="check-num">3</span>
+                <div>
+                    <h3>Would you rather test-drive than commit?</h3>
+                    <p>Then do not replace anything yet. The pilot below is the recommended first move for almost everyone, and it produces the one thing no webpage can: evidence from your own students.</p>
+                    <span class="route">Convinced already? Skip straight to <a href="#step-one">Step One</a>.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pilot" id="pilot">
+            <div class="pk">The recommended first move</div>
+            <h3>Pilot three activities. Don't replace your exam yet.</h3>
+            <p>Pick three activities, run them as extra credit this semester, and look hard at what students turn in. That is the whole pilot. It risks nothing, it fits inside almost any adjunct's authority, and it converts skeptics, including you, with your own students' work instead of my numbers.</p>
+            <p>When you reach Step One, choose <strong>"An optional extra-credit project"</strong> and <strong>"A few weeks"</strong> and the prompt automatically shrinks to pilot size. One more thing that costs nothing: recruit a colleague to build alongside you. A two-person pilot survives the semester in a way a solo one often does not.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== STEP 1 ===================== -->
+<section class="band band-paper" id="step-one">
+    <div class="wrap reveal">
+        <div class="kicker">Step one<span class="time">&approx; 10 minutes</span></div>
         <h2>Tell the AI about your course, learning goals first</h2>
         <div class="bd-note">
             <strong>Why learning goals come first.</strong> True backwards design starts from what students need to learn, and only then designs the assignments. So this page asks for your goals before anything else. If your course has official learning outcomes, or your state publishes objectives for it, paste them in as-is. If not, write what you would want a student to honestly claim on a job interview after passing your course. Either works.
@@ -830,9 +1003,9 @@ footer a { color: rgba(255,255,255,0.75); }
 </section>
 
 <!-- ===================== STEP 2 ===================== -->
-<section class="band band-paper">
+<section class="band" id="step-two">
     <div class="wrap reveal">
-        <div class="kicker">Step two</div>
+        <div class="kicker">Step two<span class="time">&approx; 2 minutes</span></div>
         <h2>Copy this prompt into any AI assistant</h2>
         <p class="lead">Claude, ChatGPT, and Microsoft Copilot all work, and the free versions are fine. Copy the whole block, paste it into the chat box, and send it. That is the entire operation.</p>
 
@@ -853,9 +1026,9 @@ footer a { color: rgba(255,255,255,0.75); }
 </section>
 
 <!-- ===================== STEP 3 ===================== -->
-<section class="band">
+<section class="band band-paper" id="step-three">
     <div class="wrap reveal">
-        <div class="kicker">Step three</div>
+        <div class="kicker">Step three<span class="time">&approx; 45 minutes, ideally two sittings</span></div>
         <h2>Have the conversation, and steer it</h2>
         <p class="lead">The prompt tells the AI to work in five stages and to stop after each one. That structure is deliberate: it keeps you from getting a wall of text you did not ask for, and it keeps you in the driver's seat. Here is what each stage looks like, what to do, and, because the steering is the part nobody shows you, what you might literally type.</p>
 
@@ -989,7 +1162,36 @@ footer a { color: rgba(255,255,255,0.75); }
         <p class="steer-coda"><strong>Say these in your own words.</strong> The AI is not grading your
         phrasing, and there is no magic wording to get right. Being direct about what you do not like
         is the whole technique, and it is the same instinct you already use when a colleague hands you
-        a draft that is not quite there yet.</p>
+        a draft that is not quite there yet. This section also prints cleanly, if you want the
+        list living on paper next to your keyboard.</p>
+    </div>
+</section>
+
+<!-- ===================== FIRST TWO WEEKS ===================== -->
+<section class="band" id="first-weeks">
+    <div class="wrap reveal">
+        <div class="kicker">After you build it</div>
+        <h2>Your first two weeks, honestly</h2>
+        <p class="lead">Change does not die in the design phase. It dies at rollout, usually quietly, in the first two weeks. Here is what mine actually looked like, so yours has fewer surprises.</p>
+
+        <div class="model">
+            <div class="model-row">
+                <div class="label">Day one</div>
+                <p>Tell them why, out loud: "I replaced the exam because I want you able to do something, not recite something." Show the whole menu, then run the planning activity in class so every student leaves with a route picked. Students take the work seriously in almost exact proportion to how seriously you explain the reasoning.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">The question you will get</div>
+                <p>"Can I just take a test instead?" The answer is no, and the reason is fairness: everyone is graded against the same published criteria, and running two parallel assessment systems is how instructors drown. Say it kindly on day one and it never comes up again. The student asking is usually the one who is good at tests, and they will be fine.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">What broke for me</div>
+                <p>Verifying attendance evidence took more time than I planned, students under-planned week one even with the planning quiz, a few activities drew zero takers, and my checkpoint pacing was wrong for 8-week sections. None of it was fatal. All of it was fixable by week three.</p>
+            </div>
+            <div class="model-row">
+                <div class="label">What I changed</div>
+                <p>I tightened the evidence requirements to things I could check from my desk, added a nudge email the day after each checkpoint, cut the dead activities without ceremony, and rebuilt the checkpoint calendar for compressed terms. Expect to make three or four changes like these. Budget the patience for them up front and the first semester goes from stressful to merely interesting.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1050,9 +1252,30 @@ footer a { color: rgba(255,255,255,0.75); }
                 </div>
             </details>
             <details>
+                <summary>My course is fully online or asynchronous. Does this still work?</summary>
+                <div class="a">
+                    <p>Yes, with one honest adjustment: "leave the browser tab" becomes "leave this tab." City councils and school boards stream their meetings, interviews happen over Zoom or a phone call, and plenty of real civic and professional interactions now run through official portals. The test stays the same: did the student interact with something real and come back with evidence only they could have produced?</p>
+                    <p>For online sections, lean on evidence that is hard to fake remotely: a recording of the interview, a confirmation email from the office they contacted, a timestamped screenshot of the live stream with the agenda item visible. Say so in your constraints in Step One and the AI will build the menu online-first.</p>
+                </div>
+            </details>
+            <details>
+                <summary>What about students with accommodation letters?</summary>
+                <div class="a">
+                    <p>The menu is structurally friendlier than an exam, because multiple routes to the same points is exactly what universal design asks for. A student who cannot attend an evening meeting picks the interview; a student with a processing accommodation is not racing a clock. When you build the menu, make sure every in-person activity has a remote or asynchronous equivalent, and the prompt on this page already tells the AI to flag accessibility concerns.</p>
+                    <p>Formal accommodations still run through your disability services office, same as always. The difference is that most of them now require no special arrangement, because flexibility is the design rather than the exception.</p>
+                </div>
+            </details>
+            <details>
+                <summary>How does this sit in my gradebook?</summary>
+                <div class="a">
+                    <p>One assignment group, weighted at whatever the project is worth. In Canvas: create a group called, say, "Project" at 40%, put each activity inside it as an assignment worth its point value, and set the group to total against your point target. Checkpoints go in as small milestone assignments or zero-point reminders, whichever matches the policy you chose.</p>
+                    <p>The pleasant surprise is transparency: students can see exactly where their points stand at any moment, which kills the "what's my grade" email almost entirely.</p>
+                </div>
+            </details>
+            <details>
                 <summary>How do I grade this without losing my weekends?</summary>
                 <div class="a">
-                    <p>Complete/incomplete against a published checklist. That one decision is what makes the model survivable. There is no partial credit to calculate, no rubric row to agonize over, and no negotiation, because the criteria were public before the student started.</p>
+                    <p>Complete/incomplete against a published checklist. That one decision is what makes the model survivable. There is no partial credit to calculate, no rubric row to agonize over, and no negotiation, because the criteria were public before the student started. Grade disputes mostly vanish for the same reason: the remedy is always "fix the missing criterion and resubmit," so there is nothing to argue and no discretion to appeal to.</p>
                     <p>It took me three rounds of rubric revision to get there. The first versions had criteria I could not actually verify from what students submitted, which is the mistake to watch for.</p>
                 </div>
             </details>
@@ -1085,6 +1308,11 @@ footer a { color: rgba(255,255,255,0.75); }
             </div>
             <div class="tip">
                 <span class="n">3</span>
+                <h3>Build it during a break</h3>
+                <p>The design conversation takes an hour, but the revision pass wants a quiet afternoon and a clear head. December and May exist for a reason. Week 12 does not.</p>
+            </div>
+            <div class="tip">
+                <span class="n">4</span>
                 <h3>Tell your students why</h3>
                 <p>Say out loud that you designed this from what you want them to learn, not from what is easy to grade. Students take the work more seriously when they know the reasoning, and they will tell you what to fix.</p>
             </div>
@@ -1117,6 +1345,7 @@ footer a { color: rgba(255,255,255,0.75); }
 <section class="closing">
     <h2>Stuck anywhere in this? <em>Write to me.</em></h2>
     <p>I would rather answer a question than have you abandon a good idea at step three. If you want to talk through your learning-goal mapping, see the outcome data before pitching this to your department, or just have someone tell you your rubric is fine, I am genuinely happy to help.</p>
+    <p>And if you are still on the fence, run the <a href="#pilot" style="color:var(--gold); font-weight:700;">three-activity pilot</a> this semester and write to me with what your students turn in. I mean that literally.</p>
     <a class="btn btn-gold" href="mailto:jared.stewart@tccd.edu?subject=Building%20my%20own%20project-based%20assessment">Email me about your project</a>
 </section>
 
@@ -1231,8 +1460,9 @@ footer a { color: rgba(255,255,255,0.75); }
             'Suggest a structure with: (a) three effort tiers such as higher effort, medium',
             'effort, and quick engagement, with a point range for each; (b) a total point',
             'target students must reach; (c) ' + DUR_CHECKPOINTS[dur] + ';',
-            'and (d) a rule requiring students to complete activities from at least two',
-            'tiers. Then ' + DUR_MENU[dur] + ' across the tiers, each',
+            '(d) a rule requiring students to complete activities from at least two tiers;',
+            'and (e) a plain statement of what happens when a student misses a checkpoint.',
+            'Then ' + DUR_MENU[dur] + ' across the tiers, each',
             'described in one sentence with the learning goal it serves in parentheses. If a',
             'candidate activity serves none of my goals, cut it before showing me. Ask me',
             'which ones fit my students and which to cut, and invite me to add my own ideas.',
@@ -1249,14 +1479,17 @@ footer a { color: rgba(255,255,255,0.75); }
             'of 3 to 5 specific criteria. If a student meets all of them, they earn full',
             'points; if not, they revise and resubmit. No partial credit and no subjective',
             'judgment calls. Every criterion must be something I can verify from what the',
-            'student turns in.',
+            'student turns in. State the resubmission rule: how many attempts students get,',
+            'and the deadline after which revisions close.',
             '',
             'STAGE 4 - PACKAGE IT.',
             'Draft a one-page student-facing assignment sheet explaining the whole system,',
             'including a short plain-language section on what students will learn, based on',
             'my learning goals. Then draft a short planning activity for the start of the',
             'project window where students map out which activities they intend to complete',
-            'and when.',
+            'and when. Finally, draft an LMS-ready assignment description for each activity:',
+            'title, student instructions, point value, and submission type, so I can paste',
+            'each one straight into my course shell.',
             '',
             'RULES FOR THE WHOLE CONVERSATION:',
             '- Favor activities that require real-world action a chatbot cannot fake:',
