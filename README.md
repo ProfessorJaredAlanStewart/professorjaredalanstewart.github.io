@@ -1,1 +1,3 @@
 # professorjaredalanstewart.github.io
+
+CLEAR
