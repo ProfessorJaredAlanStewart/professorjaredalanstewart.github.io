@@ -1,3 +1,45 @@
+# Site upgrade — August 2026
+
+Drop these files into the repo root (they replace existing files).
+
+## Fixed
+- **Mobile nav couldn't scroll to Home** on show-up-fort-worth.html and
+  build-your-own.html. Root cause: `justify-content: center` +
+  `overflow-x: auto` clips left-side overflow outside the scrollable area.
+  Replaced the fragile centered-overflow pattern on all 7 nav pages with
+  auto-margin "safe centering" (centered when there's room, fully
+  scrollable when there isn't). The old per-page 1150px media patches
+  are removed as dead code.
+
+## New
+- **Pinned "★ Home" brand button** at the left of the nav on every
+  subpage (★ JAS on the homepage), outside the scroll area — always one
+  tap from home regardless of scroll state. The old "← Home" item inside
+  the scrolling list is removed as redundant.
+- **Scroll cue**: a right-edge fade appears on the nav whenever links sit
+  off-screen; on subpages the active link auto-centers on load.
+- **Fifth persona card** on the homepage ballot strip: "I live here" →
+  Show Up in Fort Worth.
+- **"Details verified August 2026" line** on the Show Up guide with an
+  email invitation to report stale info.
+- **Council speaking instructions** on Show Up converted from a 110-word
+  sentence chain into 4 numbered steps.
+- **Escape hatch** on the-unmeasured-mandate.html: typewriter-styled
+  "← jaredalanstewart.com" link at the top of the page.
+
+## Accessibility
+- Decorative ★ separators marked `aria-hidden="true"` (screen readers no
+  longer announce "black star" between every link).
+- Active nav link now uses `aria-current="page"` + one CSS rule instead
+  of inline styles — screen readers announce which page you're on.
+- Contact links on subpages point to `index.html#contact` (relative), so
+  local previews work without the live domain.
+
+## Housekeeping
+- Footer "Updated" dates refreshed to August 2026.
+
+---
+
 # Site upgrade — June 2026
 
 Drop these files into the repo root (they replace existing files and add new ones).
