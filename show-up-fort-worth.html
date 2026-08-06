@@ -88,6 +88,52 @@ a { color: var(--plum); }
     overflow-x: auto; scrollbar-width: none;
 }
 .quicknav-inner::-webkit-scrollbar { display: none; }
+/* --- nav: pinned brand, overflow-safe centering, scroll fade (Aug 2026) --- */
+.quicknav { display: flex; align-items: stretch; }
+.quicknav::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 42px;
+    background: linear-gradient(90deg, rgba(36,19,65,0), var(--plum-deepest));
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+    z-index: 1;
+}
+.quicknav.qn-overflow-right::after { opacity: 1; }
+.quicknav-inner {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-start;
+}
+.quicknav-inner > :first-child { margin-inline-start: auto; }
+.quicknav-inner > :last-child { margin-inline-end: auto; }
+.quicknav .qn-brand {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 15px;
+    color: var(--gold);
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,199,0,0.28);
+    transition: background 0.2s;
+}
+.quicknav .qn-brand::after { content: none; }
+.quicknav .qn-brand:hover { background: rgba(255,199,0,0.08); }
+.quicknav .qn-brand .qn-star { font-size: 10px; }
+.quicknav a[aria-current] { color: var(--gold); }
+/* --- end nav enhancements --- */
+.entry-body ol.steps { margin: 10px 0 12px; padding-left: 22px; }
+.entry-body ol.steps li { margin-bottom: 7px; }
+.verified-note { font-size: 0.85rem; font-style: italic; color: var(--muted); }
+.verified-note a { color: var(--warm); }
 .quicknav a {
     color: rgba(255,255,255,0.78);
     font-size: 15px; font-weight: 700;
@@ -282,23 +328,22 @@ footer .footer-quote {
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education — Open to All, Meant for All</div>
+<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span aria-hidden="true">★</span> &nbsp;·&nbsp; Civic Education — Open to All, Meant for All</div>
 
 <nav class="quicknav" aria-label="Site navigation">
+    <a class="qn-brand" href="index.html" aria-label="Back to homepage"><span class="qn-star" aria-hidden="true">★</span>Home</a>
     <div class="quicknav-inner">
-        <a href="https://jaredalanstewart.com/">&#8592; Home</a>
-        <span class="sep">★</span>
         <a href="projects.html">My Projects</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="research.html">Research</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="cv.html">CV</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="in-the-wild.html">In the Wild</a>
-        <span class="sep">★</span>
-        <a href="show-up-fort-worth.html" style="color:var(--gold);">Show Up</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/#contact">Contact</a>
+        <span class="sep" aria-hidden="true">★</span>
+        <a href="show-up-fort-worth.html" aria-current="page">Show Up</a>
+        <span class="sep" aria-hidden="true">★</span>
+        <a href="index.html#contact">Contact</a>
     </div>
 </nav>
 
@@ -318,6 +363,7 @@ footer .footer-quote {
         <div class="law-note">
             <strong>The law is on your side.</strong> The Texas Open Meetings Act requires governmental bodies to meet in public, post their agendas at least 72 hours in advance, and let you watch every deliberation and vote. The Texas Public Information Act gives you the right to request government records. Showing up isn't a privilege they extend — it's an obligation they owe.
         </div>
+        <p class="verified-note">Meeting details, phone numbers, and deadlines on this page verified August 2026. Spot something out of date? <a href="mailto:jared.stewart@tccd.edu">Email me</a> and I'll fix it — consider it your first act of civic participation.</p>
     </div>
 
     <nav class="guide-toc" aria-label="On this page">
@@ -341,7 +387,14 @@ footer .footer-quote {
             <dl class="fact-rows">
                 <div class="fact-row"><dt>Where</dt><dd>Council Chamber, Fort Worth City Hall, 100 Fort Worth Trail, Fort Worth, TX 76102 (just right of the main entrance)</dd></div>
                 <div class="fact-row"><dt>When</dt><dd>Tuesdays, roughly three per month — daytime meetings typically start at 10 a.m. and evening meetings at 6 p.m. Check the <a href="https://www.fortworthtexas.gov/government/city-council-meetings/meetings-agendas" target="_blank" rel="noopener">city council meetings &amp; agendas page</a> for the exact schedule and posted agenda.</dd></div>
-                <div class="fact-row"><dt>To speak</dt><dd>Fort Worth uses online <strong>Speaker/Comment Cards</strong> attached to each posted agenda. The path: go to <a href="https://www.fortworthtexas.gov/" target="_blank" rel="noopener">fortworthtexas.gov</a>, scroll to the City Council links in the site footer, and open "City Council Meeting and Work Session Agendas." Search the calendar (set it to All Departments if nothing appears), open the Agenda PDF for your meeting, find the <em>Speaker/Comment Card</em> link under the agenda item you want to address — or under the public comment section for anything else — and fill out the card. As of 2026, speakers get three minutes, and residents fought to win back open comment at the end of regular meetings this year; use it. Full instructions are on the city's <a href="https://www.fortworthtexas.gov/government/city-council-meetings/appear" target="_blank" rel="noopener">how to appear or speak before City Council</a> page, and the City Secretary's office will walk you through it at 817-392-6150.</dd></div>
+                <div class="fact-row"><dt>To speak</dt><dd>Fort Worth uses online <strong>Speaker/Comment Cards</strong> attached to each posted agenda. To get on the list:
+                    <ol class="steps">
+                        <li>Go to <a href="https://www.fortworthtexas.gov/" target="_blank" rel="noopener">fortworthtexas.gov</a>, scroll to the City Council links in the site footer, and open "City Council Meeting and Work Session Agendas."</li>
+                        <li>Search the calendar for your meeting (set it to All Departments if nothing appears) and open the Agenda PDF.</li>
+                        <li>Find the <em>Speaker/Comment Card</em> link under the agenda item you want to address — or under the public comment section for anything else.</li>
+                        <li>Fill out the card. That's it — you're signed up.</li>
+                    </ol>
+                As of 2026, speakers get three minutes, and residents fought to win back open comment at the end of regular meetings this year; use it. Full instructions are on the city's <a href="https://www.fortworthtexas.gov/government/city-council-meetings/appear" target="_blank" rel="noopener">how to appear or speak before City Council</a> page, and the City Secretary's office will walk you through it at 817-392-6150.</dd></div>
                 <div class="fact-row"><dt>Can't make it?</dt><dd>Every meeting streams live and is archived on <a href="https://www.fortworthtexas.gov/calendar-services/fwtv" target="_blank" rel="noopener">FWTV</a> and the city's YouTube channel. Watching counts as showing up for CAP purposes — but the room hits different.</dd></div>
                 <div class="fact-row"><dt>Your district</dt><dd>Fort Worth has 10 council districts plus a citywide mayor. Find yours on the <a href="https://www.fortworthtexas.gov/government/district-map" target="_blank" rel="noopener">district map</a>, then <a href="https://www.fortworthtexas.gov/government/elected-officials/contact" target="_blank" rel="noopener">contact your council member</a>.</dd></div>
             </dl>
@@ -494,5 +547,25 @@ footer .footer-quote {
     <div class="footer-quote">Decisions are made by those who show up.</div>
 </footer>
 
+<script>
+/* Nav: center the active link on load; show a fade cue while more links sit off-screen. */
+(function () {
+    var nav = document.querySelector('.quicknav');
+    var inner = nav && nav.querySelector('.quicknav-inner');
+    if (!inner) return;
+    var active = inner.querySelector('a[aria-current]');
+    if (active) {
+        var delta = active.getBoundingClientRect().left - inner.getBoundingClientRect().left;
+        inner.scrollLeft += delta - (inner.clientWidth - active.offsetWidth) / 2;
+    }
+    function fade() {
+        var more = inner.scrollWidth - inner.clientWidth - inner.scrollLeft > 8;
+        nav.classList.toggle('qn-overflow-right', more);
+    }
+    inner.addEventListener('scroll', fade, { passive: true });
+    window.addEventListener('resize', fade);
+    fade();
+})();
+</script>
 </body>
 </html>

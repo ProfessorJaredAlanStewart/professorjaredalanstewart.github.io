@@ -96,6 +96,48 @@ body {
     scrollbar-width: none;
 }
 .quicknav-inner::-webkit-scrollbar { display: none; }
+/* --- nav: pinned brand, overflow-safe centering, scroll fade (Aug 2026) --- */
+.quicknav { display: flex; align-items: stretch; }
+.quicknav::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 42px;
+    background: linear-gradient(90deg, rgba(36,19,65,0), var(--plum-deepest));
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+    z-index: 1;
+}
+.quicknav.qn-overflow-right::after { opacity: 1; }
+.quicknav-inner {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-start;
+}
+.quicknav-inner > :first-child { margin-inline-start: auto; }
+.quicknav-inner > :last-child { margin-inline-end: auto; }
+.quicknav .qn-brand {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 15px;
+    color: var(--gold);
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,199,0,0.28);
+    transition: background 0.2s;
+}
+.quicknav .qn-brand::after { content: none; }
+.quicknav .qn-brand:hover { background: rgba(255,199,0,0.08); }
+.quicknav .qn-brand .qn-star { font-size: 10px; }
+.quicknav a[aria-current] { color: var(--gold); }
+/* --- end nav enhancements --- */
 .quicknav a {
     color: rgba(255,255,255,0.78);
     font-size: 15px;
@@ -178,9 +220,6 @@ body {
 }
 .qn-menu a::after { display: none; }
 .qn-menu a:hover { background: rgba(255,199,0,0.1); color: var(--gold); }
-@media (max-width: 1150px) {
-    .quicknav-inner { justify-content: flex-start; }
-}
 @media (max-width: 760px) {
     .qn-menu { left: 0; transform: translateY(6px); min-width: 200px; }
     .qn-drop[open] .qn-menu { transform: translateY(6px); }
@@ -1391,24 +1430,23 @@ footer a:hover { text-decoration: underline; }
 </head>
 <body>
 
-<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span>★</span> &nbsp;·&nbsp; Civic Education — Open to All, Meant for All</div>
+<div class="topbar">Fort Worth, Texas &nbsp;·&nbsp; <span aria-hidden="true">★</span> &nbsp;·&nbsp; Civic Education — Open to All, Meant for All</div>
 
 <nav class="quicknav" aria-label="Project quick links">
+    <a class="qn-brand" href="index.html" aria-label="Back to homepage"><span class="qn-star" aria-hidden="true">★</span>Home</a>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="quicknav-inner">
-        <a href="https://jaredalanstewart.com/">&#8592; Home</a>
-        <span class="sep">★</span>
         <a href="projects.html">My Projects</a>
-        <span class="sep">★</span>
-        <a href="research.html" style="color:var(--gold);">Research</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
+        <a href="research.html" aria-current="page">Research</a>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="cv.html">CV</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="in-the-wild.html">In the Wild</a>
-        <span class="sep">★</span>
+        <span class="sep" aria-hidden="true">★</span>
         <a href="show-up-fort-worth.html">Show Up</a>
-        <span class="sep">★</span>
-        <a href="https://jaredalanstewart.com/#contact">Contact</a>
+        <span class="sep" aria-hidden="true">★</span>
+        <a href="index.html#contact">Contact</a>
     </div>
 </nav>
 
@@ -1541,7 +1579,7 @@ footer a:hover { text-decoration: underline; }
     All projects shared freely as open educational resources.<br>
     <a href="mailto:jared.stewart@tccd.edu">jared.stewart@tccd.edu</a> · <a href="https://www.linkedin.com/in/jaredalanstewart" target="_blank" rel="noopener">linkedin.com/in/jaredalanstewart</a> · <a href="https://github.com/ProfessorJaredAlanStewart" target="_blank" rel="noopener">github.com/ProfessorJaredAlanStewart</a>
     <div class="footer-quote">Decisions are made by those who show up.</div>
-    <div class="footer-updated" style="font-size:0.76rem; color:rgba(255,255,255,0.3); margin-top:14px;">Built and maintained by Jared Alan Stewart · Updated June 2026</div>
+    <div class="footer-updated" style="font-size:0.76rem; color:rgba(255,255,255,0.3); margin-top:14px;">Built and maintained by Jared Alan Stewart · Updated August 2026</div>
     <div class="footer-joke">No trees were killed in the creation of these materials. However, a large number of electrons were terribly inconvenienced.</div>
 </footer>
 
@@ -1628,5 +1666,25 @@ footer a:hover { text-decoration: underline; }
 })();
 </script>
 
+<script>
+/* Nav: center the active link on load; show a fade cue while more links sit off-screen. */
+(function () {
+    var nav = document.querySelector('.quicknav');
+    var inner = nav && nav.querySelector('.quicknav-inner');
+    if (!inner) return;
+    var active = inner.querySelector('a[aria-current]');
+    if (active) {
+        var delta = active.getBoundingClientRect().left - inner.getBoundingClientRect().left;
+        inner.scrollLeft += delta - (inner.clientWidth - active.offsetWidth) / 2;
+    }
+    function fade() {
+        var more = inner.scrollWidth - inner.clientWidth - inner.scrollLeft > 8;
+        nav.classList.toggle('qn-overflow-right', more);
+    }
+    inner.addEventListener('scroll', fade, { passive: true });
+    window.addEventListener('resize', fade);
+    fade();
+})();
+</script>
 </body>
 </html>
