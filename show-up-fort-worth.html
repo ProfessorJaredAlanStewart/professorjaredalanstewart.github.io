@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Show Up in Fort Worth — A Field Guide to Local Government · Jared Alan Stewart</title>
-<meta name="description" content="A practical field guide to showing up in Fort Worth: attend city council and commissioners court, speak at school board meetings, report a pothole, register to vote, and more.">
+<meta name="description" content="A field guide to showing up in Fort Worth: which government handles what, how to speak at meetings, protest your property appraisal, register to vote, and get federal help.">
 <link rel="canonical" href="https://jaredalanstewart.com/show-up-fort-worth.html">
 <meta name="theme-color" content="#241341">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jaredalanstewart.com/show-up-fort-worth.html">
 <meta property="og:site_name" content="Jared Alan Stewart">
 <meta property="og:title" content="Show Up in Fort Worth — A Field Guide to Local Government">
-<meta property="og:description" content="Where the meetings are, how to speak, how to get a pothole fixed, and how to register to vote. Decisions are made by those who show up.">
+<meta property="og:description" content="Which government owns your problem, where the meetings are, how to speak, and how to make sure your vote counts. Decisions are made by those who show up.">
 <meta property="og:image" content="https://jaredalanstewart.com/og-card.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -259,6 +259,51 @@ a { color: var(--plum); }
 }
 .cap-link:hover { color: var(--navy); }
 
+/* level badges: new layers */
+.lvl-federal { color: var(--navy); background: rgba(26,39,68,0.07); border: 1px solid rgba(26,39,68,0.3); }
+.lvl-special { color: #6b5b2e; background: rgba(183,165,122,0.18); border: 1px solid rgba(183,165,122,0.6); }
+.lvl-any { color: var(--muted); background: rgba(107,114,128,0.08); border: 1px solid rgba(107,114,128,0.3); }
+
+/* task finder label */
+.guide-toc .toc-label {
+    flex-basis: 100%; text-align: center;
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--warm); margin-bottom: 2px;
+}
+
+/* part dividers: the page is organized by layer of government */
+.part-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 50px 0 -8px;
+    scroll-margin-top: 70px;
+}
+.part-divider::before, .part-divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.part-divider span {
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    white-space: nowrap;
+}
+.pd-city span { color: var(--plum); }
+.pd-county span { color: var(--warm); }
+.pd-school span { color: var(--green-accent); }
+.pd-state span { color: var(--oxblood); }
+.pd-federal span { color: var(--navy); }
+.pd-any span { color: var(--muted); }
+
+/* who-does-what lookup map */
+.wdw-map { border-top: 1px solid var(--rule); margin: 14px 0 16px; }
+.map-row {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px 16px;
+    padding: 11px 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+}
+.map-row .map-q { flex: 1 1 260px; }
+a.entry-level { text-decoration: none; }
+a.entry-level:hover { text-decoration: underline; }
+#poll-worker { scroll-margin-top: 80px; }
+
 /* checklist */
 .checklist {
     background: var(--plum-deepest);
@@ -352,14 +397,14 @@ footer .footer-quote {
     <div class="ph-inner">
         <div class="ph-kicker">A Field Guide</div>
         <h1>Show Up in <em>Fort Worth</em></h1>
-        <p>Where the meetings are, how to speak, how to get the pothole on your street fixed, and how to make sure your vote counts. Everything on this page is free, public, and&nbsp;yours&nbsp;by&nbsp;right.</p>
+        <p>Where the meetings are, how to speak, which government actually handles your problem, and how to make sure your vote counts. Everything on this page is free, public, and&nbsp;yours&nbsp;by&nbsp;right.</p>
     </div>
 </header>
 
 <main id="main" class="guide-wrap">
 
     <div class="guide-intro">
-        <p>Every institution on this page belongs to you. You don't need an appointment, an invitation, or a reason — being a resident is the whole credential. Most of my students who attend their first public meeting say some version of the same thing afterward: <em>"I had no idea I was allowed to just... walk in."</em> You are. Here's exactly how.</p>
+        <p>Every institution on this page belongs to you. You don't need an appointment, an invitation, or a reason — being a resident is the whole credential. Most of my students who attend their first public meeting say some version of the same thing afterward: <em>"I had no idea I was allowed to just... walk in."</em> You are. Here's exactly how, starting with a two-minute map of which government owns which problem.</p>
         <div class="law-note">
             <strong>The law is on your side.</strong> The Texas Open Meetings Act requires governmental bodies to meet in public, post their agendas at least 72 hours in advance, and let you watch every deliberation and vote. The Texas Public Information Act gives you the right to request government records. Showing up isn't a privilege they extend — it's an obligation they owe.
         </div>
@@ -367,15 +412,45 @@ footer .footer-quote {
     </div>
 
     <nav class="guide-toc" aria-label="On this page">
-        <a href="#city-council">City Council</a>
-        <a href="#commissioners">Commissioners Court</a>
-        <a href="#school-board">School Board</a>
-        <a href="#pothole">Fix a Pothole</a>
-        <a href="#vote">Register to Vote</a>
-        <a href="#state">Your State Reps</a>
-        <a href="#records">Public Records</a>
-        <a href="#more">More Ways In</a>
+        <span class="toc-label">I want to&hellip;</span>
+        <a href="#who-does-what">Figure out who handles my problem</a>
+        <a href="#city-council">Speak at City Council</a>
+        <a href="#pothole">Fix a pothole</a>
+        <a href="#budget">Weigh in on the city budget</a>
+        <a href="#vote">Register to vote</a>
+        <a href="#poll-worker">Get paid to work an election</a>
+        <a href="#property-tax">Protest my property taxes</a>
+        <a href="#school-board">Speak to the school board</a>
+        <a href="#state">Reach Austin</a>
+        <a href="#federal">Reach Washington</a>
+        <a href="#records">See government records</a>
+        <a href="#more">Find more ways in</a>
     </nav>
+
+    <article class="entry" id="who-does-what">
+        <div class="entry-head">
+            <h2>Who does what: a two-minute map</h2>
+            <span class="entry-level lvl-any">Start Here</span>
+        </div>
+        <div class="entry-body">
+            <p>If you learn one thing from this page, learn this: you don't live under one government. A Fort Worth address puts you inside at least seven of them at once, each with its own leaders, its own budget, its own taxes, and its own elections. The City of Fort Worth. Tarrant County. Your school district. The Tarrant County College district. A handful of special districts for water, transit, hospitals, and property appraisal. The State of Texas. The United States.</p>
+            <p>This layered setup is called federalism: the Constitution splits power between the national government and the states, and the states create every local government beneath them. It sounds like a trivia answer until you need something fixed, because each layer only controls its own lane. Call city hall about your driver's license and they'll politely send you to the state. Ask Washington about a pothole and you'll wait a very long time.</p>
+            <p>So before you show up anywhere, match your problem to its government. Each badge below jumps to the section that shows you how:</p>
+            <div class="wdw-map">
+                <div class="map-row"><span class="map-q">A pothole, a streetlight, your water bill, the police, a zoning fight, the parks</span><a class="entry-level lvl-city" href="#pothole">City</a></div>
+                <div class="map-row"><span class="map-q">Registering to vote, jury duty, the county jail, deeds and marriage licenses</span><a class="entry-level lvl-county" href="#vote">County</a></div>
+                <div class="map-row"><span class="map-q">What your house is officially worth, and whether you can fight that number</span><a class="entry-level lvl-special" href="#property-tax">Appraisal District</a></div>
+                <div class="map-row"><span class="map-q">Your kid's school, the curriculum, a campus closure, the superintendent</span><a class="entry-level lvl-school" href="#school-board">School District</a></div>
+                <div class="map-row"><span class="map-q">Classes, tuition, and campuses at Tarrant County College</span><a class="entry-level lvl-school" href="#college-board">College District</a></div>
+                <div class="map-row"><span class="map-q">The bus, the TEXRail line, the water supply, a bill from JPS hospital</span><a class="entry-level lvl-special" href="#districts">Special Districts</a></div>
+                <div class="map-row"><span class="map-q">Your driver's license, state highways, university tuition, the criminal code</span><a class="entry-level lvl-state" href="#state">State</a></div>
+                <div class="map-row"><span class="map-q">Social Security, Medicare, a stuck passport, immigration, the IRS, veterans' benefits</span><a class="entry-level lvl-federal" href="#federal">Federal</a></div>
+            </div>
+            <div class="pro-tip"><strong>Pro tip:</strong> When the layers collide, that's not a glitch. That's federalism in action. The state's takeover of the Fort Worth ISD school board is the live local example: Austin used its power over a government it created. Watching that fight up close is a civics course all by itself.</div>
+        </div>
+    </article>
+
+    <div class="part-divider pd-city" id="part-city"><span>Part 1 &middot; Your City</span></div>
 
     <article class="entry" id="city-council">
         <div class="entry-head">
@@ -403,6 +478,40 @@ footer .footer-quote {
         </div>
     </article>
 
+    <article class="entry" id="pothole">
+        <div class="entry-head">
+            <h2>Get a pothole fixed (and report everything else)</h2>
+            <span class="entry-level lvl-city">City</span>
+        </div>
+        <div class="entry-body">
+            <p>This is the single fastest way to watch your government work for you. Fort Worth's street crews fix roughly a hundred potholes a day, and they aim to repair reported ones within about 48 hours. But here's the catch, straight from the crews themselves: if nobody reports it, they don't know it's there.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>Best way</dt><dd>The <a href="https://www.fortworthtexas.gov/departments/communications/customercare/myfw" target="_blank" rel="noopener">MyFW app</a> (free on the App Store and Google Play). Snap a photo, drop a map pin, submit. You can track the request's status and get a notification when it's done.</dd></div>
+                <div class="fact-row"><dt>Other ways</dt><dd>Call the city's customer care line at 817-392-1234, text "hello" to 817-835-6939 (MYFW), or submit a request on the city website.</dd></div>
+                <div class="fact-row"><dt>Also works for</dt><dd>Broken traffic signals, missing signs, streetlight outages, graffiti, high grass, illegal dumping, code violations — anything that's the city's job to fix.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> Note the exact location and rough size when you report. And screenshot your request — a before/after with the city's "completed" notification is a perfect artifact for a CAP write-up, and an oddly satisfying superpower in general.</div>
+            <a class="cap-link" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">CAP Activity: Public Services in Action →</a>
+        </div>
+    </article>
+
+    <article class="entry" id="budget">
+        <div class="entry-head">
+            <h2>Have a say in the city budget</h2>
+            <span class="entry-level lvl-city">City</span>
+        </div>
+        <div class="entry-body">
+            <p>Every pothole crew, police shift, and library branch on this page runs on one document: the annual city budget. Fort Worth's fiscal year starts October 1, and the months before that are when residents can actually move money. Show up then and you're not commenting on a decision. You're part of one.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>How it works</dt><dd>The city releases a recommended budget in late summer, staff hold community meetings around the city (livestreamed, with Q&amp;A) to explain it, and the council holds a public hearing in September before the vote. Key dates, budget documents, and feedback forms live on the city's <a href="https://www.fortworthtexas.gov/departments/the-fwlab/budget" target="_blank" rel="noopener">budget page</a>.</dd></div>
+                <div class="fact-row"><dt>Follow along</dt><dd>The city's engagement site, <a href="https://www.connectfw.com/" target="_blank" rel="noopener">ConnectFW</a>, breaks down where the money comes from and where it goes in plain language, and lets you submit questions before the meetings.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> The property tax rate gets adopted alongside the budget every fall, and both votes happen whether or not anyone shows up. If you attend exactly one city meeting a year, make it the September budget hearing. It's the one where everything else on this page gets funded, or doesn't.</div>
+        </div>
+    </article>
+
+    <div class="part-divider pd-county" id="part-county"><span>Part 2 &middot; Your County</span></div>
+
     <article class="entry" id="commissioners">
         <div class="entry-head">
             <h2>Attend Tarrant County Commissioners Court</h2>
@@ -421,6 +530,44 @@ footer .footer-quote {
         </div>
     </article>
 
+
+
+    <article class="entry" id="vote">
+        <div class="entry-head">
+            <h2>Register to vote (or make sure you still are)</h2>
+            <span class="entry-level lvl-county">County</span>
+        </div>
+        <div class="entry-body">
+            <p>Texas does not have online voter registration for new voters — it's paper, and there's a hard deadline of 30 days before any election you want to vote in. That trips up more of my students than any other rule on this page. Don't be one of them.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>Check first</dt><dd>Check your status through the Texas Secretary of State's official <a href="https://www.votetexas.gov/register-to-vote/" target="_blank" rel="noopener">VoteTexas.gov</a> portal, which links the "Am I Registered?" lookup. Moved or changed your name? You can update an <em>existing</em> registration online through Texas.gov.</dd></div>
+                <div class="fact-row"><dt>To register</dt><dd>Pick up a postage-paid application at any Tarrant County library, post office, city hall, subcourthouse, or public high school — or print one from <a href="https://www.tarrantcountytx.gov/en/elections/register-to-vote.html" target="_blank" rel="noopener">Tarrant County Elections</a> — and mail it or drop it off at the Elections Center, 2700 Premier St., Fort Worth, TX 76111. Questions: 817-831-VOTE (8683).</dd></div>
+                <div class="fact-row"><dt>Then vote</dt><dd>Tarrant County uses countywide vote centers — on Election Day you can vote at <em>any</em> center in the county, not just your precinct. Early voting runs for about two weeks before most elections. Locations and sample ballots: <a href="https://www.tarrantcountytx.gov/en/elections.html" target="_blank" rel="noopener">Tarrant County Elections</a>.</dd></div>
+                <div class="fact-row" id="poll-worker"><dt>Work an election</dt><dd>Don't just vote at the polls. Run them. Tarrant County needs roughly 2,500 election workers for a general election, pays for both the work and the training, and takes applications through its <a href="https://www.tarrantcountytx.gov/en/elections/poll-workers.html" target="_blank" rel="noopener">poll workers page</a> or at 817-831-6497. High school students 16 and up can serve as <a href="https://www.tarrantcountytx.gov/en/elections/poll-workers/student-poll-workers.html" target="_blank" rel="noopener">student election clerks</a> with an excused absence from school. It's a paid, front-row seat to how democracy actually operates.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> The elections nobody shows up for — municipal races, school board, bond packages, constitutional amendments — are decided by a tiny fraction of registered voters. That's not a depressing fact; it's an arbitrage opportunity. Your vote is mathematically never worth more than in a May local election.</div>
+        </div>
+    </article>
+
+    <article class="entry" id="property-tax">
+        <div class="entry-head">
+            <h2>Protest your property appraisal</h2>
+            <span class="entry-level lvl-special">Appraisal District</span>
+        </div>
+        <div class="entry-body">
+            <p>Here's a fact that surprises almost everyone: no city council or school board decides what your house is worth. That job belongs to the Tarrant Appraisal District (TAD), a separate government most people have never heard of, and you have a legal right to challenge its number every single year. It costs nothing, you don't need a lawyer, and protests regularly end in reductions.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>The deadline</dt><dd>Generally May 15, or 30 days after your appraisal notice arrives, whichever is later. Miss it and you wait a year. File online, by mail, or in person through <a href="https://www.tad.org/" target="_blank" rel="noopener">TAD.org</a>.</dd></div>
+                <div class="fact-row"><dt>How it goes</dt><dd>Most protests settle informally with an appraiser. If you don't agree, you get a hearing before the Appraisal Review Board, a panel of ordinary residents. Bring evidence: photos of needed repairs, recent sale prices of similar homes nearby, your own purchase documents.</dd></div>
+                <div class="fact-row"><dt>Exemptions</dt><dd>If you own and live in your home, make sure your homestead exemption is on file with TAD. It's free and lowers your taxable value automatically. Over 65 or disabled? Additional exemptions apply.</dd></div>
+                <div class="fact-row"><dt>Renters</dt><dd>The protest right belongs to the property owner, but rising appraisals flow straight into rent, and the tax rates set each fall by the city, county, school district, and college district are public votes at public meetings. Every one of them takes comment.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> Since 2024, some of TAD's board seats are filled by direct election, in May contests almost nobody votes in. You now help choose who oversees the office that values every property in the county. See the voting section above; it's the same registration.</div>
+        </div>
+    </article>
+
+    <div class="part-divider pd-school" id="part-schools"><span>Part 3 &middot; Your Schools &amp; Colleges</span></div>
+
     <article class="entry" id="school-board">
         <div class="entry-head">
             <h2>Attend a Fort Worth ISD board meeting</h2>
@@ -438,38 +585,21 @@ footer .footer-quote {
         </div>
     </article>
 
-    <article class="entry" id="pothole">
+    <article class="entry" id="college-board">
         <div class="entry-head">
-            <h2>Get a pothole fixed (and report everything else)</h2>
-            <span class="entry-level lvl-city">City</span>
+            <h2>Watch the college district too</h2>
+            <span class="entry-level lvl-school">College District</span>
         </div>
         <div class="entry-body">
-            <p>This is the single fastest way to watch your government work for you. Fort Worth's street crews fix roughly a hundred potholes a day, and they aim to repair reported ones within about 48 hours. But here's the catch, straight from the crews themselves: if nobody reports it, they don't know it's there.</p>
+            <p>Tarrant County College is its own government: the Tarrant County College District, with an elected board of trustees, its own property tax, and public meetings under the same Open Meetings Act as everyone else on this page. If you or your kids have ever taken a class at TCC, this board set the tuition.</p>
             <dl class="fact-rows">
-                <div class="fact-row"><dt>Best way</dt><dd>The <a href="https://www.fortworthtexas.gov/departments/communications/customercare/myfw" target="_blank" rel="noopener">MyFW app</a> (free on the App Store and Google Play). Snap a photo, drop a map pin, submit. You can track the request's status and get a notification when it's done.</dd></div>
-                <div class="fact-row"><dt>Other ways</dt><dd>Call the city's customer care line at 817-392-1234, text "hello" to 817-835-6939 (MYFW), or submit a request on the city website.</dd></div>
-                <div class="fact-row"><dt>Also works for</dt><dd>Broken traffic signals, missing signs, streetlight outages, graffiti, high grass, illegal dumping, code violations — anything that's the city's job to fix.</dd></div>
+                <div class="fact-row"><dt>Where to start</dt><dd>Board meeting schedules and agendas post on <a href="https://www.tccd.edu/" target="_blank" rel="noopener">tccd.edu</a> (search "board of trustees"). Trustee races are exactly the kind of low-turnout election where a handful of votes decides who runs a taxing district.</dd></div>
             </dl>
-            <div class="pro-tip"><strong>Pro tip:</strong> Note the exact location and rough size when you report. And screenshot your request — a before/after with the city's "completed" notification is a perfect artifact for a CAP write-up, and an oddly satisfying superpower in general.</div>
-            <a class="cap-link" href="https://professorjaredalanstewart.github.io/Civic-Action-Project/index.html">CAP Activity: Public Services in Action →</a>
+            <div class="pro-tip"><strong>Full disclosure:</strong> I teach at TCC, so I'm biased. I'd still put this board on the page. Community college districts tax, spend, and educate at a scale most residents never notice.</div>
         </div>
     </article>
 
-    <article class="entry" id="vote">
-        <div class="entry-head">
-            <h2>Register to vote (or make sure you still are)</h2>
-            <span class="entry-level lvl-county">County</span>
-        </div>
-        <div class="entry-body">
-            <p>Texas does not have online voter registration for new voters — it's paper, and there's a hard deadline of 30 days before any election you want to vote in. That trips up more of my students than any other rule on this page. Don't be one of them.</p>
-            <dl class="fact-rows">
-                <div class="fact-row"><dt>Check first</dt><dd>Check your status through the Texas Secretary of State's official <a href="https://www.votetexas.gov/register-to-vote/" target="_blank" rel="noopener">VoteTexas.gov</a> portal, which links the "Am I Registered?" lookup. Moved or changed your name? You can update an <em>existing</em> registration online through Texas.gov.</dd></div>
-                <div class="fact-row"><dt>To register</dt><dd>Pick up a postage-paid application at any Tarrant County library, post office, city hall, subcourthouse, or public high school — or print one from <a href="https://www.tarrantcountytx.gov/en/elections/register-to-vote.html" target="_blank" rel="noopener">Tarrant County Elections</a> — and mail it or drop it off at the Elections Center, 2700 Premier St., Fort Worth, TX 76111. Questions: 817-831-VOTE (8683).</dd></div>
-                <div class="fact-row"><dt>Then vote</dt><dd>Tarrant County uses countywide vote centers — on Election Day you can vote at <em>any</em> center in the county, not just your precinct. Early voting runs for about two weeks before most elections. Locations and sample ballots: <a href="https://www.tarrantcountytx.gov/en/elections.html" target="_blank" rel="noopener">Tarrant County Elections</a>.</dd></div>
-            </dl>
-            <div class="pro-tip"><strong>Pro tip:</strong> The elections nobody shows up for — municipal races, school board, bond packages, constitutional amendments — are decided by a tiny fraction of registered voters. That's not a depressing fact; it's an arbitrage opportunity. Your vote is mathematically never worth more than in a May local election.</div>
-        </div>
-    </article>
+    <div class="part-divider pd-state" id="part-state"><span>Part 4 &middot; Your State</span></div>
 
     <article class="entry" id="state">
         <div class="entry-head">
@@ -488,10 +618,31 @@ footer .footer-quote {
         </div>
     </article>
 
+<div class="part-divider pd-federal" id="part-federal"><span>Part 5 &middot; Your Country</span></div>
+
+    <article class="entry" id="federal">
+        <div class="entry-head">
+            <h2>Use your federal government</h2>
+            <span class="entry-level lvl-federal">Federal</span>
+        </div>
+        <div class="entry-body">
+            <p>Washington feels far away until your passport is stuck, your Social Security payment is wrong, or a VA claim has been "processing" for a year. Then it turns out you have two U.S. senators and a U.S. representative whose offices employ people, called caseworkers, whose entire job is to lean on federal agencies for constituents. This is the most underused free service in American government.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>Who they are</dt><dd>Tarrant County is split among several congressional districts, so check yours with the House's official <a href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener">Find Your Representative</a> lookup. Your two senators represent the whole state; contact info is at <a href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener">senate.gov</a>. The state's <a href="https://wrm.capitol.texas.gov/" target="_blank" rel="noopener">Who Represents Me?</a> tool covers your U.S. House member too.</dd></div>
+                <div class="fact-row"><dt>Get casework help</dt><dd>Stuck with a federal agency over a passport, Social Security, Medicare, the IRS, immigration, or veterans' benefits? Call your U.S. representative's district office and ask for casework help. You'll sign a privacy release, and a staffer will make inquiries you can't make yourself. It's free, it's routine, and it's a core part of the job.</dd></div>
+                <div class="fact-row"><dt>Track and comment</dt><dd><a href="https://www.congress.gov/" target="_blank" rel="noopener">Congress.gov</a> tracks every federal bill and lets you read exactly what your representative voted for. And when federal agencies write new rules, they're required to take public comments first at <a href="https://www.regulations.gov/" target="_blank" rel="noopener">Regulations.gov</a>. Anyone can file one, and agencies are required to consider them.</dd></div>
+                <div class="fact-row"><dt>See it in person</dt><dd>Federal courts are open to the public. Fort Worth's Eldon B. Mahon U.S. Courthouse (501 W. 10th St.) hosts trials, appeals, and, best of all, naturalization ceremonies, where a federal judge swears in new American citizens. Schedules and visiting rules are on the <a href="https://www.txnd.uscourts.gov/naturalization-ceremony-schedule" target="_blank" rel="noopener">Northern District of Texas site</a>. Go once. Everyone cries.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> A caseworker can't change the rules, but they can make the system respond. Call early, come organized (names, dates, case and confirmation numbers), and be kind to the staffer. They didn't lose your passport. They're the one getting it back.</div>
+        </div>
+    </article>
+
+    <div class="part-divider pd-any" id="part-any"><span>Part 6 &middot; Every Level</span></div>
+
     <article class="entry" id="records">
         <div class="entry-head">
             <h2>Request public records</h2>
-            <span class="entry-level lvl-state">Any Level</span>
+            <span class="entry-level lvl-any">Any Level</span>
         </div>
         <div class="entry-body">
             <p>Under the Texas Public Information Act, you can request records from any Texas governmental body — emails, contracts, budgets, reports — and they generally must respond promptly, with most responses due within 10 business days. One of my students used this to investigate the billion-dollar Panther Island project. His first request. It worked.</p>
@@ -505,10 +656,27 @@ footer .footer-quote {
         </div>
     </article>
 
+    <article class="entry" id="districts">
+        <div class="entry-head">
+            <h2>Meet your hidden governments</h2>
+            <span class="entry-level lvl-special">Special Districts</span>
+        </div>
+        <div class="entry-body">
+            <p>Texas runs on special districts: single-purpose governments with real taxing or spending power and almost no audience. Several shape daily life in Fort Worth, and every one of them holds public meetings.</p>
+            <dl class="fact-rows">
+                <div class="fact-row"><dt>Water</dt><dd>The <a href="https://www.trwd.com/" target="_blank" rel="noopener">Tarrant Regional Water District</a> manages the region's water supply, the Trinity River levees, and the Panther Island project, with an elected board chosen in some of the lowest-turnout elections in the county. Board meetings are public and posted on its site.</dd></div>
+                <div class="fact-row"><dt>Transit</dt><dd><a href="https://ridetrinitymetro.org/" target="_blank" rel="noopener">Trinity Metro</a> runs the buses and the TEXRail line to DFW Airport. Its board is appointed rather than elected, which makes public meetings and rider feedback the main way in.</dd></div>
+                <div class="fact-row"><dt>Health care</dt><dd>The JPS Health Network is the Tarrant County Hospital District: a government that taxes county property to fund the public hospital system. Its board meets publicly (start at <a href="https://jpshealthnet.org/" target="_blank" rel="noopener">jpshealthnet.org</a>), and the Commissioners Court appoints that board, which makes the county the pressure point.</dd></div>
+                <div class="fact-row"><dt>Appraisal</dt><dd>The Tarrant Appraisal District values every property in the county. It's the special district you're most likely to tangle with, so it gets <a href="#property-tax">its own section above</a>.</dd></div>
+            </dl>
+            <div class="pro-tip"><strong>Pro tip:</strong> Special district decisions rarely make the news, which is exactly why one prepared resident at a meeting matters more here than anywhere else in local government. When my students want to find a story nobody else is covering, I send them here first.</div>
+        </div>
+    </article>
+
     <article class="entry" id="more">
         <div class="entry-head">
             <h2>More ways in</h2>
-            <span class="entry-level lvl-city">All Levels</span>
+            <span class="entry-level lvl-any">All Levels</span>
         </div>
         <div class="entry-body">
             <p>Showing up has more doors than a council chamber:</p>
@@ -518,6 +686,7 @@ footer .footer-quote {
                 <div class="fact-row"><dt>Get a library card</dt><dd>The Fort Worth Public Library is free, and it's quietly one of the city's best civic institutions: meeting rooms, research databases, tax help, voter registration forms, and librarians who can find anything.</dd></div>
                 <div class="fact-row"><dt>Join your neighborhood</dt><dd>Neighborhood associations are where city hall actually meets your street. The city's Neighborhood Services department keeps a directory — and if your neighborhood doesn't have one, starting one is itself a civic act.</dd></div>
                 <div class="fact-row"><dt>Follow local news</dt><dd>You can't show up to what you don't know about. The <a href="https://fortworthreport.org/" target="_blank" rel="noopener">Fort Worth Report</a> (nonprofit, free) and <a href="https://www.keranews.org/" target="_blank" rel="noopener">KERA News</a> cover city hall, the county, and the school district week in, week out.</dd></div>
+                <div class="fact-row"><dt>Know the numbers</dt><dd>Three numbers cover most of life: 911 for emergencies, 817-392-1234 (or the MyFW app) for city services, and 2-1-1 for the state's free helpline that connects people to food, housing, utility, and health assistance. Handing the right number to a neighbor counts as civic participation too.</dd></div>
             </dl>
         </div>
     </article>
@@ -535,7 +704,7 @@ footer .footer-quote {
         </ul>
     </section>
 
-    <p class="verify-note">Meeting times, locations, and sign-up rules change — sometimes mid-year. Every entry above links to the official source; always check the posted agenda before you go. Last verified June 2026.</p>
+    <p class="verify-note">Meeting times, locations, and sign-up rules change — sometimes mid-year. Every entry above links to the official source; always check the posted agenda before you go. Last verified August 2026.</p>
 
 </main>
 
