@@ -1281,10 +1281,26 @@ footer a:hover { text-decoration: underline; }
 }
 .ballot-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+    max-width: 960px;
+    margin: 0 auto;
     text-align: left;
 }
+.ballot-footnote {
+    margin-top: 24px;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+.ballot-footnote a {
+    color: var(--plum);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(255,199,0,0.55);
+    transition: border-color 0.2s ease;
+}
+.ballot-footnote a:hover { border-bottom-color: var(--plum); }
 .ballot-choice {
     display: block;
     position: relative;
@@ -1370,7 +1386,8 @@ footer a:hover { text-decoration: underline; }
 .trek-btn .trek-arrow { transition: transform 0.18s ease; }
 .trek-btn:hover .trek-arrow { transform: translateX(2px); }
 @media (max-width: 860px) {
-    .ballot-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .ballot-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .ballot-footnote { max-width: 480px; margin-left: auto; margin-right: auto; }
 }
 
 /* ---------- reduced motion ---------- */
@@ -1465,12 +1482,8 @@ footer a:hover { text-decoration: underline; }
                 <p>Fort Worth resident? There's a field guide to your city — where the meetings are, how to speak, and how to get the pothole fixed.</p>
                 <span class="ballot-go">Show up in Fort Worth →</span>
             </a>
-            <a class="ballot-choice reveal" href="#impact">
-                <h3>I'm just curious</h3>
-                <p>Fair enough — start with what happens when students stop memorizing government and start showing up to it.</p>
-                <span class="ballot-go">See the proof →</span>
-            </a>
         </div>
+        <p class="ballot-footnote reveal">Just curious? <a href="#impact">See what happens when students stop memorizing government and start showing up to it →</a></p>
     </div>
 </section>
 
