@@ -759,7 +759,6 @@ section h2 .accent { color: var(--warm); }
 .tag-instructors { background: #f3e8ff; color: #7c3aed; }
 .tag-sim { background: #e0e7ff; color: #4338ca; }
 .tag-oer { background: var(--sand); color: var(--ink); }
-.tag-dev { background: #fff7ed; color: var(--amber); border-color: #fdba74; }
 .project-arrow {
     font-size: 1.5rem;
     color: var(--rule);
@@ -964,12 +963,14 @@ section h2 .accent { color: var(--warm); }
 }
 .qr-section .section-lead { margin-left: auto; margin-right: auto; }
 .qr-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 28px;
-    max-width: 1240px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 26px;
+    max-width: 1290px;
     margin: 0 auto;
 }
+.qr-item { flex: 0 1 224px; min-width: 200px; }
 .qr-item img {
     width: 100%;
     display: block;
@@ -1193,7 +1194,8 @@ footer a:hover { text-decoration: underline; }
     .offclock-gallery { grid-template-columns: 1fr 1fr; }
     .offclock-gallery img, .offclock-gallery figure.wide img { height: 150px; }
     .offclock-gallery figure.wide { grid-column: span 2; }
-    .qr-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .qr-grid { max-width: 420px; }
+    .qr-item { flex: 0 1 100%; }
     .impact-grid { grid-template-columns: 1fr; }
     .impact-featured { padding: 24px 22px; }
     .why-grid { grid-template-columns: 1fr; }
@@ -1281,7 +1283,6 @@ footer a:hover { text-decoration: underline; }
 .tag-instructors { background: #f3e8ff; color: #7c3aed; }
 .tag-sim { background: #e0e7ff; color: #4338ca; }
 .tag-oer { background: var(--sand); color: var(--ink); }
-.tag-dev { background: #fff7ed; color: var(--amber); border-color: #fdba74; }
 .project-arrow {
     font-size: 1.5rem;
     color: var(--rule);
@@ -1652,19 +1653,6 @@ footer a:hover { text-decoration: underline; }
                 <span class="project-arrow">→</span>
             </a>
 
-            <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/dynamic_discussion_hub.html">
-                <div class="project-info">
-                    <h3>Dynamic Discussion Hub (DDH)</h3>
-                    <p>A working proof of concept for a better online discussion board: threaded posts with video and audio replies, quote-replies, draft autosave, and a one-pass instructor grading mode with moderation built in &mdash; designed to make regular substantive interaction (RSI) the default, not the chore. Not live or connected to any course; this is an in-development demo. Open it, load the sample data from the Settings tab, and explore both the student and instructor views.</p>
-                    <div class="project-tags">
-                        <span class="tag tag-dev">In Development</span>
-                        <span class="tag tag-instructors">For Instructors</span>
-                        <span class="tag tag-students">For Students</span>
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-
             <a class="project reveal" href="https://professorjaredalanstewart.github.io/Games-and-Simulations-/">
                 <div class="project-info">
                     <h3>The Full Games &amp; Simulations Library</h3>
@@ -1700,6 +1688,10 @@ footer a:hover { text-decoration: underline; }
             <div class="qr-item reveal">
                 <img src="qr-build-your-own-card.png" alt="Scannable QR card linking to the Build Your Own Project-Based Assessment guide" loading="lazy">
                 <a class="dl" href="qr-build-your-own-card.png" download>Download the Build Your Own card</a>
+            </div>
+            <div class="qr-item reveal">
+                <img src="qr-projects-card.png" alt="Scannable QR card linking to this projects page" loading="lazy">
+                <a class="dl" href="qr-projects-card.png" download>Download the Projects card</a>
             </div>
             <div class="qr-item reveal">
                 <img src="qr-jaredalanstewart-card.png" alt="Scannable QR card linking to jaredalanstewart.com" loading="lazy">
