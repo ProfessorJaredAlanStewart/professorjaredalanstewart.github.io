@@ -589,7 +589,7 @@ section h2 .accent { color: var(--warm); }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 54px;
-    align-items: center;
+    align-items: start;
 }
 .about-copy p { margin-bottom: 18px; font-size: 1.04rem; }
 .about-copy p:last-child { margin-bottom: 0; }
@@ -607,24 +607,6 @@ section h2 .accent { color: var(--warm); }
     padding: 4px 10px 0 0;
     color: var(--warm);
     font-weight: 700;
-}
-
-/* ---------- about photo ---------- */
-.about-photo-wrap { margin-top: 30px; }
-.about-photo {
-    width: 100%;
-    max-width: 340px;
-    display: block;
-    border-radius: 8px;
-    border: 6px solid white;
-    box-shadow: 0 14px 36px rgba(26,39,68,0.16);
-    transform: rotate(-1.5deg);
-}
-.about-photo-caption {
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 12px;
 }
 
 /* ---------- dedication ---------- */
@@ -1352,6 +1334,12 @@ footer a:hover { text-decoration: underline; }
     color: var(--navy);
     margin-bottom: 6px;
 }
+/* An odd-numbered last tile centers itself under the row above. */
+.ballot-grid > .ballot-choice:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 9px);
+}
 .ballot-choice p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; margin-bottom: 10px; }
 .ballot-choice .ballot-go {
     font-size: 0.82rem;
@@ -1387,6 +1375,7 @@ footer a:hover { text-decoration: underline; }
 .trek-btn:hover .trek-arrow { transform: translateX(2px); }
 @media (max-width: 860px) {
     .ballot-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .ballot-grid > .ballot-choice:last-child:nth-child(odd) { width: auto; }
     .ballot-footnote { max-width: 480px; margin-left: auto; margin-right: auto; }
 }
 
@@ -1489,13 +1478,9 @@ footer a:hover { text-decoration: underline; }
                 <div class="section-kicker">About</div>
                 <h2>Why I do <span class="accent">this</span></h2>
                 <p class="lede">My students are working adults, parents, veterans, and first-generation college students. Government already shapes their lives every single day — they deserve a course that treats them like citizens, not test-takers.</p>
-                <div class="about-photo-wrap">
-                    <img class="about-photo" src="jared-studio.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Jared on set with a production clapperboard, filming course videos for GOVT 2305">
-                    <p class="about-photo-caption">On set, filming GOVT 2305 · Take 1</p>
-                </div>
+                <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
             </div>
             <div class="about-copy reveal">
-                <p class="drop">I teach GOVT 2305 and 2306 — Federal and Texas Government — in Fort Worth, where I grew tired of watching capable, busy people disengage from courses built on memorization and Scantrons. So I started replacing exams with real civic action: attending public meetings, contacting representatives, mapping public services, showing up.</p>
                 <p>Everything I build is shared as a free, open educational resource. If you're an instructor, take it, adapt it, and make it yours. If you're a student, these tools were built for you first.</p>
                 <div class="dedication">
                     <p class="ded-quote">&ldquo;Government is a place where people can come together to solve problems.&rdquo;</p>
