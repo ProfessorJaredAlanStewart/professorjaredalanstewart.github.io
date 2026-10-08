@@ -1,0 +1,22 @@
+{
+  "name": "Daily Stoic",
+  "short_name": "Daily Stoic",
+  "description": "One quote, one prompt, one box. A pause for anger, an evening review, a weekly look back.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f5f8",
+  "theme_color": "#684a99",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Pause", "short_name": "Pause", "description": "Breathe, then sixty seconds", "url": "./#pause",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Journal", "short_name": "Journal", "url": "./#today",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

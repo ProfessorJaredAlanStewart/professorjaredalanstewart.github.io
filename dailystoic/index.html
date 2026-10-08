@@ -7,7 +7,13 @@
 <meta name="description" content="A daily Stoic practice: one quote, one prompt, one box. A pause for anger, an evening review, a weekly look back.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#684a99">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#9906;</text></svg>">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Daily Stoic">
 <style>
 /* Layout: one reading column. Whitespace and type do the work; borders only where something is an object. */
 :root{
@@ -43,6 +49,7 @@ button:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-v
   display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
   font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .brand strong{color:var(--ink);font-weight:normal;letter-spacing:.1em}
+.brand button{margin-left:auto;font-size:inherit;letter-spacing:inherit;text-transform:inherit}
 nav{position:sticky;top:0;z-index:20;background:var(--bg);
   margin:0 -20px 28px;padding:6px 20px calc(6px + env(safe-area-inset-top,0px));
   border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:4px}
@@ -165,6 +172,7 @@ select{font-family:var(--font);font-size:1rem;padding:9px 12px;border-radius:9px
   <strong>Daily Stoic</strong>
   <span id="today"></span>
   <span id="streak"></span>
+  <button class="linkish" id="install" hidden>install app</button>
 </div>
 
 <nav>
@@ -514,7 +522,7 @@ const MANTRAS = [
   "The best revenge is not to be like them.",
   "Not calm. Just still.",
   "Judge the call, not the result.",
-  "Be the headland. Let it break.",
+  "Be the rock. Let the wave break.",
   "What irritates me is information.",
   "Nobody can take my character.",
   "They learn from what I am, not what I say.",
@@ -811,17 +819,35 @@ function renderStreak(){
 }
 
 /* ---------- tabs ---------- */
-document.querySelector("nav").onclick=e=>{
-  const b=e.target.closest("button"); if(!b) return;
-  const v=b.dataset.view;
+const VIEWS=["today","pause","week","study","log"];
+function show(v){
+  if(!VIEWS.includes(v)) v="today";
   document.querySelectorAll("nav button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.view===v));
-  ["today","pause","week","study","log"].forEach(k=>{ $("v-"+k).hidden=(k!==v); });
+  VIEWS.forEach(k=>{ $("v-"+k).hidden=(k!==v); });
   if(v==="pause") openPause(); else clearInterval(breathTimer);
   if(v==="week") renderWeek();
   window.scrollTo(0,0);
+}
+document.querySelector("nav").onclick=e=>{
+  const b=e.target.closest("button"); if(b) show(b.dataset.view);
 };
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- install as an app ---------- */
+let installEvt=null;
+window.addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); installEvt=e; $("install").hidden=false; });
+window.addEventListener("appinstalled",()=>{ installEvt=null; $("install").hidden=true; });
+$("install").onclick=()=>{
+  if(!installEvt) return;
+  installEvt.prompt();
+  installEvt.userChoice.finally(()=>{ installEvt=null; $("install").hidden=true; });
+};
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  navigator.serviceWorker.register("sw.js").catch(()=>{});
+}
 
 paint(); renderStreak(); renderLog(); renderWeek(); setMantra();
+if(location.hash.length>1) show(location.hash.slice(1));
 </script>
 </body>
 </html>
